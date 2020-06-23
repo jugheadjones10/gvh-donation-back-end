@@ -7,6 +7,8 @@ if (port == null || port == "") {
     port = 8000
 }
 
+const app = express()
+
 //Cors allows webpack dev server at localhost:8080 to access my myanmar map API
 // app.use(cors())
 app.use(express.json())
