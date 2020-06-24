@@ -8,6 +8,11 @@ if (port == null || port == "") {
     port = 8000
 }
 
+const doc = new GoogleSpreadsheet('1SC4fcsl9JmY056x5XJpzfrMetKyCWVSZjj2NwRl8V-s')
+await doc.useServiceAccountAuth(require('./credentials.json'))
+await doc.loadInfo()
+const sheet = doc.sheetsByIndex[0]
+
 const app = express()
 
 //Cors allows webpack dev server at localhost:8080 to access my myanmar map API
@@ -21,13 +26,9 @@ app.post("/donation-form", function (req, res) {
     const { name, mail, phone } = req.body
     const ID = hri.random()
 
-    // const doc = new GoogleSpreadsheet('1SC4fcsl9JmY056x5XJpzfrMetKyCWVSZjj2NwRl8V-s')
-    // await doc.useServiceAccountAuth(require('./credentials.json'))
-    // await doc.loadInfo()
-    // const sheet = doc.sheetsByIndex[0]
-    // sheet.addRow({ ID, Name: name, Email: mail, Phone: phone })
+    sheet.addRow({ ID, Name: name, Email: mail, Phone: phone })
 
-    res.send(hri.random())
+    res.send(ID)
 })
 
 app.listen(port, () =>
