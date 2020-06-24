@@ -17,6 +17,7 @@ app.use(express.urlencoded({ extended: true }))
 
 app.post("/donation-form", function (req, res) {
     console.log(req.body)
+    res.send("WADDD")
 })
 
 app.listen(port, () =>
