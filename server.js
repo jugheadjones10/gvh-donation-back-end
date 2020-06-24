@@ -18,7 +18,7 @@ app.use(express.urlencoded({ extended: true }))
 
 
 
-app.post("/donation-form", function (req, res) {
+app.post("/donation-form", async function (req, res) {
     const { name, mail, phone } = req.body
     const ID = hri.random()
 
