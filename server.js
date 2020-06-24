@@ -8,15 +8,12 @@ if (port == null || port == "") {
     port = 8000
 }
 
-
 const app = express()
 
 //Cors allows webpack dev server at localhost:8080 to access my myanmar map API
 app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
-
-
 
 app.post("/donation-form", async function (req, res) {
     const { name, mail, phone } = req.body
@@ -26,7 +23,7 @@ app.post("/donation-form", async function (req, res) {
     await doc.useServiceAccountAuth(require('./GVH Payment-e780847417f9.json'))
     await doc.loadInfo()
     const sheet = doc.sheetsByIndex[0]
-    sheet.addRow({ ID, Name: name, Email: mail, Phone: phone })
+    sheet.addRow([ID, name, mail, phone ])
 
     res.send(ID)
 })
