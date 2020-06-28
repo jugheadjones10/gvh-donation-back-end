@@ -1,12 +1,21 @@
 var express = require("express")
 var cors = require('cors')
 var hri = require('human-readable-ids').hri
-const { GoogleSpreadsheet } = require('google-spreadsheet');
+const { GoogleSpreadsheet } = require('google-spreadsheet')
+const nodemailer = require('nodemailer')
 
 let port = process.env.PORT;
 if (port == null || port == "") {
     port = 8000
 }
+
+const transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+        user: 'kimyoungjin1001@gmail.com',
+        pass: 'kimyoungjin' // naturally, replace both with your real credentials or an application-specific password
+    }
+})
 
 const app = express()
 
@@ -21,17 +30,26 @@ app.post("/donation-form", async function (req, res) {
     const ID = hri.random()
 
     const doc = new GoogleSpreadsheet('1SC4fcsl9JmY056x5XJpzfrMetKyCWVSZjj2NwRl8V-s')
-    await doc.useServiceAccountAuth(require('./GVH Payment-e780847417f9.json'))
-    await doc.loadInfo()
-    const sheet = doc.sheetsByIndex[0]
-    sheet.addRow([ID, name, mail, phone, type])
-
-    // doc.useServiceAccountAuth(require('./GVH Payment-e780847417f9.json')).then(() => {
-    //     return doc.loadInfo()
-    // }).then(() => {
-    //     const sheet = doc.sheetsByIndex[0]
-    //     sheet.addRow([ID, name, mail, phone, type])
-    // })
+    doc.useServiceAccountAuth(require('./GVH Payment-e780847417f9.json'))
+        .then(() => doc.loadInfo())
+        .then(() => {
+            const sheet = doc.sheetsByIndex[0]
+            sheet.addRow([ID, name, mail, phone, type])
+        }).then(() =>{
+            const mailOptions = {
+                from: 'GVHFinance@gmail.com',
+                to: mail,
+                subject: 'Donation to GVH Confirmation',
+                text: 'Dudes, we really need your money.'
+            }
+            transporter.sendMail(mailOptions, function (error, info) {
+                if (error) {
+                    console.log(error)
+                } else {
+                    console.log('Email sent: ' + info.response)
+                }
+            })
+        })
 
     res.send(ID)
 })
