@@ -17,14 +17,14 @@ app.use(express.urlencoded({ extended: true }))
 
 app.post("/donation-form", async function (req, res) {
     console.log(req.body)
-    const { name, mail, phone } = req.body
+    const { name, mail, phone, type } = req.body
     const ID = hri.random()
 
     const doc = new GoogleSpreadsheet('1SC4fcsl9JmY056x5XJpzfrMetKyCWVSZjj2NwRl8V-s')
     await doc.useServiceAccountAuth(require('./GVH Payment-e780847417f9.json'))
     await doc.loadInfo()
     const sheet = doc.sheetsByIndex[0]
-    sheet.addRow([ID, name, mail, phone ])
+    sheet.addRow([ID, name, mail, phone, type])
 
     res.send(ID)
 })
