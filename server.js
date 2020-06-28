@@ -4,6 +4,8 @@ var hri = require('human-readable-ids').hri
 const { GoogleSpreadsheet } = require('google-spreadsheet')
 const nodemailer = require('nodemailer')
 
+const strings = require("./strings")
+
 let port = process.env.PORT;
 if (port == null || port == "") {
     port = 8000
@@ -13,7 +15,7 @@ const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
         user: 'kimyoungjin1001@gmail.com',
-        pass: 'kimyoungjin' // naturally, replace both with your real credentials or an application-specific password
+        pass: 'pcajhomeleoeykux' // naturally, replace both with your real credentials or an application-specific password
     }
 })
 
@@ -37,10 +39,10 @@ app.post("/donation-form", async function (req, res) {
             sheet.addRow([ID, name, mail, phone, type])
         }).then(() =>{
             const mailOptions = {
-                from: 'GVHFinance@gmail.com',
+                from: 'kimyoungjin1001@gmail.com',
                 to: mail,
-                subject: 'Donation to GVH Confirmation',
-                text: 'Dudes, we really need your money.'
+                subject: 'We have received your Donation Form submission',
+                text: strings.email
             }
             transporter.sendMail(mailOptions, function (error, info) {
                 if (error) {
