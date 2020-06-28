@@ -28,7 +28,7 @@ app.use(express.urlencoded({ extended: true }))
 
 app.post("/donation-form", async function (req, res) {
     console.log(req.body)
-    const { name, mail, phone, project, type, amount } = req.body
+    const { name, mail, phone, project, type, amount, country } = req.body
     const chequeNumber = req.body["cheque-number"]
     const ID = hri.random()
 
@@ -37,7 +37,7 @@ app.post("/donation-form", async function (req, res) {
         .then(() => doc.loadInfo())
         .then(() => {
             const sheet = doc.sheetsByIndex[0]
-            sheet.addRow([ID, name, mail, phone, project, type, amount, chequeNumber])
+            sheet.addRow([ID, name, mail, phone, project, type, amount, chequeNumber, country])
         }).then(() =>{
             const mailOptions = {
                 from: 'kimyoungjin1001@gmail.com',
