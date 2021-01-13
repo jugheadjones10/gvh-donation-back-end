@@ -29,8 +29,7 @@ app.use(express.urlencoded({ extended: true }))
 
 app.post("/donation-form", async function (req, res) {
     console.log(req.body)
-    const { name, mail, phone, project, type, amount, country } = req.body
-    const chequeNumber = req.body["cheque-number"]
+    const { fullname, email, mobilenumber, project, type, amount, chequenumber, country } = req.body
     const ID = hri.random()
 
     const doc = new GoogleSpreadsheet('1SC4fcsl9JmY056x5XJpzfrMetKyCWVSZjj2NwRl8V-s')
@@ -38,7 +37,7 @@ app.post("/donation-form", async function (req, res) {
         .then(() => doc.loadInfo())
         .then(() => {
             const sheet = doc.sheetsByIndex[0]
-            sheet.addRow([ID, name, mail, phone, project, type, amount, chequeNumber, country])
+            sheet.addRow([ID, fullname, email, mobilenumber, project, type, amount, chequenumber, country])
         }).then(() => {
             const mailOptions = {
                 from: 'kimyoungjin1001@gmail.com',
