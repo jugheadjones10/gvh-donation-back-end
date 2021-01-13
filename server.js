@@ -41,7 +41,7 @@ app.post("/donation-form", async function (req, res) {
         }).then(() => {
             const mailOptions = {
                 from: 'kimyoungjin1001@gmail.com',
-                to: mail,
+                to: email,
                 subject: 'We have received your Donation Form submission',
                 text: strings.email
             }
