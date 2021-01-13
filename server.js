@@ -19,6 +19,7 @@ const transporter = nodemailer.createTransport({
     }
 })
 
+
 const app = express()
 
 //Cors allows webpack dev server at localhost:8080 to access my myanmar map API
@@ -38,7 +39,7 @@ app.post("/donation-form", async function (req, res) {
         .then(() => {
             const sheet = doc.sheetsByIndex[0]
             sheet.addRow([ID, name, mail, phone, project, type, amount, chequeNumber, country])
-        }).then(() =>{
+        }).then(() => {
             const mailOptions = {
                 from: 'kimyoungjin1001@gmail.com',
                 to: mail,
