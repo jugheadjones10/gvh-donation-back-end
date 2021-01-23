@@ -47,6 +47,7 @@ app.post("/donation-form", async function (req, res) {
                 subject: 'We have received your Donation Form submission',
                 text: strings.email
             }
+
             transporter.sendMail(mailOptions, function (error, info) {
                 if (error) {
                     console.log(error)
