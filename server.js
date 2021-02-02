@@ -6,7 +6,7 @@ const stripe = require("stripe")("sk_test_51I9BAdFpTxZu0TTmdwfwATs4ugR7N5y8gmEaA
 const { GoogleSpreadsheet } = require('google-spreadsheet')
 const nodemailer = require('nodemailer')
 
-const strings = require("./strings")
+const getEmail = require("./strings")
 
 let port = process.env.PORT;
 if (port == null || port == "") {
@@ -45,7 +45,7 @@ app.post("/donation-form", async function (req, res) {
                 from: 'kimyoungjin1001@gmail.com',
                 to: email,
                 subject: 'We have received your Donation Form submission',
-                text: strings.email
+                text: getEmail(ID, fullname)
             }
 
             transporter.sendMail(mailOptions, function (error, info) {
