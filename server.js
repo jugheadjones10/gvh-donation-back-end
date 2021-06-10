@@ -40,7 +40,7 @@ app.post("/donation-form", async function (req, res) {
         .then(() => doc.loadInfo())
         .then(() => {
             const sheet = doc.sheetsByIndex[0]
-            sheet.addRow([ID, fullname, email, mobilenumber, project, type, amount, chequenumber, country])
+		sheet.addRow([ID, fullname, email, mobilenumber, project, type, amount, chequenumber, country, new Date().toISOString().replace(/T/, ' ').replace(/\..+/, '')])
         }).then(() => {
             const mailOptions = {
                 from: 'kimyoungjin1001@gmail.com',
