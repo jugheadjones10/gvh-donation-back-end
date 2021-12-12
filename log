@@ -1,0 +1,68 @@
+/root/gvh-donation-back-end/node_modules/gaxios/build/src/gaxios.js:85
+                throw new common_1.GaxiosError(`Request failed with status code ${translatedResponse.status}`, opts, translatedResponse);
+                      ^
+
+GaxiosError: invalid_grant: Invalid JWT Signature.
+    at Gaxios._request (/root/gvh-donation-back-end/node_modules/gaxios/build/src/gaxios.js:85:23)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async GoogleToken.requestToken (/root/gvh-donation-back-end/node_modules/gtoken/build/src/index.js:202:23)
+    at async JWT.refreshTokenNoCache (/root/gvh-donation-back-end/node_modules/google-auth-library/build/src/auth/jwtclient.js:156:23)
+    at async JWT.authorizeAsync (/root/gvh-donation-back-end/node_modules/google-auth-library/build/src/auth/jwtclient.js:139:24)
+    at async GoogleSpreadsheet.renewJwtAuth (/root/gvh-donation-back-end/node_modules/google-spreadsheet/lib/GoogleSpreadsheet.js:86:5)
+    at async GoogleSpreadsheet.useServiceAccountAuth (/root/gvh-donation-back-end/node_modules/google-spreadsheet/lib/GoogleSpreadsheet.js:81:5) {
+  response: {
+    config: {
+      method: 'POST',
+      url: 'https://www.googleapis.com/oauth2/v4/token',
+      data: {
+        grant_type: 'urn:ietf:params:oauth:grant-type:jwt-bearer',
+        assertion: 'eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJndmgteWpAZ3ZoLXBheW1lbnQuaWFtLmdzZXJ2aWNlYWNjb3VudC5jb20iLCJzY29wZSI6Imh0dHBzOi8vd3d3Lmdvb2dsZWFwaXMuY29tL2F1dGgvc3ByZWFkc2hlZXRzIiwiYXVkIjoiaHR0cHM6Ly93d3cuZ29vZ2xlYXBpcy5jb20vb2F1dGgyL3Y0L3Rva2VuIiwiZXhwIjoxNjM5MDI3OTQxLCJpYXQiOjE2MzkwMjQzNDF9.lKx7hKRNzRoRd5OeH65pqtmMgh4WQ0sQsxbR3IIRZqhF9WpAV0pCaoJw8bbVQ3geUiPlpJv8ISAZ4rkp35G2jZKJ2dwdPK3W-8Xh14In6QHOA_3UZJzz88MQIstCBPkrCFEKMELvZjFAwvbvNDdfqBtmrvMYAmfL9neCMN8KGB86MXb2jW2oyy8rMaQTGi822mKVEjArDLPzAKh6FNAp7fGLHT0eozwOv9EqEGjt98Vz0YFB5qGOQk8QpeCwtSlVUhr5pJLr83flaYUYwTC-0zQp-6K3QJz-PWhJNUQrPZZqHePf6BYqlJtyUCLnZNmKEIhFqY5VcdiWRfribFOUmg'
+      },
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json'
+      },
+      responseType: 'json',
+      params: [Object: null prototype] {},
+      paramsSerializer: [Function: paramsSerializer],
+      body: '{"grant_type":"urn:ietf:params:oauth:grant-type:jwt-bearer","assertion":"eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJndmgteWpAZ3ZoLXBheW1lbnQuaWFtLmdzZXJ2aWNlYWNjb3VudC5jb20iLCJzY29wZSI6Imh0dHBzOi8vd3d3Lmdvb2dsZWFwaXMuY29tL2F1dGgvc3ByZWFkc2hlZXRzIiwiYXVkIjoiaHR0cHM6Ly93d3cuZ29vZ2xlYXBpcy5jb20vb2F1dGgyL3Y0L3Rva2VuIiwiZXhwIjoxNjM5MDI3OTQxLCJpYXQiOjE2MzkwMjQzNDF9.lKx7hKRNzRoRd5OeH65pqtmMgh4WQ0sQsxbR3IIRZqhF9WpAV0pCaoJw8bbVQ3geUiPlpJv8ISAZ4rkp35G2jZKJ2dwdPK3W-8Xh14In6QHOA_3UZJzz88MQIstCBPkrCFEKMELvZjFAwvbvNDdfqBtmrvMYAmfL9neCMN8KGB86MXb2jW2oyy8rMaQTGi822mKVEjArDLPzAKh6FNAp7fGLHT0eozwOv9EqEGjt98Vz0YFB5qGOQk8QpeCwtSlVUhr5pJLr83flaYUYwTC-0zQp-6K3QJz-PWhJNUQrPZZqHePf6BYqlJtyUCLnZNmKEIhFqY5VcdiWRfribFOUmg"}',
+      validateStatus: [Function: validateStatus]
+    },
+    data: {
+      error: 'invalid_grant',
+      error_description: 'Invalid JWT Signature.'
+    },
+    headers: {
+      'alt-svc': 'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000,h3-Q050=":443"; ma=2592000,h3-Q046=":443"; ma=2592000,h3-Q043=":443"; ma=2592000,quic=":443"; ma=2592000; v="46,43"',
+      'cache-control': 'private',
+      connection: 'close',
+      'content-encoding': 'gzip',
+      'content-type': 'application/json; charset=UTF-8',
+      date: 'Thu, 09 Dec 2021 04:32:21 GMT',
+      server: 'scaffolding on HTTPServer2',
+      'transfer-encoding': 'chunked',
+      vary: 'Origin, X-Origin, Referer',
+      'x-content-type-options': 'nosniff',
+      'x-frame-options': 'SAMEORIGIN',
+      'x-xss-protection': '0'
+    },
+    status: 400,
+    statusText: 'Bad Request',
+    request: { responseURL: 'https://www.googleapis.com/oauth2/v4/token' }
+  },
+  config: {
+    method: 'POST',
+    url: 'https://www.googleapis.com/oauth2/v4/token',
+    data: {
+      grant_type: 'urn:ietf:params:oauth:grant-type:jwt-bearer',
+      assertion: 'eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJndmgteWpAZ3ZoLXBheW1lbnQuaWFtLmdzZXJ2aWNlYWNjb3VudC5jb20iLCJzY29wZSI6Imh0dHBzOi8vd3d3Lmdvb2dsZWFwaXMuY29tL2F1dGgvc3ByZWFkc2hlZXRzIiwiYXVkIjoiaHR0cHM6Ly93d3cuZ29vZ2xlYXBpcy5jb20vb2F1dGgyL3Y0L3Rva2VuIiwiZXhwIjoxNjM5MDI3OTQxLCJpYXQiOjE2MzkwMjQzNDF9.lKx7hKRNzRoRd5OeH65pqtmMgh4WQ0sQsxbR3IIRZqhF9WpAV0pCaoJw8bbVQ3geUiPlpJv8ISAZ4rkp35G2jZKJ2dwdPK3W-8Xh14In6QHOA_3UZJzz88MQIstCBPkrCFEKMELvZjFAwvbvNDdfqBtmrvMYAmfL9neCMN8KGB86MXb2jW2oyy8rMaQTGi822mKVEjArDLPzAKh6FNAp7fGLHT0eozwOv9EqEGjt98Vz0YFB5qGOQk8QpeCwtSlVUhr5pJLr83flaYUYwTC-0zQp-6K3QJz-PWhJNUQrPZZqHePf6BYqlJtyUCLnZNmKEIhFqY5VcdiWRfribFOUmg'
+    },
+    headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+    responseType: 'json',
+    params: [Object: null prototype] {},
+    paramsSerializer: [Function: paramsSerializer],
+    body: '{"grant_type":"urn:ietf:params:oauth:grant-type:jwt-bearer","assertion":"eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJndmgteWpAZ3ZoLXBheW1lbnQuaWFtLmdzZXJ2aWNlYWNjb3VudC5jb20iLCJzY29wZSI6Imh0dHBzOi8vd3d3Lmdvb2dsZWFwaXMuY29tL2F1dGgvc3ByZWFkc2hlZXRzIiwiYXVkIjoiaHR0cHM6Ly93d3cuZ29vZ2xlYXBpcy5jb20vb2F1dGgyL3Y0L3Rva2VuIiwiZXhwIjoxNjM5MDI3OTQxLCJpYXQiOjE2MzkwMjQzNDF9.lKx7hKRNzRoRd5OeH65pqtmMgh4WQ0sQsxbR3IIRZqhF9WpAV0pCaoJw8bbVQ3geUiPlpJv8ISAZ4rkp35G2jZKJ2dwdPK3W-8Xh14In6QHOA_3UZJzz88MQIstCBPkrCFEKMELvZjFAwvbvNDdfqBtmrvMYAmfL9neCMN8KGB86MXb2jW2oyy8rMaQTGi822mKVEjArDLPzAKh6FNAp7fGLHT0eozwOv9EqEGjt98Vz0YFB5qGOQk8QpeCwtSlVUhr5pJLr83flaYUYwTC-0zQp-6K3QJz-PWhJNUQrPZZqHePf6BYqlJtyUCLnZNmKEIhFqY5VcdiWRfribFOUmg"}',
+    validateStatus: [Function: validateStatus]
+  },
+  code: '400'
+}
