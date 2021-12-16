@@ -1,29 +1,22 @@
 var express = require("express");
+var nunjucks = require("nunjucks");
+const date = require('date-and-time');
+const QRCode = require('easyqrcodejs-nodejs');
+const PaynowQR = require('paynowqr');
+var url = require('url');
 var cors = require("cors");
 var hri = require("human-readable-ids").hri;
 const stripe = require("stripe")(
   "sk_test_51JYP6bJ0vgYGBOQWJSPVhYR2Ce7mwIArpnjeB6dsjg6X1BBxuRplVoFvTFluLmRbbW4SER8eDFeu3FfH64EpcysG00MbyujWX2"
 );
+const sgMail = require('@sendgrid/mail')
+sgMail.setApiKey(process.env.SENDGRID_API_KEY)
 
 const { GoogleSpreadsheet } = require("google-spreadsheet");
 const nodemailer = require("nodemailer");
 const { getEmail } = require("./strings");
 const { getAuctionEmail } = require("./auction-mail");
 const {randomString} = require("./random-id-generator")
-
-const mailjet = require('node-mailjet')
-.connect('950a2e6178bbbebb372f1450435a8c5b', '1f33484fba39513eaa6aeaaabe4b7b21')
-
-const mailgun = require("mailgun-js");
-const DOMAIN = "https://api.eu.mailgun.net/v3/gvh.sg/messages";
-const mg = mailgun({apiKey: "07e3c936d837ed96e094a089a4e0ec3b-7005f37e-9966460c", domain: DOMAIN});
-const data = {
-	from: "mailgun@gvh.sg",
-	to: "mrtimer99@gmail.com",
-	subject: "Hello",
-	text: "Testing some Mailgun awesomness!"
-};
-
 
 let port = process.env.PORT;
 
@@ -33,16 +26,16 @@ if (port == null || port == "") {
 
 const app = express();
 
+
 //Cors allows webpack dev server at localhost:8080 to access my myanmar map API
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(express.static('public'));
 
 app.get("/mail-test", function(req, res){
-  mg.messages().send(data, function (error, body) {
-    console.log(body);
-    console.log(error)
-  });
+  var fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
+  res.send(fullUrl)
 })
 
 app.post("/donation-form", async function (req, res) {
@@ -81,38 +74,22 @@ app.post("/donation-form", async function (req, res) {
       ]);
     })
     .then(() => {
-      const request = mailjet
-        .post("send", {'version': 'v3.1'})
-        .request({
-          "Messages":[
-            {
-              "From": {
-                "Email": "gvhfinance@gmail.com",
-                "Name": "GVH Finance"
-              },
-              "To": [
-                {
-                  "Email": email,
-                  "Name":fullname
-                }
-              ],
-              "Subject": "We have received your Donation Form submission",
-              "HTMLPart": getEmail(ID, fullname),
-              "CustomID": "AppGettingStartedTest"
-            }
-          ]
+      const msg = {
+        to: email, // Change to your recipient
+        from: 'gvhfinance@gmail.com', // Change to your verified sender
+        subject: "We have received your Donation Form submission",
+        html: getEmail(ID, fullname),
+      }
+      sgMail
+        .send(msg)
+        .then(() => {
+          console.log('Email sent')
         })
-
-      request
-        .then((result) => {
-          console.log(result.body)
+        .catch((error) => {
+          console.error(error)
         })
-        .catch((err) => {
-          console.log(err.statusCode)
-        })
-
-    })
       res.send(ID);
+    })
 });
 
 app.post("/auction", async function (req, res) {
@@ -128,7 +105,7 @@ app.post("/auction", async function (req, res) {
     chequenumber,
     country,
   } = req.body;
-  const ID = "SM-" + randomString(5);
+  const ID = randomString(5);
 
   const doc = new GoogleSpreadsheet(
     "11APrm_hNTatJ7toGqUDYoKgzsEpV7fsVde0e8Ipm6nU"
@@ -154,40 +131,53 @@ app.post("/auction", async function (req, res) {
     })
     .then(() => {
 
-      const request = mailjet
-        .post("send", {'version': 'v3.1'})
-        .request({
-          "Messages":[
-            {
-              "From": {
-                "Email": "gvhfinance@gmail.com",
-                "Name": "GVH Finance"
-              },
-              "To": [
-                {
-                  "Email": email,
-                  "Name":fullname
-                }
-              ],
-              "Subject": "We have received your Donation Form submission",
-              "TextPart": "My first Mailjet email",
-              "HTMLPart": getAuctionEmail("W"),
-              "CustomID": "AppGettingStartedTest"
-            }
-          ]
-        })
+      let qrOptions = new PaynowQR({
+        uen:'53382503B',           
+        amount : 0,               
+        editable: true,          
+        refNumber: ID,
+      });
 
-      request
-        .then((result) => {
-          console.log(result.body)
+      let qrString = qrOptions.output();
+      var options = {
+        text: qrString,
+        colorDark:'#7D1979',
+        logo:"paynowlogo.png",
+      }
+      // Create new QRCode Object
+      var qrcode = new QRCode(options);
+      qrcode.saveImage({
+        path: `public/${ID}.png` // save path
+      });
+
+      const now = new Date();
+    
+      const qrUrl = req.protocol + '://' + req.get('host') + `/${ID}.png` 
+      var emailHtml = nunjucks.render('reply-mail.html', 
+        { fullname, 
+          ID, 
+          amount,
+          now: date.format(now, 'YYYY/MM/DD HH:mm'),
+          qrUrl 
+        });
+
+      const msg = {
+        to: email, // Change to your recipient
+        from: 'globalvillageforhope@gvh.sg', // Change to your verified sender
+        subject: "We have received your Donation Form submission",
+        html: emailHtml
+      }
+      sgMail
+        .send(msg)
+        .then(() => {
+          console.log('Email sent')
         })
-        .catch((err) => {
-          console.log(err.statusCode)
+        .catch((error) => {
+          console.error(error)
         })
+      res.json({ID, qrUrl});
     });
-
-  res.send(ID);
-});
+})
 
 app.post("/secret", async (req, res) => {
   const { amount } = req.body;
