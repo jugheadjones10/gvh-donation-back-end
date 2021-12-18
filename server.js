@@ -74,12 +74,9 @@ app.post("/donation-form", async function (req, res) {
       ]);
     })
     .then(() => {
-      const msg = {
-        to: email, // Change to your recipient
-        from: 'gvhfinance@gmail.com', // Change to your verified sender
-        subject: "We have received your Donation Form submission",
-        html: getEmail(ID, fullname),
-      }
+
+      const msg = processResponse(amount, ID, req, fullname, email)
+
       sgMail
         .send(msg)
         .then(() => {
@@ -131,42 +128,8 @@ app.post("/auction", async function (req, res) {
     })
     .then(() => {
 
-      let qrOptions = new PaynowQR({
-        uen:'53382503B',           
-        amount : 0,               
-        editable: true,          
-        refNumber: ID,
-      });
+      const msg = processResponse(amount, ID, req, fullname, email)
 
-      let qrString = qrOptions.output();
-      var options = {
-        text: qrString,
-        colorDark:'#7D1979',
-        logo:"paynowlogo.png",
-      }
-      // Create new QRCode Object
-      var qrcode = new QRCode(options);
-      qrcode.saveImage({
-        path: `public/${ID}.png` // save path
-      });
-
-      const now = new Date();
-    
-      const qrUrl = req.protocol + '://' + req.get('host') + `/${ID}.png` 
-      var emailHtml = nunjucks.render('reply-mail.html', 
-        { fullname, 
-          ID, 
-          amount,
-          now: date.format(now, 'YYYY/MM/DD HH:mm'),
-          qrUrl 
-        });
-
-      const msg = {
-        to: email, // Change to your recipient
-        from: 'globalvillageforhope@gvh.sg', // Change to your verified sender
-        subject: "We have received your Donation Form submission",
-        html: emailHtml
-      }
       sgMail
         .send(msg)
         .then(() => {
@@ -178,6 +141,51 @@ app.post("/auction", async function (req, res) {
       res.json({ID, qrUrl});
     });
 })
+
+function processResponse(amount, ID, req, fullname, email){
+
+  let qrOptions = new PaynowQR({
+    uen:'53382503B',           
+    amount,               
+    editable: true,          
+    refNumber: ID,
+  });
+
+  let qrString = qrOptions.output();
+  var options = {
+    text: qrString,
+    colorDark:'#7D1979',
+    logo:"paynowlogo.png",
+  }
+  // Create new QRCode Object
+  var qrcode = new QRCode(options);
+  qrcode.saveImage({
+    path: `public/${ID}.png` // save path
+  });
+
+  const now = new Date();
+
+  const baseUrl = req.protocol + '://' + req.get('host')
+  const qrUrl = baseUrl + `/${ID}.png` 
+  const uenImage = baseUrl + "/uenscreenshot.png" 
+
+  var emailHtml = nunjucks.render('reply-mail.html', 
+    { fullname, 
+      ID, 
+      amount,
+      now: date.format(now, 'YYYY/MM/DD HH:mm'),
+      qrUrl 
+    });
+
+  const msg = {
+    to: email, // Change to your recipient
+    from: 'globalvillageforhope@gvh.sg', // Change to your verified sender
+    subject: "We have received your Donation Form submission",
+    html: emailHtml
+  }
+
+  return msg
+}
 
 app.post("/secret", async (req, res) => {
   const { amount } = req.body;
