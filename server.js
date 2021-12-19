@@ -75,7 +75,7 @@ app.post("/donation-form", async function (req, res) {
     })
     .then(() => {
 
-      const msg = processResponse(amount, ID, req, fullname, email)
+      const {msg, qrUrl} = processResponse(amount, ID, req, fullname, email)
 
       sgMail
         .send(msg)
@@ -85,7 +85,7 @@ app.post("/donation-form", async function (req, res) {
         .catch((error) => {
           console.error(error)
         })
-      res.send(ID);
+      res.send({msg, qrUrl});
     })
 });
 
@@ -128,7 +128,7 @@ app.post("/auction", async function (req, res) {
     })
     .then(() => {
 
-      const msg = processResponse(amount, ID, req, fullname, email)
+      const {msg, qrUrl} = processResponse(amount, ID, req, fullname, email)
 
       sgMail
         .send(msg)
@@ -164,6 +164,7 @@ function processResponse(amount, ID, req, fullname, email){
   });
 
   const now = new Date();
+  const formattedNow = now.toLocaleString("en-US", {timeZone: "Asia/Singapore"});
 
   const baseUrl = req.protocol + '://' + req.get('host')
   const qrUrl = baseUrl + `/${ID}.png` 
@@ -173,7 +174,7 @@ function processResponse(amount, ID, req, fullname, email){
     { fullname, 
       ID, 
       amount,
-      now: date.format(now, 'YYYY/MM/DD HH:mm'),
+      now: formattedNow,
       qrUrl 
     });
 
@@ -184,7 +185,7 @@ function processResponse(amount, ID, req, fullname, email){
     html: emailHtml
   }
 
-  return msg
+  return {msg, qrUrl}
 }
 
 app.post("/secret", async (req, res) => {
