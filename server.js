@@ -187,7 +187,7 @@ function addToGoogleSheet(row) {
     .then(() => doc.loadInfo())
     .then(() => {
       const sheet = doc.sheetsByIndex[0];
-      sheet.addRow(row);
+      return sheet.addRow(row);
     });
 }
 
