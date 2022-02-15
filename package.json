@@ -11,7 +11,7 @@
   "license": "ISC",
   "engines": {
     "node": "17.x"
-  }
+  },
   "dependencies": {
     "@sendgrid/mail": "^7.6.0",
     "cors": "^2.8.5",
