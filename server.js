@@ -3,7 +3,7 @@ const nunjucks = require("nunjucks");
 const QRCode = require("easyqrcodejs-nodejs");
 const PaynowQR = require("paynowqr");
 const cors = require("cors");
-const { randomString } = require("./random-id-generator");
+const { randomString } = require("./random-id-generator.js");
 const stripe = require("stripe")(
   "sk_test_51JYP6bJ0vgYGBOQWJSPVhYR2Ce7mwIArpnjeB6dsjg6X1BBxuRplVoFvTFluLmRbbW4SER8eDFeu3FfH64EpcysG00MbyujWX2"
 );
