@@ -46,18 +46,21 @@ app.post("/donation-form", function (req, res) {
   } = req.body;
   const ID = randomString(5);
 
-  addToGoogleSheet([
-    ID,
-    fullname,
-    email,
-    mobilenumber,
-    project,
-    type,
-    amount,
-    chequenumber,
-    country,
-    new Date().toLocaleString("en-SG", { timeZone: "Asia/Singapore" }),
-  ])
+  addToGoogleSheet(
+    [
+      ID,
+      fullname,
+      email,
+      mobilenumber,
+      project,
+      type,
+      amount,
+      chequenumber,
+      country,
+      new Date().toLocaleString("en-SG", { timeZone: "Asia/Singapore" }),
+    ],
+    "1SC4fcsl9JmY056x5XJpzfrMetKyCWVSZjj2NwRl8V-s"
+  )
     .then(() => {
       const { msg, qrUrl, qrCodePromise } = processResponse(
         amount,
@@ -96,19 +99,22 @@ app.post("/auction", function (req, res) {
   } = req.body;
   const ID = randomString(5);
 
-  addToGoogleSheet([
-    painter,
-    ID,
-    fullname,
-    email,
-    mobilenumber,
-    project,
-    type,
-    amount,
-    chequenumber,
-    country,
-    new Date().toLocaleString("en-SG", { timeZone: "Asia/Singapore" }),
-  ])
+  addToGoogleSheet(
+    [
+      painter,
+      ID,
+      fullname,
+      email,
+      mobilenumber,
+      project,
+      type,
+      amount,
+      chequenumber,
+      country,
+      new Date().toLocaleString("en-SG", { timeZone: "Asia/Singapore" }),
+    ],
+    "11APrm_hNTatJ7toGqUDYoKgzsEpV7fsVde0e8Ipm6nU"
+  )
     .then(() => {
       const { msg, qrUrl, qrCodePromise } = processResponse(
         amount,
@@ -178,10 +184,8 @@ function processResponse(amount, ID, req, fullname, email) {
   return { msg, qrUrl, qrCodePromise };
 }
 
-function addToGoogleSheet(row) {
-  const doc = new GoogleSpreadsheet(
-    "11APrm_hNTatJ7toGqUDYoKgzsEpV7fsVde0e8Ipm6nU"
-  );
+function addToGoogleSheet(row, sheetID) {
+  const doc = new GoogleSpreadsheet(sheetID);
   return doc
     .useServiceAccountAuth(require("./GVH Payment-e780847417f9.json"))
     .then(() => doc.loadInfo())
