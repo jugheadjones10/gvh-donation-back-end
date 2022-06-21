@@ -63,6 +63,7 @@ app.post("/donation-form", function (req, res) {
   )
     .then(() => {
       const { msg, qrUrl, qrCodePromise } = processResponse(
+        project,
         amount,
         ID,
         req,
@@ -117,6 +118,7 @@ app.post("/auction", function (req, res) {
   )
     .then(() => {
       const { msg, qrUrl, qrCodePromise } = processResponse(
+        project,
         amount,
         ID,
         req,
@@ -138,7 +140,7 @@ app.post("/auction", function (req, res) {
     });
 });
 
-function processResponse(amount, ID, req, fullname, email) {
+function processResponse(project, amount, ID, req, fullname, email) {
   let qrOptions = new PaynowQR({
     uen: "53382503B",
     amount,
@@ -167,6 +169,7 @@ function processResponse(amount, ID, req, fullname, email) {
   // const uenImage = baseUrl + "/uenscreenshot.png";
 
   var emailHtml = nunjucks.render("email/reply-mail.html", {
+    project,
     fullname,
     ID,
     amount,
