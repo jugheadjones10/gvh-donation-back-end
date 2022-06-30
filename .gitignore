@@ -1,4 +1,5 @@
 /node_modules
 /crypto
 
-sendgrid.env
+.env
+GVH\ Payment-e780847417f9.json

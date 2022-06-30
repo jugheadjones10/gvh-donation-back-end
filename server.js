@@ -3,15 +3,15 @@ const nunjucks = require("nunjucks");
 const QRCode = require("easyqrcodejs-nodejs");
 const PaynowQR = require("paynowqr");
 const cors = require("cors");
+const http = require("http");
+const multer = require("multer");
+const { Server } = require("socket.io");
 const { randomString } = require("./random-id-generator.js");
-const stripe = require("stripe")(
-  "sk_test_51JYP6bJ0vgYGBOQWJSPVhYR2Ce7mwIArpnjeB6dsjg6X1BBxuRplVoFvTFluLmRbbW4SER8eDFeu3FfH64EpcysG00MbyujWX2"
-);
+const { GoogleSpreadsheet } = require("google-spreadsheet");
+require("dotenv").config();
 
 const sgMail = require("@sendgrid/mail");
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
-
-const { GoogleSpreadsheet } = require("google-spreadsheet");
 
 let port = process.env.PORT;
 
@@ -20,16 +20,38 @@ if (port == null || port == "") {
 }
 
 const app = express();
+const server = http.createServer(app);
 
-//Cors allows webpack dev server at localhost:8080 to access my myanmar map API
+//CORS origin needs to be explicitly defined since client is on a different port
+const io = new Server(server, {
+  cors: {
+    origin: process.env.CLIENT_ORIGIN,
+    methods: ["GET", "POST"],
+  },
+});
+
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
-app.get("/mail-test", function (req, res) {
-  var fullUrl = req.protocol + "://" + req.get("host") + req.originalUrl;
-  res.send(fullUrl);
+const upload = multer();
+app.post("/bank-email", upload.any(), (req, res) => {
+  const body = req.body;
+
+  //This prints the email body
+  console.log(body.text);
+
+  //TODO Get the donation amount from the email body, then get the last entry from our donation Google sheet using the Google
+  //spreadsheet API. Check if the donation amount in the google spreadsheet is equal to the amount in the email. If equal, execute
+  //the below line (io.emit) in order to notify the client that the donation has been processed.
+
+  //This sends a signal to the donation form where the user is waiting for his payment to be confirmed.
+  io.emit("update", "new data");
+
+  //TODO Once the client has been notified, send a receipt to the user using Sendgrid (the email service we are using).
+
+  res.sendStatus(200);
 });
 
 app.post("/donation-form", function (req, res) {
@@ -59,7 +81,7 @@ app.post("/donation-form", function (req, res) {
       country,
       new Date().toLocaleString("en-SG", { timeZone: "Asia/Singapore" }),
     ],
-    "1SC4fcsl9JmY056x5XJpzfrMetKyCWVSZjj2NwRl8V-s"
+    process.env.GOOGLE_SHEET_ID
   )
     .then(() => {
       const { msg, qrUrl, qrCodePromise } = processResponse(
@@ -81,7 +103,7 @@ app.post("/donation-form", function (req, res) {
       ]);
     })
     .catch((error) => {
-      console.error(error);
+      console.error(JSON.stringify(error));
     });
 });
 
@@ -198,14 +220,6 @@ function addToGoogleSheet(row, sheetID) {
     });
 }
 
-app.post("/secret", async (req, res) => {
-  const { amount } = req.body;
-  const paymentIntent = await stripe.paymentIntents.create({
-    amount: Number(amount) * 100,
-    currency: "SGD",
-    metadata: { integration_check: "accept_a_payment" },
-  });
-  res.json({ client_secret: paymentIntent.client_secret });
-});
-
-app.listen(port, () => console.log(`Example app listening on port ${port}!`));
+server.listen(port, () =>
+  console.log(`Example app listening on port ${port}!`)
+);
