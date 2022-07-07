@@ -10,6 +10,12 @@ const { randomString } = require("./random-id-generator.js");
 const { GoogleSpreadsheet } = require("google-spreadsheet");
 require("dotenv").config();
 
+// const Redis = require("ioredis");
+// const redis = new Redis();
+
+const Queue = require("bee-queue");
+const intentsQueue = new Queue("intentsQueue");
+
 const sgMail = require("@sendgrid/mail");
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
@@ -39,6 +45,15 @@ const upload = multer();
 app.post("/bank-email", upload.any(), (req, res) => {
   const body = req.body;
 
+  // const donationAmt = body.text.
+  const donationAmt = 5;
+  //Need to implement logic for getting donation amount from email text.
+
+  intentsQueue.getJobs("waiting", { start: 0, end: 25 }).then((jobs) => {
+    const matchingJobs = jobs.filter((job) => job.amount === donationAmt);
+    //...
+  });
+
   //This prints the email body
   console.log(body.text);
 
@@ -67,6 +82,19 @@ app.post("/donation-form", function (req, res) {
     country,
   } = req.body;
   const ID = randomString(5);
+
+  const job = intentsQueue.createJob({
+    email,
+    amount,
+  });
+
+  job
+    .timeout(5 * 60 * 60)
+    .setId(ID)
+    .save()
+    .then((job) => {
+      // job enqueued, job.id populated
+    });
 
   addToGoogleSheet(
     [
