@@ -212,7 +212,7 @@ function processResponse(project, amount, ID, req, fullname, email) {
 function addToGoogleSheet(row, sheetID) {
   const doc = new GoogleSpreadsheet(sheetID);
   return doc
-    .useServiceAccountAuth(require("./GVH Payment-e780847417f9.json"))
+    .useServiceAccountAuth(require("./google-credentials.json"))
     .then(() => doc.loadInfo())
     .then(() => {
       const sheet = doc.sheetsByIndex[0];
