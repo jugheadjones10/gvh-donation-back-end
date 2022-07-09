@@ -10,11 +10,8 @@ const { randomString } = require("./random-id-generator.js");
 const { GoogleSpreadsheet } = require("google-spreadsheet");
 require("dotenv").config();
 
-// const Redis = require("ioredis");
-// const redis = new Redis();
-
-const Queue = require("bee-queue");
-const intentsQueue = new Queue("intentsQueue");
+const Redis = require("ioredis");
+const redis = new Redis();
 
 const sgMail = require("@sendgrid/mail");
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
@@ -45,15 +42,6 @@ const upload = multer();
 app.post("/bank-email", upload.any(), (req, res) => {
   const body = req.body;
 
-  // const donationAmt = body.text.
-  const donationAmt = 5;
-  //Need to implement logic for getting donation amount from email text.
-
-  intentsQueue.getJobs("waiting", { start: 0, end: 25 }).then((jobs) => {
-    const matchingJobs = jobs.filter((job) => job.amount === donationAmt);
-    //...
-  });
-
   //This prints the email body
   console.log(body.text);
 
@@ -69,6 +57,75 @@ app.post("/bank-email", upload.any(), (req, res) => {
   res.sendStatus(200);
 });
 
+function tallyAmounts(amount) {
+  const result = await redis.get(amount);
+  const jsonResult = JSON.parse(result);
+
+  if (jsonResult.pending === jsonResult.confirmed) {
+    jsonResult.donors.forEach(({ email, ID }) => {
+      sendReceipt(email, ID);
+    });
+    redis.del(amount);
+  } else {
+    jsonResult.donors.forEach(({ email, ID }) => {
+      requestManualCheck(email, ID);
+    });
+  }
+}
+
+app.post("/bank-email", async function (req, res) {
+  const amount = req.amount;
+
+  const result = await redis.get(amount);
+
+  if (!result) {
+    //flag as donation from channel other than website donation form
+  } else {
+    const jsonResult = JSON.parse(result);
+
+    jsonResult.confirmed += 1;
+
+    if (jsonResult.pending === 1) {
+      clearTimeout(jsonResult.timeoutId);
+      tallyAmounts(amount);
+    }
+  }
+});
+
+app.post("/test-donation", async function (req, res) {
+  const { email, amount } = req.body;
+  const ID = randomString(5);
+
+  const result = await redis.get(amount);
+
+  if (!result) {
+    const timeoutId = setTimeout(tallyAmounts, 5 * 60 * 1000, amount);
+    await redis.set(
+      amount,
+      JSON.stringify({
+        pending: 1,
+        confirmed: 0,
+        donors: [
+          {
+            email,
+            ID,
+          },
+        ],
+        timeoutId,
+      })
+    );
+  } else {
+    const jsonResult = JSON.parse(result);
+
+    jsonResult.pending += 1;
+    clearTimeout(jsonResult.timeoutId);
+    jsonResult.timeoutId = setTimeout(tallyAmounts, 5 * 60 * 1000, amount);
+    jsonResult.donors.push({ email, ID });
+
+    await redis.set(amount, JSON.stringify(jsonResult));
+  }
+});
+
 app.post("/donation-form", function (req, res) {
   console.log(req.body);
   const {
@@ -82,19 +139,6 @@ app.post("/donation-form", function (req, res) {
     country,
   } = req.body;
   const ID = randomString(5);
-
-  const job = intentsQueue.createJob({
-    email,
-    amount,
-  });
-
-  job
-    .timeout(5 * 60 * 60)
-    .setId(ID)
-    .save()
-    .then((job) => {
-      // job enqueued, job.id populated
-    });
 
   addToGoogleSheet(
     [
