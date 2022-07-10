@@ -4,7 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest --detectOpenHandles",
     "start": "node server.js"
   },
   "author": "",
@@ -36,7 +36,12 @@
   "devDependencies": {
     "eslint": "^8.9.0",
     "eslint-config-prettier": "^8.3.0",
-    "prettier": "^2.5.1"
+    "jest": "^28.1.2",
+    "prettier": "^2.5.1",
+    "supertest": "^6.2.4"
+  },
+  "jest": {
+    "modulePaths": ["<rootDir>"]
   },
   "eslintConfig": {
     "extends": [

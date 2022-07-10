@@ -10,9 +10,6 @@ const { randomString } = require("./random-id-generator.js");
 const { GoogleSpreadsheet } = require("google-spreadsheet");
 require("dotenv").config();
 
-const Redis = require("ioredis");
-const redis = new Redis();
-
 const sgMail = require("@sendgrid/mail");
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
@@ -38,6 +35,21 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
+function requestManualCheck(userData) {
+  const intentID = userData.ID;
+  const doc = new GoogleSpreadsheet(process.env.GOOGLE_SHEET_ID);
+  doc
+    .useServiceAccountAuth(require("./google-credentials.json"))
+    .then(() => doc.loadInfo())
+    .then(() => {
+      const sheet = doc.sheetsByIndex[0];
+      //The code so far is loading data from the donation google sheet.
+      //This data should be looped through in order to find the row with refid equal to intentID. Once that row is found, the
+      //"flag for manual" column should be "flagged" (by setting the value to 1, for example). Then that change should be saved
+      //back so that it is reflected in the actual Google Sheet
+    });
+}
+
 const upload = multer();
 app.post("/bank-email", upload.any(), (req, res) => {
   const body = req.body;
@@ -55,75 +67,6 @@ app.post("/bank-email", upload.any(), (req, res) => {
   //TODO Once the client has been notified, send a receipt to the user using Sendgrid (the email service we are using).
 
   res.sendStatus(200);
-});
-
-function tallyAmounts(amount) {
-  const result = await redis.get(amount);
-  const jsonResult = JSON.parse(result);
-
-  if (jsonResult.pending === jsonResult.confirmed) {
-    jsonResult.donors.forEach(({ email, ID }) => {
-      sendReceipt(email, ID);
-    });
-    redis.del(amount);
-  } else {
-    jsonResult.donors.forEach(({ email, ID }) => {
-      requestManualCheck(email, ID);
-    });
-  }
-}
-
-app.post("/bank-email", async function (req, res) {
-  const amount = req.amount;
-
-  const result = await redis.get(amount);
-
-  if (!result) {
-    //flag as donation from channel other than website donation form
-  } else {
-    const jsonResult = JSON.parse(result);
-
-    jsonResult.confirmed += 1;
-
-    if (jsonResult.pending === 1) {
-      clearTimeout(jsonResult.timeoutId);
-      tallyAmounts(amount);
-    }
-  }
-});
-
-app.post("/test-donation", async function (req, res) {
-  const { email, amount } = req.body;
-  const ID = randomString(5);
-
-  const result = await redis.get(amount);
-
-  if (!result) {
-    const timeoutId = setTimeout(tallyAmounts, 5 * 60 * 1000, amount);
-    await redis.set(
-      amount,
-      JSON.stringify({
-        pending: 1,
-        confirmed: 0,
-        donors: [
-          {
-            email,
-            ID,
-          },
-        ],
-        timeoutId,
-      })
-    );
-  } else {
-    const jsonResult = JSON.parse(result);
-
-    jsonResult.pending += 1;
-    clearTimeout(jsonResult.timeoutId);
-    jsonResult.timeoutId = setTimeout(tallyAmounts, 5 * 60 * 1000, amount);
-    jsonResult.donors.push({ email, ID });
-
-    await redis.set(amount, JSON.stringify(jsonResult));
-  }
 });
 
 app.post("/donation-form", function (req, res) {
