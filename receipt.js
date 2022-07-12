@@ -21,43 +21,52 @@ app.use(express.json());
 
 function tallyAmounts(amount) {
   console.log("Attempting to tally amount " + amount);
-  redis.get(amount).then((result) => {
-    const jsonResult = JSON.parse(result);
+  const thePromise = redis
+    .multi()
+    .hgetall(amount)
+    .lrange("donors" + amount, 0, 1)
+    .exec()
+    .then((result) => {
+      console.log(result);
 
-    console.log(jsonResult);
-
-    const promisesArray = jsonResult.donors.map((ID) => {
-      return redis.get("ID" + ID).then((userData) => {
-        if (jsonResult.pending === jsonResult.confirmed) {
-          sendReceipt(JSON.parse(userData));
-        } else {
-          requestManualCheck(JSON.parse(userData));
-        }
+      console.log("THE RESULT", result[1][1]);
+      const promisesArray = result[1][1].map((ID) => {
+        console.log("gotten DI", ID);
+        return redis.get("ID" + ID).then((userData) => {
+          console.log("the user data", userData);
+          if (result[0][1].pending === result[0][1].confirmed) {
+            sendReceipt(JSON.parse(userData));
+          } else {
+            requestManualCheck(JSON.parse(userData));
+          }
+        });
       });
+      promisesArray.push(redis.del(amount));
+      return Promise.all(promisesArray);
     });
-    promisesArray.push(redis.del(amount));
-    promiseCareTaker(Promise.all(promisesArray));
-  });
+  promiseCareTaker(thePromise);
 }
 
+//Going to overlook some possible race conditions because it's so rare that someone donates immediately after submitting the
+//donation intent
 app.post("/bank-email", async function (req, res) {
   const { amount } = req.body;
 
   console.log("Received money amounting to " + amount);
-  const result = await redis.get(amount);
+  const amountExists = await redis.exists(amount);
 
-  if (!result) {
+  if (!amountExists) {
     donationFromOtherChannel();
     //flag as donation from channel other than website donation form
   } else {
-    const jsonResult = JSON.parse(result);
+    const execReply = await redis
+      .multi()
+      .hincrby(amount, "confirmed", 1)
+      .hgetall(amount)
+      .exec();
+    console.log(execReply);
 
-    jsonResult.confirmed += 1;
-
-    await redis.set(amount, JSON.stringify(jsonResult));
-    console.log("Current donation amount resutlt", jsonResult);
-
-    if (jsonResult.pending === jsonResult.confirmed) {
+    if (execReply[1][1].pending === execReply[1][1].confirmed) {
       clearTimeout(timerList[amount]);
       tallyAmounts(amount);
     }
@@ -65,6 +74,43 @@ app.post("/bank-email", async function (req, res) {
   res.send(200);
 });
 
+async function queueIntent(amount, ID, res) {
+  const result = await redis.hexists(amount, "pending");
+
+  if (result === 0) {
+    console.log("No result ran");
+
+    const execReply = await redis
+      .multi()
+      .hmset(amount, {
+        pending: 1,
+        confirmed: 0,
+      })
+      .lpush("donors" + amount, [ID])
+      .exec();
+
+    const timeoutId = setTimeout(tallyAmounts, 5 * 60 * 1000, amount);
+    timerList[amount] = timeoutId;
+
+    console.log(execReply);
+  } else {
+    console.log("yes result ran");
+
+    await redis
+      .multi()
+      .hincrby(amount, "pending", 1)
+      .lpush("donors" + amount, [ID])
+      .exec();
+
+    clearTimeout(timerList[amount]);
+    timerList[amount] = setTimeout(tallyAmounts, 5 * 60 * 1000, amount);
+  }
+  //Response is finished here because I need my test to wait until timeout has been set. Only when timeout has been set can I
+  //jump to the future with Jest's fake timers.
+  res.send(200);
+}
+
+var queueIntentMutex = Promise.resolve();
 app.post("/donation-form", async function (req, res) {
   const userData = req.body;
   console.log("Received donation intent from " + userData.fullname);
@@ -75,30 +121,9 @@ app.post("/donation-form", async function (req, res) {
   // receipts, we can loop through the attached IDs and retrieve user data using each ID.
   await redis.set("ID" + ID, JSON.stringify(userData));
 
-  const result = await redis.get(amount);
-
-  if (!result) {
-    const timeoutId = setTimeout(tallyAmounts, 5 * 60 * 1000, amount);
-    timerList[amount] = timeoutId;
-    await redis.set(
-      amount,
-      JSON.stringify({
-        pending: 1,
-        confirmed: 0,
-        donors: [ID],
-      })
-    );
-  } else {
-    const jsonResult = JSON.parse(result);
-
-    jsonResult.pending += 1;
-    jsonResult.donors.push(ID);
-    clearTimeout(timerList[amount]);
-    timerList[amount] = setTimeout(tallyAmounts, 5 * 60 * 1000, amount);
-
-    await redis.set(amount, JSON.stringify(jsonResult));
-  }
-  res.send(200);
+  queueIntentMutex = queueIntentMutex.then(() => {
+    return queueIntent(amount, ID, res);
+  });
 });
 
 module.exports = app;

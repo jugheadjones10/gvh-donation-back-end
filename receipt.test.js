@@ -44,7 +44,7 @@ describe("Test receipt logic", () => {
     await redis.flushdb();
   });
 
-  test("One intent submitted but no donation sent - should send to manual", (done) => {
+  test("One intent submitted but no donation sent - should flag as manual", (done) => {
     promiseCareTaker.mockImplementation((promisesArray) => {
       promisesArray
         .then(() => {
@@ -100,7 +100,7 @@ describe("Test receipt logic", () => {
       });
   });
 
-  test("One donation sent without intent submission - should flag as other donation source", async () => {
+  test("No intent submitted and one donation sent - should flag as other donation source", async () => {
     const bankResponse = await request(app)
       .post("/bank-email")
       .send({
@@ -112,13 +112,14 @@ describe("Test receipt logic", () => {
     expect(donationFromOtherChannel.mock.calls.length).toBe(1);
   });
 
-  test.only("Two intents submitted with same donation amount and two donations sent - receipt should be sent to both", (done) => {
+  test("Two intents submitted simultaneously with same donation amount and two donations sent simultaneously - should send receipt to both", (done) => {
     promiseCareTaker.mockImplementation((promisesArray) => {
       promisesArray
         .then(() => {
           console.log(sendReceipt.mock.calls);
-          expect(sendReceipt.mock.calls[0][0]).toEqual(donationFormSubmission);
-          expect(sendReceipt.mock.calls[1][0]).toEqual(donationFormSubmissionB);
+          const mappedMocks = sendReceipt.mock.calls.map((call) => call[0]);
+          expect(mappedMocks).toContainEqual(donationFormSubmission);
+          expect(mappedMocks).toContainEqual(donationFormSubmissionB);
           done();
         })
         .catch((e) => {
@@ -126,25 +127,22 @@ describe("Test receipt logic", () => {
         });
     });
 
-    request(app)
-      .post("/donation-form")
-      .send(donationFormSubmission)
-      .set("Content-Type", "application/json")
-      .then((formResponse) => {
-        expect(formResponse.statusCode).toBe(200);
+    Promise.all([
+      request(app)
+        .post("/donation-form")
+        .send(donationFormSubmission)
+        .set("Content-Type", "application/json"),
+      request(app)
+        .post("/donation-form")
+        .send(donationFormSubmissionB)
+        .set("Content-Type", "application/json"),
+    ])
+      .then(([resA, resB]) => {
+        expect(resA.statusCode).toBe(200);
+        expect(resB.statusCode).toBe(200);
 
-        // Person B sends intention 2 minutes after person A
         jest.advanceTimersByTime(2 * 60 * 1000);
 
-        return request(app)
-          .post("/donation-form")
-          .send(donationFormSubmissionB)
-          .set("Content-Type", "application/json");
-      })
-      .then((formResponse) => {
-        expect(formResponse.statusCode).toBe(200);
-
-        jest.advanceTimersByTime(1 * 60 * 1000);
         return Promise.all([
           request(app)
             .post("/bank-email")
@@ -159,29 +157,6 @@ describe("Test receipt logic", () => {
             })
             .set("Content-Type", "application/json"),
         ]);
-
-        // return request(app)
-        //   .post("/bank-email")
-        //   .send({
-        //     amount: donationFormSubmission.amount,
-        //   })
-        //   .set("Content-Type", "application/json");
-        // })
-        // .then((bankResponse) => {
-        // expect(bankResponse.statusCode).toBe(200);
-
-        // jest.advanceTimersByTime(1 * 60 * 1000);
-
-        // return request(app)
-        //   .post("/bank-email")
-        //   .send({
-        //     amount: donationFormSubmission.amount,
-        //   })
-        //   .set("Content-Type", "application/json");
-        // })
-        // .then((bankResponse) => {
-        // expect(bankResponse.statusCode).toBe(200);
-        // });
       })
 
       .then(([responseA, responseB]) => {
@@ -190,6 +165,163 @@ describe("Test receipt logic", () => {
       });
   });
 
+  test("Two intents submitted non-simultaneously with same donation amount and two donations sent non-simultaneously - should send receipt to both", (done) => {
+    promiseCareTaker.mockImplementation((promisesArray) => {
+      promisesArray
+        .then(() => {
+          console.log(sendReceipt.mock.calls);
+          const mappedMocks = sendReceipt.mock.calls.map((call) => call[0]);
+          expect(mappedMocks).toContainEqual(donationFormSubmission);
+          expect(mappedMocks).toContainEqual(donationFormSubmissionB);
+          done();
+        })
+        .catch((e) => {
+          done(e);
+        });
+    });
+
+    request(app)
+      .post("/donation-form")
+      .send(donationFormSubmission)
+      .set("Content-Type", "application/json")
+      .then((resA) => {
+        expect(resA.statusCode).toBe(200);
+        jest.advanceTimersByTime(2 * 60 * 1000);
+
+        return request(app)
+          .post("/donation-form")
+          .send(donationFormSubmissionB)
+          .set("Content-Type", "application/json");
+      })
+      .then((resB) => {
+        expect(resB.statusCode).toBe(200);
+        jest.advanceTimersByTime(1 * 60 * 1000);
+
+        return request(app)
+          .post("/bank-email")
+          .send({
+            amount: donationFormSubmission.amount,
+          })
+          .set("Content-Type", "application/json");
+      })
+      .then((bankResponse) => {
+        expect(bankResponse.statusCode).toBe(200);
+        jest.advanceTimersByTime(1 * 60 * 1000);
+
+        return request(app)
+          .post("/bank-email")
+          .send({
+            amount: donationFormSubmission.amount,
+          })
+          .set("Content-Type", "application/json");
+      })
+      .then((bankResponse) => {
+        expect(bankResponse.statusCode).toBe(200);
+        jest.runAllTimers();
+      });
+  });
+
+  test("Two intents submitted non-simultaneously with same donation amount and one donation sent - should flag both as manual", (done) => {
+    promiseCareTaker.mockImplementation((promisesArray) => {
+      promisesArray
+        .then(() => {
+          console.log(sendReceipt.mock.calls);
+          const mappedMocks = requestManualCheck.mock.calls.map(
+            (call) => call[0]
+          );
+          expect(mappedMocks).toContainEqual(donationFormSubmission);
+          expect(mappedMocks).toContainEqual(donationFormSubmissionB);
+          done();
+        })
+        .catch((e) => {
+          done(e);
+        });
+    });
+
+    request(app)
+      .post("/donation-form")
+      .send(donationFormSubmission)
+      .set("Content-Type", "application/json")
+      .then((resA) => {
+        expect(resA.statusCode).toBe(200);
+        jest.advanceTimersByTime(2 * 60 * 1000);
+
+        return request(app)
+          .post("/donation-form")
+          .send(donationFormSubmissionB)
+          .set("Content-Type", "application/json");
+      })
+      .then((resB) => {
+        expect(resB.statusCode).toBe(200);
+        jest.advanceTimersByTime(1 * 60 * 1000);
+
+        return request(app)
+          .post("/bank-email")
+          .send({
+            amount: donationFormSubmission.amount,
+          })
+          .set("Content-Type", "application/json");
+      })
+      .then((bankResponse) => {
+        expect(bankResponse.statusCode).toBe(200);
+        jest.runAllTimers();
+      });
+  });
+
+  test("One intent submitted and one corresponding donation sent, then another intent submitted and one corresponding donation sent - should send receipt to both", (done) => {
+    var confirmedCount = 0;
+    promiseCareTaker.mockImplementation((promisesArray) => {
+      promisesArray
+        .then(() => {
+          console.log(sendReceipt.mock.calls);
+          confirmedCount++;
+          if (confirmedCount == 2) {
+            const mappedMocks = sendReceipt.mock.calls.map((call) => call[0]);
+            expect(mappedMocks).toContainEqual(donationFormSubmission);
+            expect(mappedMocks).toContainEqual(donationFormSubmissionB);
+            done();
+          }
+        })
+        .catch((e) => {
+          done(e);
+        });
+    });
+
+    request(app)
+      .post("/donation-form")
+      .send(donationFormSubmission)
+      .set("Content-Type", "application/json")
+      .then((resA) => {
+        expect(resA.statusCode).toBe(200);
+        jest.advanceTimersByTime(2 * 60 * 1000);
+
+        return request(app).post("/bank-email").send({
+          amount: donationFormSubmission.amount,
+        });
+      })
+      .then((bankResponse) => {
+        expect(bankResponse.statusCode).toBe(200);
+
+        return request(app)
+          .post("/donation-form")
+          .send(donationFormSubmissionB)
+          .set("Content-Type", "application/json");
+      })
+      .then((resB) => {
+        expect(resB.statusCode).toBe(200);
+        jest.advanceTimersByTime(2 * 60 * 1000);
+
+        return request(app)
+          .post("/bank-email")
+          .send({
+            amount: donationFormSubmission.amount,
+          })
+          .set("Content-Type", "application/json");
+      })
+      .then((bankResponse) => {
+        expect(bankResponse.statusCode).toBe(200);
+      });
+  });
   afterAll(() => {
     redis.disconnect();
   });
