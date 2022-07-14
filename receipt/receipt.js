@@ -111,9 +111,9 @@ function tallyAmounts(amount) {
         return redis.get("ID" + ID).then((userData) => {
           console.log("user data", userData);
           if (result[0][1].pending === result[0][1].confirmed) {
-            return sendReceipt(JSON.parse(userData));
+            return sendReceipt(JSON.parse(userData), ID);
           } else {
-            return requestManualCheck(JSON.parse(userData));
+            return requestManualCheck(JSON.parse(userData), ID);
           }
         });
       });

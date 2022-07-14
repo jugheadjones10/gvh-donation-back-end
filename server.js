@@ -7,7 +7,7 @@ const http = require("http");
 const multer = require("multer");
 const { Server } = require("socket.io");
 const { randomString } = require("./random-id-generator.js");
-const { GoogleSpreadsheet } = require("google-spreadsheet");
+const { addToGoogleSheet } = require("./google-sheet");
 const {
   bankEmailReceived,
   donationFormReceived,
@@ -39,7 +39,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
-module.exports = async function sendEmail(sendReceipt) {
+exports.sendEmail = async function (sendReceipt, userData) {
   if (sendReceipt) {
     // Send email to user
   } else {
@@ -49,7 +49,11 @@ module.exports = async function sendEmail(sendReceipt) {
 
 app.post("/google-sheet", (req, res) => {
   const body = req.body;
-  return sendEmail(false);
+
+  // Extract the data sent from google sheet into this userData object
+  const userData = {};
+
+  return sendEmail(false, userData);
 });
 
 const upload = multer();
@@ -226,17 +230,6 @@ function processResponse(project, amount, ID, req, fullname, email) {
   };
 
   return { msg, qrUrl, qrCodePromise };
-}
-
-function addToGoogleSheet(row, sheetID) {
-  const doc = new GoogleSpreadsheet(sheetID);
-  return doc
-    .useServiceAccountAuth(require("./google-credentials.json"))
-    .then(() => doc.loadInfo())
-    .then(() => {
-      const sheet = doc.sheetsByIndex[0];
-      return sheet.addRow(row);
-    });
 }
 
 server.listen(port, () =>
