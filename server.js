@@ -49,7 +49,7 @@ module.exports = async function sendEmail(sendReceipt) {
 
 app.post("/google-sheet", (req, res) => {
   const body = req.body;
-  sendEmail(false);
+  return sendEmail(false);
 });
 
 const upload = multer();
@@ -62,7 +62,7 @@ app.post("/bank-email", upload.any(), (req, res) => {
   // Parse the email text to get donation amount
   const amount = 1;
 
-  bankEmailReceived(amount);
+  await bankEmailReceived(amount);
 
   //This sends a signal to the donation form where the user is waiting for his payment to be confirmed.
   io.emit("update", "new data");
@@ -81,9 +81,9 @@ app.post("/donation-form", async function (req, res) {
     country,
   } = req.body;
   const ID = randomString(5);
-  await donationFormReceived(req.body, ID);
 
-  addToGoogleSheet(
+  const receiptLogicPromise = donationFormReceived(req.body, ID);
+  const googleSheetPromise = addToGoogleSheet(
     [
       ID,
       fullname,
@@ -97,29 +97,29 @@ app.post("/donation-form", async function (req, res) {
       new Date().toLocaleString("en-SG", { timeZone: "Asia/Singapore" }),
     ],
     process.env.GOOGLE_SHEET_ID
-  )
-    .then(() => {
-      const { msg, qrUrl, qrCodePromise } = processResponse(
-        project,
-        amount,
-        ID,
-        req,
-        fullname,
-        email
-      );
+  ).then(() => {
+    const { msg, qrUrl, qrCodePromise } = processResponse(
+      project,
+      amount,
+      ID,
+      req,
+      fullname,
+      email
+    );
 
-      return Promise.all([
-        sgMail.send(msg).then(() => {
-          console.log("Email sent");
-        }),
-        qrCodePromise.then(() => {
-          res.json({ ID, qrUrl });
-        }),
-      ]);
-    })
-    .catch((error) => {
-      console.error(JSON.stringify(error));
-    });
+    return Promise.all([
+      sgMail.send(msg).then(() => {
+        console.log("Email sent");
+      }),
+      qrCodePromise.then(() => {
+        return { ID, qrUrl };
+      }),
+    ]);
+  });
+
+  await receiptLogicPromise;
+  const [sgMailRes, qrRes] = await googleSheetPromise;
+  res.json(qrRes);
 });
 
 app.post("/auction", function (req, res) {
@@ -175,6 +175,10 @@ app.post("/auction", function (req, res) {
     .catch((error) => {
       console.error(error);
     });
+});
+
+app.use(function (error, req, res, next) {
+  res.status(500).json({ error: error.message });
 });
 
 function processResponse(project, amount, ID, req, fullname, email) {

@@ -16,7 +16,7 @@
     "date-and-time": "^2.0.1",
     "dotenv": "^16.0.1",
     "easyqrcodejs-nodejs": "^4.4.2",
-    "express": "^4.17.1",
+    "express": "^5.0.0-beta.1",
     "google-spreadsheet": "^3.0.11",
     "http": "^0.0.1-security",
     "human-readable-ids": "^1.0.4",
@@ -41,7 +41,9 @@
     "supertest": "^6.2.4"
   },
   "jest": {
-    "modulePaths": ["<rootDir>/receipt/"]
+    "modulePaths": [
+      "<rootDir>/receipt/"
+    ]
   },
   "eslintConfig": {
     "extends": [

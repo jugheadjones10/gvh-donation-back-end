@@ -12,20 +12,18 @@ if (port == null || port == "") {
 const app = express();
 app.use(express.json());
 
-// Going to overlook some possible race conditions because it's so rare that someone donates immediately after submitting the
-// donation intent
-app.post("/bank-email", async function (req, res) {
-  const { amount } = req.body;
-  await bankEmailReceived(amount);
-  res.send(200);
-});
-
 app.post("/donation-form", async function (req, res) {
   const userData = req.body;
   const ID = randomString(5);
 
   await donationFormReceived(userData, ID);
 
+  res.send(200);
+});
+
+app.post("/bank-email", async function (req, res) {
+  const { amount } = req.body;
+  await bankEmailReceived(amount);
   res.send(200);
 });
 

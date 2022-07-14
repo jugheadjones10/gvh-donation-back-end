@@ -17,10 +17,14 @@ exports.donationFormReceived = async function (userData, ID) {
   // receipts, we can loop through the attached IDs and retrieve user data using each ID.
   await redis.set("ID" + ID, JSON.stringify(userData));
 
-  queueIntentMutex = queueIntentMutex.then(() => {
-    // return queueIntent(amount, ID, res);
-    return queueIntent(amount, ID);
-  });
+  queueIntentMutex = queueIntentMutex
+    .then(() => {
+      // return queueIntent(amount, ID, res);
+      return queueIntent(amount, ID);
+    })
+    .catch((e) => {
+      console.log("Donation Intent Queue Error: ", e);
+    });
 };
 
 exports.bankEmailReceived = async function (amount) {
@@ -46,7 +50,7 @@ exports.bankEmailReceived = async function (amount) {
 
     if (execReply[1][1].pending === execReply[1][1].confirmed) {
       clearTimeout(timerList[amount]);
-      tallyAmounts(amount);
+      return tallyAmounts(amount);
     }
   }
 };
@@ -102,6 +106,7 @@ function tallyAmounts(amount) {
     .then((result) => {
       console.log(result);
 
+      // Add variable names to make the array stuff more readable
       const actionsPromises = result[1][1].map((ID) => {
         return redis.get("ID" + ID).then((userData) => {
           console.log("user data", userData);
