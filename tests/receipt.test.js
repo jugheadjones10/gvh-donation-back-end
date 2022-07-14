@@ -2,12 +2,13 @@ const request = require("supertest");
 
 const Redis = require("ioredis");
 const redis = new Redis();
-const app = require("./receipt.js");
+const app = require("receipt-server.js");
+const { getMutex } = require("receipt.js");
 
-const sendReceipt = require("./sendReceipt.js");
-const requestManualCheck = require("./requestManualCheck.js");
-const donationFromOtherChannel = require("./donationFromOtherChannel.js");
-const promiseCareTaker = require("./promiseCareTaker.js");
+const sendReceipt = require("sendReceipt.js");
+const requestManualCheck = require("requestManualCheck.js");
+const donationFromOtherChannel = require("donationFromOtherChannel.js");
+const promiseCareTaker = require("promiseCareTaker.js");
 
 jest.mock("sendReceipt");
 jest.mock("requestManualCheck");
@@ -64,7 +65,9 @@ describe("Test receipt logic", () => {
       .set("Content-Type", "application/json")
       .then((response) => {
         expect(response.statusCode).toBe(200);
-        jest.runAllTimers();
+        getMutex().then(() => {
+          jest.runAllTimers();
+        });
       });
   });
 
@@ -96,7 +99,6 @@ describe("Test receipt logic", () => {
       })
       .then((bankResponse) => {
         expect(bankResponse.statusCode).toBe(200);
-        jest.runAllTimers();
       });
   });
 
@@ -141,24 +143,26 @@ describe("Test receipt logic", () => {
         expect(resA.statusCode).toBe(200);
         expect(resB.statusCode).toBe(200);
 
-        jest.advanceTimersByTime(2 * 60 * 1000);
-
-        return Promise.all([
-          request(app)
-            .post("/bank-email")
-            .send({
-              amount: donationFormSubmission.amount,
-            })
-            .set("Content-Type", "application/json"),
-          request(app)
-            .post("/bank-email")
-            .send({
-              amount: donationFormSubmission.amount,
-            })
-            .set("Content-Type", "application/json"),
-        ]);
+        return getMutex().then(() => {
+          // Queueing this after getMutex so that setTimeouts have been given a chance to run. If not, the advanceTimersByTime
+          // might not have any timers to operate on.
+          jest.advanceTimersByTime(2 * 60 * 1000);
+          return Promise.all([
+            request(app)
+              .post("/bank-email")
+              .send({
+                amount: donationFormSubmission.amount,
+              })
+              .set("Content-Type", "application/json"),
+            request(app)
+              .post("/bank-email")
+              .send({
+                amount: donationFormSubmission.amount,
+              })
+              .set("Content-Type", "application/json"),
+          ]);
+        });
       })
-
       .then(([responseA, responseB]) => {
         expect(responseA.statusCode).toBe(200);
         expect(responseB.statusCode).toBe(200);
@@ -186,23 +190,26 @@ describe("Test receipt logic", () => {
       .set("Content-Type", "application/json")
       .then((resA) => {
         expect(resA.statusCode).toBe(200);
-        jest.advanceTimersByTime(2 * 60 * 1000);
-
-        return request(app)
-          .post("/donation-form")
-          .send(donationFormSubmissionB)
-          .set("Content-Type", "application/json");
+        return getMutex().then(() => {
+          jest.advanceTimersByTime(2 * 60 * 1000);
+          return request(app)
+            .post("/donation-form")
+            .send(donationFormSubmissionB)
+            .set("Content-Type", "application/json");
+        });
       })
       .then((resB) => {
         expect(resB.statusCode).toBe(200);
-        jest.advanceTimersByTime(1 * 60 * 1000);
+        return getMutex().then(() => {
+          jest.advanceTimersByTime(1 * 60 * 1000);
 
-        return request(app)
-          .post("/bank-email")
-          .send({
-            amount: donationFormSubmission.amount,
-          })
-          .set("Content-Type", "application/json");
+          return request(app)
+            .post("/bank-email")
+            .send({
+              amount: donationFormSubmission.amount,
+            })
+            .set("Content-Type", "application/json");
+        });
       })
       .then((bankResponse) => {
         expect(bankResponse.statusCode).toBe(200);
@@ -244,23 +251,27 @@ describe("Test receipt logic", () => {
       .set("Content-Type", "application/json")
       .then((resA) => {
         expect(resA.statusCode).toBe(200);
-        jest.advanceTimersByTime(2 * 60 * 1000);
+        return getMutex().then(() => {
+          jest.advanceTimersByTime(2 * 60 * 1000);
 
-        return request(app)
-          .post("/donation-form")
-          .send(donationFormSubmissionB)
-          .set("Content-Type", "application/json");
+          return request(app)
+            .post("/donation-form")
+            .send(donationFormSubmissionB)
+            .set("Content-Type", "application/json");
+        });
       })
       .then((resB) => {
         expect(resB.statusCode).toBe(200);
-        jest.advanceTimersByTime(1 * 60 * 1000);
+        return getMutex().then(() => {
+          jest.advanceTimersByTime(1 * 60 * 1000);
 
-        return request(app)
-          .post("/bank-email")
-          .send({
-            amount: donationFormSubmission.amount,
-          })
-          .set("Content-Type", "application/json");
+          return request(app)
+            .post("/bank-email")
+            .send({
+              amount: donationFormSubmission.amount,
+            })
+            .set("Content-Type", "application/json");
+        });
       })
       .then((bankResponse) => {
         expect(bankResponse.statusCode).toBe(200);
@@ -293,10 +304,12 @@ describe("Test receipt logic", () => {
       .set("Content-Type", "application/json")
       .then((resA) => {
         expect(resA.statusCode).toBe(200);
-        jest.advanceTimersByTime(2 * 60 * 1000);
+        return getMutex().then(() => {
+          jest.advanceTimersByTime(2 * 60 * 1000);
 
-        return request(app).post("/bank-email").send({
-          amount: donationFormSubmission.amount,
+          return request(app).post("/bank-email").send({
+            amount: donationFormSubmission.amount,
+          });
         });
       })
       .then((bankResponse) => {
@@ -309,19 +322,23 @@ describe("Test receipt logic", () => {
       })
       .then((resB) => {
         expect(resB.statusCode).toBe(200);
-        jest.advanceTimersByTime(2 * 60 * 1000);
 
-        return request(app)
-          .post("/bank-email")
-          .send({
-            amount: donationFormSubmission.amount,
-          })
-          .set("Content-Type", "application/json");
+        return getMutex().then(() => {
+          jest.advanceTimersByTime(2 * 60 * 1000);
+
+          return request(app)
+            .post("/bank-email")
+            .send({
+              amount: donationFormSubmission.amount,
+            })
+            .set("Content-Type", "application/json");
+        });
       })
       .then((bankResponse) => {
         expect(bankResponse.statusCode).toBe(200);
       });
   });
+
   afterAll(() => {
     redis.disconnect();
   });

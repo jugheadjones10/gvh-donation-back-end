@@ -8,6 +8,10 @@ const multer = require("multer");
 const { Server } = require("socket.io");
 const { randomString } = require("./random-id-generator.js");
 const { GoogleSpreadsheet } = require("google-spreadsheet");
+const {
+  bankEmailReceived,
+  donationFormReceived,
+} = require("./receipt/receipt.js");
 require("dotenv").config();
 
 const sgMail = require("@sendgrid/mail");
@@ -35,20 +39,18 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
-function requestManualCheck(userData) {
-  const intentID = userData.ID;
-  const doc = new GoogleSpreadsheet(process.env.GOOGLE_SHEET_ID);
-  doc
-    .useServiceAccountAuth(require("./google-credentials.json"))
-    .then(() => doc.loadInfo())
-    .then(() => {
-      const sheet = doc.sheetsByIndex[0];
-      //The code so far is loading data from the donation google sheet.
-      //This data should be looped through in order to find the row with refid equal to intentID. Once that row is found, the
-      //"flag for manual" column should be "flagged" (by setting the value to 1, for example). Then that change should be saved
-      //back so that it is reflected in the actual Google Sheet
-    });
-}
+module.exports = async function sendEmail(sendReceipt) {
+  if (sendReceipt) {
+    // Send email to user
+  } else {
+    // Send notification for manual check
+  }
+};
+
+app.post("/google-sheet", (req, res) => {
+  const body = req.body;
+  sendEmail(false);
+});
 
 const upload = multer();
 app.post("/bank-email", upload.any(), (req, res) => {
@@ -57,19 +59,16 @@ app.post("/bank-email", upload.any(), (req, res) => {
   //This prints the email body
   console.log(body.text);
 
-  //TODO Get the donation amount from the email body, then get the last entry from our donation Google sheet using the Google
-  //spreadsheet API. Check if the donation amount in the google spreadsheet is equal to the amount in the email. If equal, execute
-  //the below line (io.emit) in order to notify the client that the donation has been processed.
+  // Parse the email text to get donation amount
+  const amount = 1;
+
+  bankEmailReceived(amount);
 
   //This sends a signal to the donation form where the user is waiting for his payment to be confirmed.
   io.emit("update", "new data");
-
-  //TODO Once the client has been notified, send a receipt to the user using Sendgrid (the email service we are using).
-
-  res.sendStatus(200);
 });
 
-app.post("/donation-form", function (req, res) {
+app.post("/donation-form", async function (req, res) {
   console.log(req.body);
   const {
     fullname,
@@ -82,6 +81,7 @@ app.post("/donation-form", function (req, res) {
     country,
   } = req.body;
   const ID = randomString(5);
+  await donationFormReceived(req.body, ID);
 
   addToGoogleSheet(
     [
