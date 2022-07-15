@@ -39,8 +39,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
-exports.sendEmail = async function (sendReceipt, userData) {
+exports.sendEmail = async function sendEmail(sendReceipt, userData) {
   if (sendReceipt) {
+    console.log("sending Email to", userData);
     // Send email to user
   } else {
     // Send notification for manual check
@@ -57,7 +58,7 @@ app.post("/google-sheet", (req, res) => {
 });
 
 const upload = multer();
-app.post("/bank-email", upload.any(), (req, res) => {
+app.post("/bank-email", upload.any(), async (req, res) => {
   const body = req.body;
 
   //This prints the email body
