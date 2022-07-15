@@ -39,22 +39,52 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
-exports.sendEmail = async function sendEmail(sendReceipt, userData) {
+async function sendEmail(sendReceipt, userData) {
   if (sendReceipt) {
-    console.log("sending Email to", userData);
-    // Send email to user
+    const date = new Date();
+    const datestyle = {
+      day: "numeric",
+      year: "numeric",
+      month: "short",
+    };
+    // const emailHtml = nunjucks.render("email/receipt-email.html", {
+    //   date: date.toLocaleDateString("en", datestyle),
+    //   _name: userData.name,
+    //   amount: userData.amount,
+    //   project: userData.project,
+    // });
+    const msg = {
+      to: userData.email,
+      from: "globalvillageforhope@gvh.sg",
+      subject: "Contribution receipt",
+      // html: emailHtml,
+      text: "F",
+    };
+    sgMail.send(msg);
+    console.log("email sent");
   } else {
-    // Send notification for manual check
+    const msg = {
+      to: "jojo7ta@gmail.com",
+      from: "globalvillageforhope@gvh.sg",
+      subject: "Manual Donation check required",
+      text: userData,
+    };
+    sgMail.send(msg);
+    console.log("Manual request sent");
   }
-};
+}
+exports.sendEmail = sendEmail;
 
 app.post("/google-sheet", (req, res) => {
   const body = req.body;
 
   // Extract the data sent from google sheet into this userData object
-  const userData = {};
+  const userData = body;
+  console.log(userData);
+  // sendEmail(true, userData);
+  // return "email sent";
 
-  return sendEmail(false, userData);
+  return sendEmail(true, userData);
 });
 
 const upload = multer();
@@ -62,7 +92,7 @@ app.post("/bank-email", upload.any(), async (req, res) => {
   const body = req.body;
 
   //This prints the email body
-  console.log(body.text);
+  // console.log(body.text);
 
   // Parse the email text to get donation amount
   const amount = 1;

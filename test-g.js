@@ -1,29 +1,15 @@
 require("dotenv").config();
-const { GoogleSpreadsheet } = require("google-spreadsheet");
-const ID = "abcd";
 
-const doc = new GoogleSpreadsheet(process.env.GOOGLE_SHEET_ID);
-doc
-  .useServiceAccountAuth(require("./google-credentials.json"))
-  .then(() => doc.loadInfo())
-  .then(() => {
-    return hey();
-  });
+const sgMail = require("@sendgrid/mail");
+sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
-async function hey() {
-  const sheet = doc.sheetsByIndex[0];
+const msg = {
+  to: "kimyoungjin1001@gmail.com", // Change to your recipient
+  from: "globalvillageforhope@gvh.sg", // Change to your verified sender
+  subject: "We have received your Donation Form submission",
+  text: "EEE",
+};
 
-  const rows = await sheet.getRows();
-  // console.log(rows);
-
-  const foundRow = rows.find((row) => row.ID === ID);
-  console.log(foundRow);
-
-  const rowNumber = foundRow._rowNumber;
-  await sheet.loadCells(rowNumber + ":" + rowNumber);
-
-  const donationReceivedCell = sheet.getCell(rowNumber - 1, 10);
-  console.log(donationReceivedCell.value);
-  donationReceivedCell.value = "Y";
-  await sheet.saveUpdatedCells();
-}
+sgMail.send(msg).then(() => {
+  console.log("Email sent");
+});
