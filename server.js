@@ -12,6 +12,7 @@ const {
   bankEmailReceived,
   donationFormReceived,
 } = require("./receipt/receipt.js");
+const sendEmail = require("./send-email.js");
 require("dotenv").config();
 
 const sgMail = require("@sendgrid/mail");
@@ -39,42 +40,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
-async function sendEmail(sendReceipt, userData) {
-  if (sendReceipt) {
-    const date = new Date();
-    const datestyle = {
-      day: "numeric",
-      year: "numeric",
-      month: "short",
-    };
-    // const emailHtml = nunjucks.render("email/receipt-email.html", {
-    //   date: date.toLocaleDateString("en", datestyle),
-    //   _name: userData.name,
-    //   amount: userData.amount,
-    //   project: userData.project,
-    // });
-    const msg = {
-      to: userData.email,
-      from: "globalvillageforhope@gvh.sg",
-      subject: "Contribution receipt",
-      // html: emailHtml,
-      text: "F",
-    };
-    sgMail.send(msg);
-    console.log("email sent");
-  } else {
-    const msg = {
-      to: "jojo7ta@gmail.com",
-      from: "globalvillageforhope@gvh.sg",
-      subject: "Manual Donation check required",
-      text: userData,
-    };
-    sgMail.send(msg);
-    console.log("Manual request sent");
-  }
-}
-exports.sendEmail = sendEmail;
-
 app.post("/google-sheet", (req, res) => {
   const body = req.body;
 
@@ -89,22 +54,22 @@ app.post("/google-sheet", (req, res) => {
 
 const upload = multer();
 app.post("/bank-email", upload.any(), async (req, res) => {
-  const body = req.body;
-
   //This prints the email body
   // console.log(body.text);
 
   // Parse the email text to get donation amount
-  const amount = 1;
+  const amount = req.body.amount;
+  console.log(`Received incoming donation amount ${amount}`);
 
   await bankEmailReceived(amount);
 
   //This sends a signal to the donation form where the user is waiting for his payment to be confirmed.
   io.emit("update", "new data");
+  res.send(200);
 });
 
 app.post("/donation-form", async function (req, res) {
-  console.log(req.body);
+  console.log("Received donation form submission: ", req.body);
   const {
     fullname,
     email,
@@ -133,6 +98,7 @@ app.post("/donation-form", async function (req, res) {
     ],
     process.env.GOOGLE_SHEET_ID
   ).then(() => {
+    // This part needs to change - we don't need to generate QR code for every donation intent anymore
     const { msg, qrUrl, qrCodePromise } = processResponse(
       project,
       amount,
@@ -141,19 +107,18 @@ app.post("/donation-form", async function (req, res) {
       fullname,
       email
     );
+    console.log("Added to google sheet");
 
-    return Promise.all([
-      sgMail.send(msg).then(() => {
-        console.log("Email sent");
-      }),
-      qrCodePromise.then(() => {
-        return { ID, qrUrl };
-      }),
-    ]);
+    return qrCodePromise.then(() => {
+      console.log("Inside qrCodePromise queue: ", ID, qrUrl);
+      return { ID, qrUrl };
+    });
   });
 
   await receiptLogicPromise;
-  const [sgMailRes, qrRes] = await googleSheetPromise;
+  const qrRes = await googleSheetPromise;
+  console.log(qrRes);
+
   res.json(qrRes);
 });
 
@@ -213,6 +178,7 @@ app.post("/auction", function (req, res) {
 });
 
 app.use(function (error, req, res, next) {
+  console.log("An error happended", error);
   res.status(500).json({ error: error.message });
 });
 

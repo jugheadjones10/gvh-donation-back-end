@@ -1,9 +1,11 @@
 const { GoogleSpreadsheet } = require("google-spreadsheet");
 
+// Would preferably like to authenticate just once per request - wait, isn't that what's happening right now?
+
 function authenticate(sheetID) {
   const doc = new GoogleSpreadsheet(sheetID);
   return doc
-    .useServiceAccountAuth(require("./google-credentials.json"))
+    .useServiceAccountAuth(require("../google-credentials.json"))
     .then(() => doc.loadInfo())
     .then(() => {
       return doc.sheetsByIndex[0];
@@ -11,6 +13,7 @@ function authenticate(sheetID) {
 }
 
 exports.addToGoogleSheet = function addToGoogleSheet(row, sheetID) {
+  console.log(`adding to google sheet: ${row}`);
   return authenticate(sheetID).then((sheet) => {
     return sheet.addRow(row);
   });
@@ -32,4 +35,7 @@ exports.updateDonationReceivedCol = async function (
   const donationReceivedCell = sheet.getCell(rowNumber - 1, 10);
   donationReceivedCell.value = value;
   await sheet.saveUpdatedCells();
+  console.log(
+    `Updated donation confirmed column for donation ID ${donationID}`
+  );
 };

@@ -1,4 +1,4 @@
-const { sendEmail } = require("../server.js");
+const sendEmail = require("../send-email.js");
 const { updateDonationReceivedCol } = require("../google-sheet");
 require("dotenv").config();
 

@@ -10,7 +10,6 @@ const timerList = {};
 
 var queueIntentMutex = Promise.resolve();
 exports.donationFormReceived = async function (userData, ID) {
-  console.log("Received donation intent from " + userData.fullname);
   const amount = userData.amount;
 
   // Storing user data separately so that we can just attach an array of IDs to the 5dollarintents objects. Then when sending
@@ -19,7 +18,6 @@ exports.donationFormReceived = async function (userData, ID) {
 
   queueIntentMutex = queueIntentMutex
     .then(() => {
-      // return queueIntent(amount, ID, res);
       return queueIntent(amount, ID);
     })
     .catch((e) => {
@@ -28,8 +26,6 @@ exports.donationFormReceived = async function (userData, ID) {
 };
 
 exports.bankEmailReceived = async function (amount) {
-  console.log("Received money amounting to " + amount);
-
   // The below line ensures that even if this endpoint is called immediately after donation intent is sent, the donation intent is
   // given a chance to properly register in the Redis DB before its existence is checked below. If the existence check occurs
   // before the intent is set in the Redis DB, we will mistakenly categorize this donation as coming from another channel.
@@ -38,6 +34,9 @@ exports.bankEmailReceived = async function (amount) {
   const amountExists = await redis.exists(amount);
 
   if (!amountExists) {
+    console.log(
+      `Since there are no ongoing intents, incoming donation amount ${amount} has been classified as other channel`
+    );
     return donationFromOtherChannel();
     //flag as donation from channel other than website donation form (should retrun a promise)
   } else {
@@ -46,7 +45,6 @@ exports.bankEmailReceived = async function (amount) {
       .hincrby(amount, "confirmed", 1)
       .hgetall(amount)
       .exec();
-    console.log(execReply);
 
     if (execReply[1][1].pending === execReply[1][1].confirmed) {
       clearTimeout(timerList[amount]);
@@ -69,7 +67,9 @@ async function queueIntent(amount, ID) {
   const result = await redis.hexists(amount, "pending");
 
   if (result === 0) {
-    console.log("Donation amount does not exist");
+    console.log(
+      `No donation intent for amount ${amount} exists currently - adding new intent and starting timer`
+    );
 
     await redis
       .multi()
@@ -83,7 +83,9 @@ async function queueIntent(amount, ID) {
     const timeoutId = setTimeout(tallyAmounts, 5 * 60 * 1000, amount);
     timerList[amount] = timeoutId;
   } else {
-    console.log("Donation amount exists");
+    console.log(
+      `Donation intent for amount ${amount} exists currently - incrementing pending counter by 1 and restarting timer`
+    );
 
     await redis
       .multi()
@@ -107,9 +109,9 @@ function tallyAmounts(amount) {
       console.log(result);
 
       // Add variable names to make the array stuff more readable
+      // Delete redis ID information as well
       const actionsPromises = result[1][1].map((ID) => {
         return redis.get("ID" + ID).then((userData) => {
-          console.log("user data", userData);
           if (result[0][1].pending === result[0][1].confirmed) {
             return sendReceipt(JSON.parse(userData), ID);
           } else {
