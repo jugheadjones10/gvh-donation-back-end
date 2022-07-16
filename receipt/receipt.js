@@ -1,5 +1,5 @@
 const Redis = require("ioredis");
-const redis = new Redis();
+const redis = new Redis(process.env.REDIS_URL);
 
 const sendReceipt = require("./sendReceipt.js");
 const requestManualCheck = require("./requestManualCheck.js");
@@ -10,15 +10,16 @@ const timerList = {};
 
 var queueIntentMutex = Promise.resolve();
 exports.donationFormReceived = async function (userData, ID) {
-  const amount = userData.amount;
-
-  // Storing user data separately so that we can just attach an array of IDs to the 5dollarintents objects. Then when sending
-  // receipts, we can loop through the attached IDs and retrieve user data using each ID.
+  // Storing user data separately so that we can just attach an array of IDs to the donation intent objects. Then when sending
+  // receipts, we can loop through the attached IDs and retrieve user data using each ID in order to construct the receipt email
+  // using user data
   await redis.set("ID" + ID, JSON.stringify(userData));
 
+  // Need to catch errors explicitly here because queueIntentMutex is a separate promise that isn't returned to any express routes.
+  // Failed promises won't use the express error handler.
   queueIntentMutex = queueIntentMutex
     .then(() => {
-      return queueIntent(amount, ID);
+      return queueIntent(userData.amount, ID);
     })
     .catch((e) => {
       console.log("Donation Intent Queue Error: ", e);
@@ -45,6 +46,7 @@ exports.bankEmailReceived = async function (amount) {
       .hincrby(amount, "confirmed", 1)
       .hgetall(amount)
       .exec();
+    // Throw error for failed exec
 
     if (execReply[1][1].pending === execReply[1][1].confirmed) {
       clearTimeout(timerList[amount]);
@@ -59,11 +61,13 @@ async function queueIntent(amount, ID) {
   // Both functions will execute the logic meant for the non-existent case, which will give a wrong outcome. A
   // possible solution is to use Redis transactions to read and write atomically, but this is hard because
   // application logic needs to be interleaved in between the Redis read and write operations. The current solution uses a "mutex"
-  // of sorts "queueIntentMutex", which is a resolved promise. When a request comes in, the promise returned by the queueIntent
+  // of sorts, "queueIntentMutex", which is a resolved promise. When a request comes in, the promise returned by the queueIntent
   // function is chained to queueIntentMutex, causing queueIntent to be executed asynchronously. No matter how many requests
   // come in, their corresponding executions of queueIntent are chained one after the other, ensuring that Redis reads and
   // writes are never interleaved.
 
+  // No special reason for using the "pending" property - just want to see if the hash for this particular
+  // donation amount exists
   const result = await redis.hexists(amount, "pending");
 
   if (result === 0) {

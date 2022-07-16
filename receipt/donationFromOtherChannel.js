@@ -1,1 +1,1 @@
-module.exports = function donationFromOtherChannel() {};
+module.exports = async function donationFromOtherChannel() {};

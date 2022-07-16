@@ -64,125 +64,112 @@ app.post("/bank-email", upload.any(), async (req, res) => {
   await bankEmailReceived(amount);
 
   //This sends a signal to the donation form where the user is waiting for his payment to be confirmed.
+  // Emit different thing based on outcome of bankEmailReceived
   io.emit("update", "new data");
   res.send(200);
 });
 
 app.post("/donation-form", async function (req, res) {
   console.log("Received donation form submission: ", req.body);
-  const {
-    fullname,
-    email,
-    mobilenumber,
-    project,
-    type,
-    amount,
-    chequenumber,
-    country,
-  } = req.body;
+  // Do we need server-side validation of request body?
+  const formData = orderDataForGoogleSheet(req.body);
   const ID = randomString(5);
 
-  const receiptLogicPromise = donationFormReceived(req.body, ID);
+  const receiptLogicPromise = donationFormReceived(formData, ID);
   const googleSheetPromise = addToGoogleSheet(
     [
       ID,
-      fullname,
-      email,
-      mobilenumber,
-      project,
-      type,
-      amount,
-      chequenumber,
-      country,
+      ...Object.values(formData),
       new Date().toLocaleString("en-SG", { timeZone: "Asia/Singapore" }),
     ],
     process.env.GOOGLE_SHEET_ID
-  ).then(() => {
-    // This part needs to change - we don't need to generate QR code for every donation intent anymore
-    const { msg, qrUrl, qrCodePromise } = processResponse(
-      project,
-      amount,
-      ID,
-      req,
-      fullname,
-      email
-    );
-    console.log("Added to google sheet");
+  );
 
-    return qrCodePromise.then(() => {
-      console.log("Inside qrCodePromise queue: ", ID, qrUrl);
-      return { ID, qrUrl };
-    });
-  });
+  let qrUrl;
+  if (formData.type === "qrcode") {
+    qrUrl = await getQRUrl(formData.amount, ID, req);
+  }
 
   await receiptLogicPromise;
-  const qrRes = await googleSheetPromise;
-  console.log(qrRes);
+  await googleSheetPromise;
 
-  res.json(qrRes);
+  res.json({ qrUrl, refid: ID });
 });
 
-app.post("/auction", function (req, res) {
-  console.log(req.body);
-  const {
-    painter,
-    fullname,
-    email,
-    mobilenumber,
-    project,
-    type,
-    amount,
-    chequenumber,
-    country,
-  } = req.body;
-  const ID = randomString(5);
+// app.post("/auction", function (req, res) {
+//   console.log(req.body);
+//   const {
+//     painter,
+//     fullname,
+//     email,
+//     mobilenumber,
+//     project,
+//     type,
+//     amount,
+//     chequenumber,
+//     country,
+//   } = req.body;
+//   const ID = randomString(5);
 
-  addToGoogleSheet(
-    [
-      painter,
-      ID,
-      fullname,
-      email,
-      mobilenumber,
-      project,
-      type,
-      amount,
-      chequenumber,
-      country,
-      new Date().toLocaleString("en-SG", { timeZone: "Asia/Singapore" }),
-    ],
-    "11APrm_hNTatJ7toGqUDYoKgzsEpV7fsVde0e8Ipm6nU"
-  )
-    .then(() => {
-      const { msg, qrUrl, qrCodePromise } = processResponse(
-        project,
-        amount,
-        ID,
-        req,
-        fullname,
-        email
-      );
+//   addToGoogleSheet(
+//     [
+//       painter,
+//       ID,
+//       fullname,
+//       email,
+//       mobilenumber,
+//       project,
+//       type,
+//       amount,
+//       chequenumber,
+//       country,
+//       new Date().toLocaleString("en-SG", { timeZone: "Asia/Singapore" }),
+//     ],
+//     "11APrm_hNTatJ7toGqUDYoKgzsEpV7fsVde0e8Ipm6nU"
+//   )
+//     .then(() => {
+//       const { msg, qrUrl, qrCodePromise } = processResponse(
+//         project,
+//         amount,
+//         ID,
+//         req,
+//         fullname,
+//         email
+//       );
 
-      return Promise.all([
-        sgMail.send(msg).then(() => {
-          console.log("Email sent");
-        }),
-        qrCodePromise.then(() => {
-          res.json({ ID, qrUrl });
-        }),
-      ]);
-    })
-    .catch((error) => {
-      console.error(error);
-    });
-});
+//       return Promise.all([
+//         sgMail.send(msg).then(() => {
+//           console.log("Email sent");
+//         }),
+//         qrCodePromise.then(() => {
+//           res.json({ ID, qrUrl });
+//         }),
+//       ]);
+//     })
+//     .catch((error) => {
+//       console.error(error);
+//     });
+// });
 
 app.use(function (error, req, res, next) {
   console.log("An error happended", error);
   res.status(500).json({ error: error.message });
 });
 
-function processResponse(project, amount, ID, req, fullname, email) {
+function orderDataForGoogleSheet(obj) {
+  return {
+    fullname: obj.fullname,
+    email: obj.email,
+    mobilenumber: obj.mobilenumber,
+    project: obj.project,
+    type: obj.type,
+    amount: obj.amount,
+    chequenumber: obj.chequenumber,
+    country: obj.country,
+  };
+}
+
+async function getQRUrl(amount, ID, req) {
   let qrOptions = new PaynowQR({
     uen: "53382503B",
     amount,
@@ -198,35 +185,14 @@ function processResponse(project, amount, ID, req, fullname, email) {
   };
   // Create new QRCode Object
   var qrcode = new QRCode(options);
-  var qrCodePromise = qrcode.saveImage({
+  await qrcode.saveImage({
     path: `public/${ID}.png`, // save path
-  });
-
-  const formattedNow = new Date().toLocaleString("en-US", {
-    timeZone: "Asia/Singapore",
   });
 
   const baseUrl = req.protocol + "://" + req.get("host");
   const qrUrl = baseUrl + `/${ID}.png`;
-  // const uenImage = baseUrl + "/uenscreenshot.png";
 
-  var emailHtml = nunjucks.render("email/reply-mail.html", {
-    project,
-    fullname,
-    ID,
-    amount,
-    now: formattedNow,
-    qrUrl,
-  });
-
-  const msg = {
-    to: email, // Change to your recipient
-    from: "globalvillageforhope@gvh.sg", // Change to your verified sender
-    subject: "We have received your Donation Form submission",
-    html: emailHtml,
-  };
-
-  return { msg, qrUrl, qrCodePromise };
+  return qrUrl;
 }
 
 server.listen(port, () =>

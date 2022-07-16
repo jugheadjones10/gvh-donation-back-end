@@ -1,7 +1,6 @@
 const { GoogleSpreadsheet } = require("google-spreadsheet");
 
 // Would preferably like to authenticate just once per request - wait, isn't that what's happening right now?
-
 function authenticate(sheetID) {
   const doc = new GoogleSpreadsheet(sheetID);
   return doc
