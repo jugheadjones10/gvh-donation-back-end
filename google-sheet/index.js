@@ -4,7 +4,7 @@ const { GoogleSpreadsheet } = require("google-spreadsheet");
 function authenticate(sheetID) {
   const doc = new GoogleSpreadsheet(sheetID);
   return doc
-    .useServiceAccountAuth(require("../google-credentials.json"))
+    .useServiceAccountAuth(require("./google-credentials.json"))
     .then(() => doc.loadInfo())
     .then(() => {
       return doc.sheetsByIndex[0];

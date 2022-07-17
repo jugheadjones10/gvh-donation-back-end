@@ -1,5 +1,4 @@
 const express = require("express");
-const nunjucks = require("nunjucks");
 const QRCode = require("easyqrcodejs-nodejs");
 const PaynowQR = require("paynowqr");
 const cors = require("cors");
