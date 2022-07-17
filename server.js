@@ -92,7 +92,7 @@ app.post("/donation-form", async function (req, res) {
   await receiptLogicPromise;
   await googleSheetPromise;
 
-  res.json({ qrUrl, refid: ID });
+  res.json({ qrUrl, ID });
 });
 
 // app.post("/auction", function (req, res) {
