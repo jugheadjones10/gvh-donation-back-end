@@ -55,7 +55,7 @@ app.post("/google-sheet", (req, res) => {
 const upload = multer();
 app.post("/bank-email", upload.any(), async (req, res) => {
   //This prints the email body
-  console.log(body);
+  console.log(req.body);
 
   // Parse the email text to get donation amount
   const amount = req.body.amount;
