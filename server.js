@@ -62,7 +62,7 @@ app.post("/bank-email", upload.any(), async (req, res) => {
   let amount;
   if (regex.test(emailText)) {
     // zip code value will be the first match in the string
-    amount = emailText.match(regex)[0];
+    amount = parseFloat(emailText.match(regex)[0]);
   } else {
     throw new Error(
       `Email received from bank did not match regex for donation amount: ${emailText}`

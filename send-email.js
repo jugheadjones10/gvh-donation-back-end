@@ -5,9 +5,9 @@ const sgMail = require("@sendgrid/mail");
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 // We need to standardize naming of properties across google sheet and code to avoid bugs and cumberson name changes
-module.exports = async function sendEmail(sendReceipt, userData) {
+module.exports = async function sendEmail(sendReceipt, data) {
   if (sendReceipt) {
-    console.log(`Receipt is being sent to ${userData.fullname}`);
+    console.log(`Receipt is being sent to ${data.fullname}`);
 
     const date = new Date();
     const datestyle = {
@@ -17,12 +17,12 @@ module.exports = async function sendEmail(sendReceipt, userData) {
     };
     const emailHtml = nunjucks.render("email/receipt-email.html", {
       date: date.toLocaleDateString("en", datestyle),
-      fullname: userData.fullname,
-      amount: userData.amount,
-      project: userData.project,
+      fullname: data.fullname,
+      amount: data.amount,
+      project: data.project,
     });
     const msg = {
-      to: userData.email,
+      to: data.email,
       from: "globalvillageforhope@gvh.sg",
       subject: "Contribution receipt",
       html: emailHtml,
@@ -31,12 +31,12 @@ module.exports = async function sendEmail(sendReceipt, userData) {
     return sgMail.send(msg);
   } else {
     const msg = {
-      to: "kimyoungjin1001@gmail.com",
+      to: "gvhfinance@gmail.com",
       from: "globalvillageforhope@gvh.sg",
-      subject: "Manual Donation check required",
-      text: JSON.stringify(userData),
+      subject: data.subject,
+      text: JSON.stringify(data),
     };
-    console.log("Manual request sent");
+    console.log("Manual request/donation from other source sent");
     return sgMail.send(msg);
   }
 };

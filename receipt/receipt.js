@@ -44,7 +44,7 @@ exports.bankEmailReceived = async function (amount) {
     console.log(
       `Since there are no ongoing intents, incoming donation amount ${amount} has been classified as other channel`
     );
-    return donationFromOtherChannel();
+    return donationFromOtherChannel(amount);
     //flag as donation from channel other than website donation form (should retrun a promise)
   } else {
     return await redis
