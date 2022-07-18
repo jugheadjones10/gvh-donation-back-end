@@ -1,6 +1,12 @@
 const Redis = require("ioredis");
 const redis = new Redis(process.env.REDIS_URL);
 
+const {
+  ONEPENDINGANDNOCONFIRMED,
+  MOREPENDINGTHANCONFIRMED,
+  TALLYSUCCESS,
+} = require("../constants.js");
+
 const sendReceipt = require("./sendReceipt.js");
 const requestManualCheck = require("./requestManualCheck.js");
 const donationFromOtherChannel = require("./donationFromOtherChannel.js");
@@ -41,17 +47,20 @@ exports.bankEmailReceived = async function (amount) {
     return donationFromOtherChannel();
     //flag as donation from channel other than website donation form (should retrun a promise)
   } else {
-    const execReply = await redis
+    return await redis
       .multi()
       .hincrby(amount, "confirmed", 1)
       .hgetall(amount)
-      .exec();
-    // Throw error for failed exec
+      .exec()
+      .then(([[hincrbyErr, hincrbyRes], [hgetallErr, hgetallRes]]) => {
+        if (hincrbyErr || hgetallErr) throw hincrbyErr || hgetallErr;
 
-    if (execReply[1][1].pending === execReply[1][1].confirmed) {
-      clearTimeout(timerList[amount]);
-      return tallyAmounts(amount);
-    }
+        if (hgetallRes.pending === hgetallRes.confirmed) {
+          clearTimeout(timerList[amount]);
+          return tallyAmounts(amount);
+        }
+      });
+    // Throw error for failed exec
   }
 };
 
@@ -84,7 +93,7 @@ async function queueIntent(amount, ID) {
       .lpush("donors" + amount, [ID])
       .exec();
 
-    const timeoutId = setTimeout(tallyAmounts, 5 * 60 * 1000, amount);
+    const timeoutId = setTimeout(tallyAmounts, 1 * 30 * 1000, amount);
     timerList[amount] = timeoutId;
   } else {
     console.log(
@@ -98,7 +107,7 @@ async function queueIntent(amount, ID) {
       .exec();
 
     clearTimeout(timerList[amount]);
-    timerList[amount] = setTimeout(tallyAmounts, 5 * 60 * 1000, amount);
+    timerList[amount] = setTimeout(tallyAmounts, 1 * 30 * 1000, amount);
   }
 }
 
@@ -109,25 +118,60 @@ function tallyAmounts(amount) {
     .hgetall(amount)
     .lrange("donors" + amount, 0, -1)
     .exec()
-    .then((result) => {
-      console.log(result);
+    .then(([[hgetallErr, hgetallRes], [lrangeErr, lrangeRes]]) => {
+      if (hgetallErr || lrangeErr) throw hgetallErr || lrangeErr;
 
-      // Add variable names to make the array stuff more readable
-      // Delete redis ID information as well
-      const actionsPromises = result[1][1].map((ID) => {
-        return redis.get("ID" + ID).then((userData) => {
-          if (result[0][1].pending === result[0][1].confirmed) {
-            return sendReceipt(JSON.parse(userData), ID);
-          } else {
-            return requestManualCheck(JSON.parse(userData), ID);
-          }
+      let actionsPromises;
+      if (hgetallRes.pending === hgetallRes.confirmed) {
+        actionsPromises = Promise.all(
+          lrangeRes.map((ID) => {
+            return redis.get("ID" + ID).then((userData) => {
+              return sendReceipt(JSON.parse(userData), ID);
+            });
+          })
+        ).then(() => {
+          return [TALLYSUCCESS, lrangeRes];
         });
-      });
+      } else {
+        actionsPromises = Promise.all(
+          lrangeRes.map((ID) => {
+            return redis.get("ID" + ID).then((userData) => {
+              return requestManualCheck(JSON.parse(userData), ID);
+            });
+          })
+        ).then(() => {
+          // Two possibilities here - a single person made a donation intent, but didn't donate. In that case we should
+          // tell him that his time has expired and ask him to fill up the form and submit again when ready (would be good to save form
+          // state and pre-fill for user)
 
-      return Promise.all(actionsPromises).then(() => {
+          // Second possibility is when there are more than one pending donation intentions, but fewer confirmed intents than pending
+          // intents. In that case we don't know which user is the one that didn't donate and should be shown the "expired, try again"
+          // notification, so we need to send out the same messasge to all users that there was an overlap and that we will soon be
+          // sending a manual receipt
+          console.log("hgetall : ", hgetallRes);
+          const tallyResult =
+            hgetallRes.pending === "1"
+              ? ONEPENDINGANDNOCONFIRMED
+              : MOREPENDINGTHANCONFIRMED;
+          return [tallyResult, lrangeRes];
+        });
+      }
+
+      return actionsPromises.then(([tallyResult, lrangeRes]) => {
+        //This sends a signal to the donation form where the user is waiting for his payment to be confirmed.
+        // Emit different thing based on outcome of bankEmailReceived
+        const io = require("../server.js");
+        io.emit("update", tallyResult);
+
         // Ideally the below deletion is done as soon as possible to prevent cases where tallies are finished but deletion
         // hasn't completed, causing errors in subsequent donation intents
-        return redis.del("donors" + amount, amount);
+        // Delete redis ID information as well
+
+        return redis.del(
+          "donors" + amount,
+          amount,
+          ...lrangeRes.map((ID) => "ID" + ID)
+        );
       });
     });
   // promiseCareTaker exists so that receipt.test.js can mock promiseCareTaker and receive tallyPromise so that it can queue tests

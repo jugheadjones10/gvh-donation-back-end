@@ -7,7 +7,8 @@ sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 // We need to standardize naming of properties across google sheet and code to avoid bugs and cumberson name changes
 module.exports = async function sendEmail(sendReceipt, userData) {
   if (sendReceipt) {
-    console.log(`Receipt is being sent to ${userData.name}`);
+    console.log(`Receipt is being sent to ${userData.fullname}`);
+
     const date = new Date();
     const datestyle = {
       day: "numeric",
@@ -16,7 +17,7 @@ module.exports = async function sendEmail(sendReceipt, userData) {
     };
     const emailHtml = nunjucks.render("email/receipt-email.html", {
       date: date.toLocaleDateString("en", datestyle),
-      name: userData.name,
+      fullname: userData.fullname,
       amount: userData.amount,
       project: userData.project,
     });

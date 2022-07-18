@@ -33,6 +33,7 @@ const io = new Server(server, {
     methods: ["GET", "POST"],
   },
 });
+module.exports = io;
 
 app.use(cors());
 app.use(express.json());
@@ -62,11 +63,13 @@ app.post("/bank-email", upload.any(), async (req, res) => {
 
   await bankEmailReceived(amount);
 
-  //This sends a signal to the donation form where the user is waiting for his payment to be confirmed.
-  // Emit different thing based on outcome of bankEmailReceived
-  io.emit("update", "new data");
   res.send(200);
 });
+
+// User sees loading icon
+// When 5 minutes exceeded without donation, io emit close modal notifcation
+// When donation comes in, display success
+// When manual request required, display a modal explaining the situation
 
 app.post("/donation-form", async function (req, res) {
   console.log("Received donation form submission: ", req.body);
@@ -89,7 +92,9 @@ app.post("/donation-form", async function (req, res) {
     qrUrl = await getQRUrl(formData.amount, ID, req);
   }
 
-  await receiptLogicPromise;
+  if (["paynow", "qrcode", "banktransfer"].includes(formData.type)) {
+    await receiptLogicPromise;
+  }
   await googleSheetPromise;
 
   res.json({ qrUrl, ID });
