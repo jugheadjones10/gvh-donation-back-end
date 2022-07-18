@@ -55,11 +55,20 @@ app.post("/google-sheet", (req, res) => {
 const upload = multer();
 app.post("/bank-email", upload.any(), async (req, res) => {
   //This prints the email body
-  console.log(req.body);
-
-  // Parse the email text to get donation amount
-  const amount = req.body.amount;
+  const emailText = req.body.text;
+  console.log("Email text: " + emailText);
   console.log(`Received incoming donation amount ${amount}`);
+
+  const regex = /[0-9]*\.[0-9]+/i;
+  let amount;
+  if (regex.test(emailText)) {
+    // zip code value will be the first match in the string
+    amount = emailText.match(regex)[0];
+  } else {
+    throw new Error(
+      `Email received from bank did not match regex for donation amount: ${emailText}`
+    );
+  }
 
   await bankEmailReceived(amount);
 
