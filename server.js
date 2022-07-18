@@ -57,7 +57,6 @@ app.post("/bank-email", upload.any(), async (req, res) => {
   //This prints the email body
   const emailText = req.body.text;
   console.log("Email text: " + emailText);
-  console.log(`Received incoming donation amount ${amount}`);
 
   const regex = /[0-9]*\.[0-9]+/i;
   let amount;
@@ -70,6 +69,7 @@ app.post("/bank-email", upload.any(), async (req, res) => {
     );
   }
 
+  console.log(`Received incoming donation amount ${amount}`);
   await bankEmailReceived(amount);
 
   res.send(200);
