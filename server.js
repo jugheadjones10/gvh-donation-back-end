@@ -7,6 +7,8 @@ const multer = require("multer");
 const { Server } = require("socket.io");
 const { randomString } = require("./random-id-generator.js");
 const { addToGoogleSheet } = require("./google-sheet");
+const comLogger = require("./logging.js");
+const { RECEIPTEMAIL } = require("./constants.js");
 const {
   bankEmailReceived,
   donationFormReceived,
@@ -40,23 +42,31 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
-app.post("/google-sheet", (req, res) => {
+app.post("/google-sheet", async (req, res) => {
   const body = req.body;
 
   // Extract the data sent from google sheet into this userData object
   const userData = body;
-  console.log(userData);
-  // sendEmail(true, userData);
-  // return "email sent";
+  const donationID = body.donationID;
+  res.locals.ID = donationID;
 
-  return sendEmail(true, userData);
+  comLogger(
+    "info",
+    `Processing request from google sheet to send receipt for following user: ${JSON.stringify(
+      userData
+    )}`,
+    { ID: donationID }
+  );
+
+  await sendEmail({ operation: RECEIPTEMAIL, userData, donationID });
+
+  res.send(200);
 });
 
 const upload = multer();
 app.post("/bank-email", upload.any(), async (req, res) => {
   //This prints the email body
   const emailText = req.body.text;
-  console.log("Email text: " + emailText);
 
   const regex = /[0-9]*\.[0-9]+/i;
   let amount;
@@ -65,11 +75,15 @@ app.post("/bank-email", upload.any(), async (req, res) => {
     amount = parseFloat(emailText.match(regex)[0]);
   } else {
     throw new Error(
-      `Email received from bank did not match regex for donation amount: ${emailText}`
+      `Could not extract payment amount from bank email: ${emailText}`
     );
   }
 
-  console.log(`Received incoming donation amount ${amount}`);
+  comLogger(
+    "info",
+    `Received payment notification from bank for amount ${amount} \n Email Contents: ${emailText}`
+  );
+
   await bankEmailReceived(amount);
 
   res.send(200);
@@ -81,12 +95,23 @@ app.post("/bank-email", upload.any(), async (req, res) => {
 // When manual request required, display a modal explaining the situation
 
 app.post("/donation-form", async function (req, res) {
-  console.log("Received donation form submission: ", req.body);
   // Do we need server-side validation of request body?
   const formData = orderDataForGoogleSheet(req.body);
   const ID = randomString(5);
+  res.locals.ID = ID;
 
-  const receiptLogicPromise = donationFormReceived(formData, ID);
+  comLogger(
+    "info",
+    `Received donation form submission with reference ID ${ID} \n Request body: ${JSON.stringify(
+      formData
+    )}`,
+    { ID, human: true }
+  );
+
+  let receiptLogicPromise = Promise.resolve();
+  if (["paynow", "qrcode", "banktransfer"].includes(formData.type)) {
+    receiptLogicPromise = donationFormReceived(formData, ID);
+  }
   const googleSheetPromise = addToGoogleSheet(
     [
       ID,
@@ -101,9 +126,7 @@ app.post("/donation-form", async function (req, res) {
     qrUrl = await getQRUrl(formData.amount, ID, req);
   }
 
-  if (["paynow", "qrcode", "banktransfer"].includes(formData.type)) {
-    await receiptLogicPromise;
-  }
+  await receiptLogicPromise;
   await googleSheetPromise;
 
   res.json({ qrUrl, ID });
@@ -165,7 +188,35 @@ app.post("/donation-form", async function (req, res) {
 // });
 
 app.use(function (error, req, res, next) {
-  console.log("An error happended", error);
+  if (req.path === "/donation-form") {
+    const ID = res.locals.ID;
+    comLogger(
+      "error",
+      `Error during processing of donation form, with donation ID: ${ID} \n Error content: ${JSON.stringify(
+        error,
+        Object.getOwnPropertyNames(error)
+      )}`,
+      { ID, human: true }
+    );
+  } else if (req.path === "/bank-email") {
+    comLogger(
+      "error",
+      `Error during processing of bank email \n Error content: ${JSON.stringify(
+        error,
+        Object.getOwnPropertyNames(error)
+      )}`,
+      { human: true }
+    );
+  } else if (req.path === "/google-sheet") {
+    comLogger(
+      "error",
+      `Error during processing of webhook from google sheet \n Error content: ${JSON.stringify(
+        error,
+        Object.getOwnPropertyNames(error)
+      )}`,
+      { human: true }
+    );
+  }
   res.status(500).json({ error: error.message });
 });
 

@@ -7,6 +7,8 @@ const {
   TALLYSUCCESS,
 } = require("../constants.js");
 
+const comLogger = require("../logging.js");
+
 const sendReceipt = require("./sendReceipt.js");
 const requestManualCheck = require("./requestManualCheck.js");
 const donationFromOtherChannel = require("./donationFromOtherChannel.js");
@@ -23,13 +25,9 @@ exports.donationFormReceived = async function (userData, ID) {
 
   // Need to catch errors explicitly here because queueIntentMutex is a separate promise that isn't returned to any express routes.
   // Failed promises won't use the express error handler.
-  queueIntentMutex = queueIntentMutex
-    .then(() => {
-      return queueIntent(userData.amount, ID);
-    })
-    .catch((e) => {
-      console.log("Donation Intent Queue Error: ", e);
-    });
+  queueIntentMutex = queueIntentMutex.then(() => {
+    return queueIntent(userData.amount, ID);
+  });
 };
 
 exports.bankEmailReceived = async function (amount) {
@@ -41,9 +39,14 @@ exports.bankEmailReceived = async function (amount) {
   const amountExists = await redis.exists(amount);
 
   if (!amountExists) {
-    console.log(
-      `Since there are no ongoing intents, incoming donation amount ${amount} has been classified as other channel`
+    comLogger(
+      "warn",
+      `Since there are no ongoing donation intents, incoming donation amount ${amount} has been classified as other channel`,
+      {
+        human: true,
+      }
     );
+
     return donationFromOtherChannel(amount);
     //flag as donation from channel other than website donation form (should retrun a promise)
   } else {
@@ -77,42 +80,58 @@ async function queueIntent(amount, ID) {
 
   // No special reason for using the "pending" property - just want to see if the hash for this particular
   // donation amount exists
-  const result = await redis.hexists(amount, "pending");
+  try {
+    const result = await redis.hexists(amount, "pending");
 
-  if (result === 0) {
-    console.log(
-      `No donation intent for amount ${amount} exists currently - adding new intent and starting timer`
+    if (result === 0) {
+      comLogger(
+        "info",
+        `No donation intent for amount ${amount} exists currently - adding new intent and starting timer`,
+        { ID }
+      );
+
+      await redis
+        .multi()
+        .hmset(amount, {
+          pending: 1,
+          confirmed: 0,
+        })
+        .lpush("donors" + amount, [ID])
+        .exec();
+
+      const timeoutId = setTimeout(tallyAmounts, 1 * 30 * 1000, amount);
+      timerList[amount] = timeoutId;
+    } else {
+      comLogger(
+        "info",
+        `Donation intent for amount ${amount} exists currently - incrementing pending counter by 1 and restarting timer`,
+        { ID }
+      );
+
+      await redis
+        .multi()
+        .hincrby(amount, "pending", 1)
+        .lpush("donors" + amount, [ID])
+        .exec();
+
+      clearTimeout(timerList[amount]);
+      timerList[amount] = setTimeout(tallyAmounts, 1 * 30 * 1000, amount);
+    }
+  } catch (e) {
+    comLogger(
+      "error",
+      `Error while processing donation intent in queueIntent: ${JSON.stringify(
+        e,
+        Object.getOwnPropertyNames(e)
+      )}`,
+      { ID }
     );
-
-    await redis
-      .multi()
-      .hmset(amount, {
-        pending: 1,
-        confirmed: 0,
-      })
-      .lpush("donors" + amount, [ID])
-      .exec();
-
-    const timeoutId = setTimeout(tallyAmounts, 5 * 60 * 1000, amount);
-    timerList[amount] = timeoutId;
-  } else {
-    console.log(
-      `Donation intent for amount ${amount} exists currently - incrementing pending counter by 1 and restarting timer`
-    );
-
-    await redis
-      .multi()
-      .hincrby(amount, "pending", 1)
-      .lpush("donors" + amount, [ID])
-      .exec();
-
-    clearTimeout(timerList[amount]);
-    timerList[amount] = setTimeout(tallyAmounts, 5 * 60 * 1000, amount);
   }
 }
 
+// Remember! Logging for tallyAmounts errors
 function tallyAmounts(amount) {
-  console.log("Attempting to tally amount " + amount);
+  comLogger("info", `Attempting to tally amount ${amount}`);
   const tallyPromise = redis
     .multi()
     .hgetall(amount)
@@ -148,7 +167,6 @@ function tallyAmounts(amount) {
           // intents. In that case we don't know which user is the one that didn't donate and should be shown the "expired, try again"
           // notification, so we need to send out the same messasge to all users that there was an overlap and that we will soon be
           // sending a manual receipt
-          console.log("hgetall : ", hgetallRes);
           const tallyResult =
             hgetallRes.pending === "1"
               ? ONEPENDINGANDNOCONFIRMED
@@ -160,18 +178,28 @@ function tallyAmounts(amount) {
       return actionsPromises.then(([tallyResult, lrangeRes]) => {
         //This sends a signal to the donation form where the user is waiting for his payment to be confirmed.
         // Emit different thing based on outcome of bankEmailReceived
+        comLogger(
+          "info",
+          `Emitting the following tally result to all current clients: ${tallyResult} with donation IDs ${lrangeRes}`
+        );
         const io = require("../server.js");
         io.emit("update", tallyResult);
 
         // Ideally the below deletion is done as soon as possible to prevent cases where tallies are finished but deletion
         // hasn't completed, causing errors in subsequent donation intents
         // Delete redis ID information as well
-
-        return redis.del(
-          "donors" + amount,
-          amount,
-          ...lrangeRes.map((ID) => "ID" + ID)
-        );
+        return redis
+          .del("donors" + amount, amount, ...lrangeRes.map((ID) => "ID" + ID))
+          .catch((e) => {
+            comLogger(
+              "error",
+              `Something went wrong while tallying donation submissions of amount ${amount} and donation IDs ${lrangeRes} \n Error: ${JSON.stringify(
+                e,
+                Object.getOwnPropertyNames(e)
+              )}`,
+              { human: true }
+            );
+          });
       });
     });
   // promiseCareTaker exists so that receipt.test.js can mock promiseCareTaker and receive tallyPromise so that it can queue tests

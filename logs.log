@@ -1,0 +1,703 @@
+{
+  message: 'Received donation form submission with reference ID unstq',
+  level: 'verbose',
+  timestamp: '2022-07-19T00:51:20.767Z'
+}
+{
+  ID: 'unstq',
+  obj: {
+    fullname: 'test',
+    email: 'test@test.test',
+    mobilenumber: '123',
+    project: 'Water Well',
+    type: 'paynow',
+    amount: 1,
+    chequenumber: '',
+    country: ''
+  },
+  level: 'info',
+  message: 'Received donation form submission',
+  timestamp: '2022-07-19T00:51:20.810Z'
+}
+{
+  ID: 'unstq',
+  obj: [
+    'unstq',
+    'test',
+    'test@test.test',
+    '123',
+    'Water Well',
+    'paynow',
+    1,
+    '',
+    '',
+    '19/07/2022, 8:51:20 am'
+  ],
+  level: 'info',
+  message: 'Adding the following row to Google Sheet: ',
+  timestamp: '2022-07-19T00:51:20.850Z'
+}
+{
+  ID: 'unstq',
+  level: 'info',
+  message: 'No donation intent for amount 1 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-19T00:51:20.881Z'
+}
+{
+  ID: 'jjwpc',
+  human: true,
+  level: 'info',
+  message: 'Received donation form submission with reference ID jjwpc \n' +
+    ' Request body: {"fullname":"test","email":"test@test.test","mobilenumber":"123","project":"Water Well","type":"paynow","amount":1,"chequenumber":"","country":""}',
+  timestamp: '2022-07-19T01:49:00.265Z'
+}
+{
+  ID: 'jjwpc',
+  human: true,
+  level: 'error',
+  message: 'Error during processing of donation form, with donation ID: jjwpc \n' +
+    ' Error content: {}',
+  timestamp: '2022-07-19T01:49:00.311Z'
+}
+{
+  ID: 'acglu',
+  human: true,
+  level: 'info',
+  message: 'Received donation form submission with reference ID acglu \n' +
+    ' Request body: {"fullname":"test","email":"test@test.test","mobilenumber":"123","project":"Water Well","type":"paynow","amount":1,"chequenumber":"","country":""}',
+  timestamp: '2022-07-19T01:54:36.026Z'
+}
+{
+  ID: 'acglu',
+  level: 'info',
+  message: 'Adding the following row to Google Sheet: ["acglu","test","test@test.test","123","Water Well","paynow",1,"","","19/07/2022, 9:54:36 am"]',
+  timestamp: '2022-07-19T01:54:36.060Z'
+}
+{
+  ID: 'acglu',
+  level: 'info',
+  message: 'Donation intent for amount 1 exists currently - incrementing pending counter by 1 and restarting timer',
+  timestamp: '2022-07-19T01:54:36.103Z'
+}
+{
+  ID: 'amvhk',
+  human: true,
+  level: 'error',
+  message: 'Error during processing of donation form, with donation ID: amvhk \n' +
+    ' Error content: "G"',
+  timestamp: '2022-07-19T01:59:33.543Z'
+}
+{
+  ID: 'yqinf',
+  human: true,
+  level: 'info',
+  message: 'Received donation form submission with reference ID yqinf \n' +
+    ' Request body: {"fullname":"test","email":"test@test.test","mobilenumber":"123","project":"Water Well","type":"paynow","amount":1,"chequenumber":"","country":""}',
+  timestamp: '2022-07-19T10:31:23.723Z'
+}
+{
+  ID: 'yqinf',
+  level: 'info',
+  message: 'Adding the following row to Google Sheet: ["yqinf","test","test@test.test","123","Water Well","paynow",1,"","","19/07/2022, 6:31:23 pm"]',
+  timestamp: '2022-07-19T10:31:23.761Z'
+}
+{
+  ID: 'yqinf',
+  level: 'info',
+  message: 'No donation intent for amount 1 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-19T10:31:23.822Z'
+}
+{
+  message: 'Attempting to tally amount 1',
+  level: 'info',
+  timestamp: '2022-07-19T10:36:23.926Z'
+}
+{
+  ID: 'yqinf',
+  level: 'info',
+  message: 'Sending manual request email for the following user: \n' +
+    ' {"fullname":"test","email":"test@test.test","mobilenumber":"123","project":"Water Well","type":"paynow","amount":1,"chequenumber":"","country":""}',
+  timestamp: '2022-07-19T10:36:23.934Z'
+}
+{
+  ID: 'yqinf',
+  level: 'info',
+  message: 'Updated donation confirmed column for donation ID yqinf to N',
+  timestamp: '2022-07-19T10:36:27.121Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: one pending and no confirmed with donation IDs yqinf',
+  level: 'info',
+  timestamp: '2022-07-19T10:36:27.123Z'
+}
+{
+  ID: 'hhkxt',
+  human: true,
+  level: 'info',
+  message: 'Received donation form submission with reference ID hhkxt \n' +
+    ' Request body: {"fullname":"test","email":"test@test.test","mobilenumber":"123","project":"Water Well","type":"paynow","amount":1,"chequenumber":"","country":""}',
+  timestamp: '2022-07-19T10:43:11.751Z'
+}
+{
+  ID: 'hhkxt',
+  level: 'info',
+  message: 'Adding the following row to Google Sheet: ["hhkxt","test","test@test.test","123","Water Well","paynow",1,"","","19/07/2022, 6:43:11 pm"]',
+  timestamp: '2022-07-19T10:43:11.794Z'
+}
+{
+  ID: 'hhkxt',
+  level: 'info',
+  message: 'No donation intent for amount 1 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-19T10:43:11.824Z'
+}
+{
+  human: true,
+  level: 'error',
+  message: 'Error during processing of bank email \n Error content: {}',
+  timestamp: '2022-07-19T10:43:47.610Z'
+}
+{
+  message: 'Attempting to tally amount 1',
+  level: 'info',
+  timestamp: '2022-07-19T10:48:11.926Z'
+}
+{
+  ID: 'hhkxt',
+  level: 'info',
+  message: 'Sending manual request email for the following user: \n' +
+    ' {"fullname":"test","email":"test@test.test","mobilenumber":"123","project":"Water Well","type":"paynow","amount":1,"chequenumber":"","country":""}',
+  timestamp: '2022-07-19T10:48:11.931Z'
+}
+{
+  ID: 'hhkxt',
+  level: 'info',
+  message: 'Updated donation confirmed column for donation ID hhkxt to N',
+  timestamp: '2022-07-19T10:48:15.367Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: one pending and no confirmed with donation IDs hhkxt',
+  level: 'info',
+  timestamp: '2022-07-19T10:48:15.369Z'
+}
+{
+  ID: 'uehgh',
+  human: true,
+  level: 'info',
+  message: 'Received donation form submission with reference ID uehgh \n' +
+    ' Request body: {"fullname":"test","email":"test@test.test","mobilenumber":"123","project":"Water Well","type":"paynow","amount":1,"chequenumber":"","country":""}',
+  timestamp: '2022-07-19T10:50:37.203Z'
+}
+{
+  ID: 'uehgh',
+  level: 'info',
+  message: 'Adding the following row to Google Sheet: ["uehgh","test","test@test.test","123","Water Well","paynow",1,"","","19/07/2022, 6:50:37 pm"]',
+  timestamp: '2022-07-19T10:50:37.250Z'
+}
+{
+  ID: 'uehgh',
+  level: 'info',
+  message: 'No donation intent for amount 1 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-19T10:50:37.273Z'
+}
+{
+  human: true,
+  level: 'error',
+  message: 'Error during processing of bank email \n' +
+    ' Error content: {"stack":"Error: Could not extract payment amount from bank email: undefined\\n    at /root/gvh-donation-back-end/server.js:77:11\\n    at Layer.handleRequest (/root/gvh-donation-back-end/node_modules/router/lib/layer.js:101:15)\\n    at next (/root/gvh-donation-back-end/node_modules/router/lib/route.js:142:13)\\n    at multerMiddleware (/root/gvh-donation-back-end/node_modules/multer/lib/make-middleware.js:13:41)\\n    at Layer.handleRequest (/root/gvh-donation-back-end/node_modules/router/lib/layer.js:101:15)\\n    at next (/root/gvh-donation-back-end/node_modules/router/lib/route.js:142:13)\\n    at Route.dispatch (/root/gvh-donation-back-end/node_modules/router/lib/route.js:107:3)\\n    at handle (/root/gvh-donation-back-end/node_modules/router/index.js:421:11)\\n    at Layer.handleRequest (/root/gvh-donation-back-end/node_modules/router/lib/layer.js:101:15)\\n    at /root/gvh-donation-back-end/node_modules/router/index.js:288:22","message":"Could not extract payment amount from bank email: undefined"}',
+  timestamp: '2022-07-19T10:50:50.126Z'
+}
+{
+  message: 'Attempting to tally amount 1',
+  level: 'info',
+  timestamp: '2022-07-19T10:55:37.382Z'
+}
+{
+  ID: 'uehgh',
+  level: 'info',
+  message: 'Sending manual request email for the following user: \n' +
+    ' {"fullname":"test","email":"test@test.test","mobilenumber":"123","project":"Water Well","type":"paynow","amount":1,"chequenumber":"","country":""}',
+  timestamp: '2022-07-19T10:55:37.385Z'
+}
+{
+  ID: 'uehgh',
+  level: 'info',
+  message: 'Updated donation confirmed column for donation ID uehgh to N',
+  timestamp: '2022-07-19T10:55:41.006Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: one pending and no confirmed with donation IDs uehgh',
+  level: 'info',
+  timestamp: '2022-07-19T10:55:41.007Z'
+}
+{
+  ID: 'aajrm',
+  human: true,
+  level: 'info',
+  message: 'Received donation form submission with reference ID aajrm \n' +
+    ' Request body: {"fullname":"Kim Test 1","email":"kimyoungjin1001@gmail.com","mobilenumber":"1","project":"Education","type":"paynow","amount":1,"chequenumber":"","country":""}',
+  timestamp: '2022-07-20T05:17:20.710Z'
+}
+{
+  ID: 'aajrm',
+  level: 'info',
+  message: 'Adding the following row to Google Sheet: ["aajrm","Kim Test 1","kimyoungjin1001@gmail.com","1","Education","paynow",1,"","","20/07/2022, 1:17:20 pm"]',
+  timestamp: '2022-07-20T05:17:20.748Z'
+}
+{
+  ID: 'aajrm',
+  level: 'info',
+  message: 'No donation intent for amount 1 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-20T05:17:20.779Z'
+}
+{
+  message: 'Attempting to tally amount 1',
+  level: 'info',
+  timestamp: '2022-07-20T05:17:50.785Z'
+}
+{
+  ID: 'aajrm',
+  level: 'info',
+  message: 'Sending manual request email for the following user: \n' +
+    ' {"fullname":"Kim Test 1","email":"kimyoungjin1001@gmail.com","mobilenumber":"1","project":"Education","type":"paynow","amount":1,"chequenumber":"","country":""}',
+  timestamp: '2022-07-20T05:17:50.789Z'
+}
+{
+  ID: 'aajrm',
+  level: 'info',
+  message: 'Updated donation confirmed column for donation ID aajrm to N',
+  timestamp: '2022-07-20T05:17:53.752Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: one pending and no confirmed with donation IDs aajrm',
+  level: 'info',
+  timestamp: '2022-07-20T05:17:53.754Z'
+}
+{
+  ID: undefined,
+  level: 'info',
+  message: 'Processing request from google sheet to send receipt for following user: {"amount":"1.0","project":"Education","fullname":"Kim Test 1","email":"kimyoungjin1001@gmail.com"}',
+  timestamp: '2022-07-20T05:20:05.845Z'
+}
+{
+  ID: undefined,
+  level: 'info',
+  message: 'Sending receipt to the following user: \n' +
+    ' {"amount":"1.0","project":"Education","fullname":"Kim Test 1","email":"kimyoungjin1001@gmail.com"}',
+  timestamp: '2022-07-20T05:20:05.849Z'
+}
+{
+  ID: 'nzwbw',
+  human: true,
+  level: 'info',
+  message: 'Received donation form submission with reference ID nzwbw \n' +
+    ' Request body: {"fullname":"Kim Test 2","email":"kimyoungjin1001@gmail.com","mobilenumber":"2","project":"Rice for Hope","type":"qrcode","amount":1,"chequenumber":"","country":""}',
+  timestamp: '2022-07-20T05:22:26.280Z'
+}
+{
+  ID: 'nzwbw',
+  level: 'info',
+  message: 'Adding the following row to Google Sheet: ["nzwbw","Kim Test 2","kimyoungjin1001@gmail.com","2","Rice for Hope","qrcode",1,"","","20/07/2022, 1:22:26 pm"]',
+  timestamp: '2022-07-20T05:22:26.287Z'
+}
+{
+  ID: 'nzwbw',
+  level: 'info',
+  message: 'No donation intent for amount 1 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-20T05:22:26.674Z'
+}
+{
+  human: true,
+  level: 'error',
+  message: 'Error during processing of bank email \n' +
+    ' Error content: {"stack":"Error: Could not extract payment amount from bank email: undefined\\n    at /root/gvh-donation-back-end/server.js:77:11\\n    at Layer.handleRequest (/root/gvh-donation-back-end/node_modules/router/lib/layer.js:101:15)\\n    at next (/root/gvh-donation-back-end/node_modules/router/lib/route.js:142:13)\\n    at multerMiddleware (/root/gvh-donation-back-end/node_modules/multer/lib/make-middleware.js:13:41)\\n    at Layer.handleRequest (/root/gvh-donation-back-end/node_modules/router/lib/layer.js:101:15)\\n    at next (/root/gvh-donation-back-end/node_modules/router/lib/route.js:142:13)\\n    at Route.dispatch (/root/gvh-donation-back-end/node_modules/router/lib/route.js:107:3)\\n    at handle (/root/gvh-donation-back-end/node_modules/router/index.js:421:11)\\n    at Layer.handleRequest (/root/gvh-donation-back-end/node_modules/router/lib/layer.js:101:15)\\n    at /root/gvh-donation-back-end/node_modules/router/index.js:288:22","message":"Could not extract payment amount from bank email: undefined"}',
+  timestamp: '2022-07-20T05:22:38.296Z'
+}
+{
+  message: 'Attempting to tally amount 1',
+  level: 'info',
+  timestamp: '2022-07-20T05:22:56.680Z'
+}
+{
+  ID: 'nzwbw',
+  level: 'info',
+  message: 'Sending manual request email for the following user: \n' +
+    ' {"fullname":"Kim Test 2","email":"kimyoungjin1001@gmail.com","mobilenumber":"2","project":"Rice for Hope","type":"qrcode","amount":1,"chequenumber":"","country":""}',
+  timestamp: '2022-07-20T05:22:56.683Z'
+}
+{
+  ID: 'nzwbw',
+  level: 'info',
+  message: 'Updated donation confirmed column for donation ID nzwbw to N',
+  timestamp: '2022-07-20T05:22:59.769Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: one pending and no confirmed with donation IDs nzwbw',
+  level: 'info',
+  timestamp: '2022-07-20T05:22:59.771Z'
+}
+{
+  ID: 'amtwx',
+  human: true,
+  level: 'info',
+  message: 'Received donation form submission with reference ID amtwx \n' +
+    ' Request body: {"fullname":"Kim Test 2","email":"kimyoungjin1001@gmail.comq","mobilenumber":"2","project":"Rice for Hope","type":"paynow","amount":1,"chequenumber":"","country":""}',
+  timestamp: '2022-07-20T05:25:29.925Z'
+}
+{
+  ID: 'amtwx',
+  level: 'info',
+  message: 'Adding the following row to Google Sheet: ["amtwx","Kim Test 2","kimyoungjin1001@gmail.comq","2","Rice for Hope","paynow",1,"","","20/07/2022, 1:25:29 pm"]',
+  timestamp: '2022-07-20T05:25:29.927Z'
+}
+{
+  ID: 'amtwx',
+  level: 'info',
+  message: 'No donation intent for amount 1 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-20T05:25:29.943Z'
+}
+{
+  message: 'Received payment notification from bank for amount 1 \n' +
+    ' Email Contents: Please be advised that the below transaction has been Processed. You may login UOB Infinity to review the details. \n' +
+    ' Transaction : Inward Remittance BIB Reference: IR22060164074051 Bank Reference: 586L222 20220629 Currency and Amount: SGD 1.00 This is a system-generated mail. Please do not reply to this message.',
+  level: 'info',
+  timestamp: '2022-07-20T05:25:45.051Z'
+}
+{
+  message: 'Attempting to tally amount 1',
+  level: 'info',
+  timestamp: '2022-07-20T05:25:45.054Z'
+}
+{
+  ID: 'amtwx',
+  level: 'info',
+  message: 'Sending receipt to the following user: \n' +
+    ' {"fullname":"Kim Test 2","email":"kimyoungjin1001@gmail.comq","mobilenumber":"2","project":"Rice for Hope","type":"paynow","amount":1,"chequenumber":"","country":""}',
+  timestamp: '2022-07-20T05:25:45.060Z'
+}
+{
+  ID: 'amtwx',
+  level: 'info',
+  message: 'Updated donation confirmed column for donation ID amtwx to Y',
+  timestamp: '2022-07-20T05:25:48.038Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: tally success with donation IDs amtwx',
+  level: 'info',
+  timestamp: '2022-07-20T05:25:48.040Z'
+}
+{
+  message: 'Received payment notification from bank for amount 1 \n' +
+    ' Email Contents: Please be advised that the below transaction has been Processed. You may login UOB Infinity to review the details. \n' +
+    ' Transaction : Inward Remittance BIB Reference: IR22060164074051 Bank Reference: 586L222 20220629 Currency and Amount: SGD 1.00 This is a system-generated mail. Please do not reply to this message.',
+  level: 'info',
+  timestamp: '2022-07-20T05:27:45.362Z'
+}
+{
+  human: true,
+  level: 'error',
+  message: 'Error during processing of bank email \n' +
+    ' Error content: {"stack":"TypeError: humanLogger[level] is not a function\\n    at comLogger (/root/gvh-donation-back-end/logging.js:71:21)\\n    at exports.bankEmailReceived (/root/gvh-donation-back-end/receipt/receipt.js:42:5)\\n    at processTicksAndRejections (node:internal/process/task_queues:96:5)\\n    at async /root/gvh-donation-back-end/server.js:87:3","message":"humanLogger[level] is not a function"}',
+  timestamp: '2022-07-20T05:27:45.372Z'
+}
+{
+  message: 'Received payment notification from bank for amount 1 \n' +
+    ' Email Contents: Please be advised that the below transaction has been Processed. You may login UOB Infinity to review the details. \n' +
+    ' Transaction : Inward Remittance BIB Reference: IR22060164074051 Bank Reference: 586L222 20220629 Currency and Amount: SGD 1.00 This is a system-generated mail. Please do not reply to this message.',
+  level: 'info',
+  timestamp: '2022-07-20T05:32:27.657Z'
+}
+{
+  human: true,
+  level: 'warn',
+  message: 'Since there are no ongoing donation intents, incoming donation amount 1 has been classified as other channel',
+  timestamp: '2022-07-20T05:32:27.694Z'
+}
+{
+  human: true,
+  level: 'info',
+  message: 'Sending unknown source payment email for the following donation amount: 1',
+  timestamp: '2022-07-20T05:32:27.695Z'
+}
+{
+  ID: 'soecq',
+  human: true,
+  level: 'info',
+  message: 'Received donation form submission with reference ID soecq \n' +
+    ' Request body: {"fullname":"Kim A","email":"kimyoungjin1001@gmail.com","mobilenumber":"2","project":"Rice for Hope","type":"paynow","amount":1,"chequenumber":"","country":""}',
+  timestamp: '2022-07-20T05:34:45.044Z'
+}
+{
+  ID: 'soecq',
+  level: 'info',
+  message: 'Adding the following row to Google Sheet: ["soecq","Kim A","kimyoungjin1001@gmail.com","2","Rice for Hope","paynow",1,"","","20/07/2022, 1:34:45 pm"]',
+  timestamp: '2022-07-20T05:34:45.069Z'
+}
+{
+  ID: 'soecq',
+  level: 'info',
+  message: 'No donation intent for amount 1 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-20T05:34:45.101Z'
+}
+{
+  ID: 'cmfxl',
+  human: true,
+  level: 'info',
+  message: 'Received donation form submission with reference ID cmfxl \n' +
+    ' Request body: {"fullname":"Kim B","email":"kimyoungjin1001@gmail.com","mobilenumber":"1","project":"Water Well","type":"paynow","amount":1,"chequenumber":"","country":""}',
+  timestamp: '2022-07-20T05:34:47.433Z'
+}
+{
+  ID: 'cmfxl',
+  level: 'info',
+  message: 'Adding the following row to Google Sheet: ["cmfxl","Kim B","kimyoungjin1001@gmail.com","1","Water Well","paynow",1,"","","20/07/2022, 1:34:47 pm"]',
+  timestamp: '2022-07-20T05:34:47.436Z'
+}
+{
+  ID: 'cmfxl',
+  level: 'info',
+  message: 'Donation intent for amount 1 exists currently - incrementing pending counter by 1 and restarting timer',
+  timestamp: '2022-07-20T05:34:47.455Z'
+}
+{
+  message: 'Received payment notification from bank for amount 1 \n' +
+    ' Email Contents: Please be advised that the below transaction has been Processed. You may login UOB Infinity to review the details. \n' +
+    ' Transaction : Inward Remittance BIB Reference: IR22060164074051 Bank Reference: 586L222 20220629 Currency and Amount: SGD 1.00 This is a system-generated mail. Please do not reply to this message.',
+  level: 'info',
+  timestamp: '2022-07-20T05:34:55.472Z'
+}
+{
+  message: 'Received payment notification from bank for amount 1 \n' +
+    ' Email Contents: Please be advised that the below transaction has been Processed. You may login UOB Infinity to review the details. \n' +
+    ' Transaction : Inward Remittance BIB Reference: IR22060164074051 Bank Reference: 586L222 20220629 Currency and Amount: SGD 1.00 This is a system-generated mail. Please do not reply to this message.',
+  level: 'info',
+  timestamp: '2022-07-20T05:34:56.980Z'
+}
+{
+  message: 'Attempting to tally amount 1',
+  level: 'info',
+  timestamp: '2022-07-20T05:34:56.983Z'
+}
+{
+  ID: 'cmfxl',
+  human: true,
+  level: 'info',
+  message: 'Sending receipt to the following user: \n' +
+    ' {"fullname":"Kim B","email":"kimyoungjin1001@gmail.com","mobilenumber":"1","project":"Water Well","type":"paynow","amount":1,"chequenumber":"","country":""}',
+  timestamp: '2022-07-20T05:34:56.989Z'
+}
+{
+  ID: 'soecq',
+  human: true,
+  level: 'info',
+  message: 'Sending receipt to the following user: \n' +
+    ' {"fullname":"Kim A","email":"kimyoungjin1001@gmail.com","mobilenumber":"2","project":"Rice for Hope","type":"paynow","amount":1,"chequenumber":"","country":""}',
+  timestamp: '2022-07-20T05:34:57.025Z'
+}
+{
+  ID: 'cmfxl',
+  level: 'info',
+  message: 'Updated donation confirmed column for donation ID cmfxl to Y',
+  timestamp: '2022-07-20T05:34:59.968Z'
+}
+{
+  ID: 'soecq',
+  level: 'info',
+  message: 'Updated donation confirmed column for donation ID soecq to Y',
+  timestamp: '2022-07-20T05:35:00.059Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: tally success with donation IDs cmfxl,soecq',
+  level: 'info',
+  timestamp: '2022-07-20T05:35:00.060Z'
+}
+{
+  ID: 'kfzju',
+  human: true,
+  level: 'info',
+  message: 'Received donation form submission with reference ID kfzju \n' +
+    ' Request body: {"fullname":"Kim C","email":"kimyoungjin1001@gmail.com","mobilenumber":"1","project":"School Improvement","type":"qrcode","amount":1,"chequenumber":"","country":""}',
+  timestamp: '2022-07-20T05:37:30.020Z'
+}
+{
+  ID: 'kfzju',
+  level: 'info',
+  message: 'Adding the following row to Google Sheet: ["kfzju","Kim C","kimyoungjin1001@gmail.com","1","School Improvement","qrcode",1,"","","20/07/2022, 1:37:30 pm"]',
+  timestamp: '2022-07-20T05:37:30.021Z'
+}
+{
+  ID: 'kfzju',
+  level: 'info',
+  message: 'No donation intent for amount 1 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-20T05:37:30.396Z'
+}
+{
+  ID: 'vvssb',
+  human: true,
+  level: 'info',
+  message: 'Received donation form submission with reference ID vvssb \n' +
+    ' Request body: {"fullname":"Kim D","email":"kimyoungjin1001@gmail.com","mobilenumber":"1","project":"Water Well","type":"qrcode","amount":1,"chequenumber":"","country":""}',
+  timestamp: '2022-07-20T05:37:45.697Z'
+}
+{
+  ID: 'vvssb',
+  level: 'info',
+  message: 'Adding the following row to Google Sheet: ["vvssb","Kim D","kimyoungjin1001@gmail.com","1","Water Well","qrcode",1,"","","20/07/2022, 1:37:45 pm"]',
+  timestamp: '2022-07-20T05:37:45.699Z'
+}
+{
+  ID: 'vvssb',
+  level: 'info',
+  message: 'Donation intent for amount 1 exists currently - incrementing pending counter by 1 and restarting timer',
+  timestamp: '2022-07-20T05:37:45.830Z'
+}
+{
+  message: 'Received payment notification from bank for amount 1 \n' +
+    ' Email Contents: Please be advised that the below transaction has been Processed. You may login UOB Infinity to review the details. \n' +
+    ' Transaction : Inward Remittance BIB Reference: IR22060164074051 Bank Reference: 586L222 20220629 Currency and Amount: SGD 1.00 This is a system-generated mail. Please do not reply to this message.',
+  level: 'info',
+  timestamp: '2022-07-20T05:37:56.804Z'
+}
+{
+  message: 'Received payment notification from bank for amount 1 \n' +
+    ' Email Contents: Please be advised that the below transaction has been Processed. You may login UOB Infinity to review the details. \n' +
+    ' Transaction : Inward Remittance BIB Reference: IR22060164074051 Bank Reference: 586L222 20220629 Currency and Amount: SGD 1.00 This is a system-generated mail. Please do not reply to this message.',
+  level: 'info',
+  timestamp: '2022-07-20T05:38:04.368Z'
+}
+{
+  message: 'Attempting to tally amount 1',
+  level: 'info',
+  timestamp: '2022-07-20T05:38:04.371Z'
+}
+{
+  ID: 'vvssb',
+  human: true,
+  level: 'info',
+  message: 'Sending receipt to the following user: \n' +
+    ' {"fullname":"Kim D","email":"kimyoungjin1001@gmail.com","mobilenumber":"1","project":"Water Well","type":"qrcode","amount":1,"chequenumber":"","country":""}',
+  timestamp: '2022-07-20T05:38:04.380Z'
+}
+{
+  ID: 'kfzju',
+  human: true,
+  level: 'info',
+  message: 'Sending receipt to the following user: \n' +
+    ' {"fullname":"Kim C","email":"kimyoungjin1001@gmail.com","mobilenumber":"1","project":"School Improvement","type":"qrcode","amount":1,"chequenumber":"","country":""}',
+  timestamp: '2022-07-20T05:38:04.397Z'
+}
+{
+  ID: 'vvssb',
+  level: 'info',
+  message: 'Updated donation confirmed column for donation ID vvssb to Y',
+  timestamp: '2022-07-20T05:38:07.547Z'
+}
+{
+  ID: 'kfzju',
+  level: 'info',
+  message: 'Updated donation confirmed column for donation ID kfzju to Y',
+  timestamp: '2022-07-20T05:38:07.555Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: tally success with donation IDs vvssb,kfzju',
+  level: 'info',
+  timestamp: '2022-07-20T05:38:07.557Z'
+}
+{
+  ID: 'krygg',
+  human: true,
+  level: 'info',
+  message: 'Received donation form submission with reference ID krygg \n' +
+    ' Request body: {"fullname":"Kim Man A","email":"kimyoungjin1001@gmail.com","mobilenumber":"1","project":"School Improvement","type":"paynow","amount":1,"chequenumber":"","country":""}',
+  timestamp: '2022-07-20T05:40:10.674Z'
+}
+{
+  ID: 'krygg',
+  level: 'info',
+  message: 'Adding the following row to Google Sheet: ["krygg","Kim Man A","kimyoungjin1001@gmail.com","1","School Improvement","paynow",1,"","","20/07/2022, 1:40:10 pm"]',
+  timestamp: '2022-07-20T05:40:10.677Z'
+}
+{
+  ID: 'krygg',
+  level: 'info',
+  message: 'No donation intent for amount 1 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-20T05:40:10.692Z'
+}
+{
+  ID: 'xahty',
+  human: true,
+  level: 'info',
+  message: 'Received donation form submission with reference ID xahty \n' +
+    ' Request body: {"fullname":"Kim Man B","email":"kimyoungjin1001@gmail.com","mobilenumber":"1","project":"COVID Rice Relief","type":"paynow","amount":1,"chequenumber":"","country":""}',
+  timestamp: '2022-07-20T05:40:21.503Z'
+}
+{
+  ID: 'xahty',
+  level: 'info',
+  message: 'Adding the following row to Google Sheet: ["xahty","Kim Man B","kimyoungjin1001@gmail.com","1","COVID Rice Relief","paynow",1,"","","20/07/2022, 1:40:21 pm"]',
+  timestamp: '2022-07-20T05:40:21.505Z'
+}
+{
+  ID: 'xahty',
+  level: 'info',
+  message: 'Donation intent for amount 1 exists currently - incrementing pending counter by 1 and restarting timer',
+  timestamp: '2022-07-20T05:40:21.521Z'
+}
+{
+  message: 'Received payment notification from bank for amount 1 \n' +
+    ' Email Contents: Please be advised that the below transaction has been Processed. You may login UOB Infinity to review the details. \n' +
+    ' Transaction : Inward Remittance BIB Reference: IR22060164074051 Bank Reference: 586L222 20220629 Currency and Amount: SGD 1.00 This is a system-generated mail. Please do not reply to this message.',
+  level: 'info',
+  timestamp: '2022-07-20T05:40:37.294Z'
+}
+{
+  message: 'Attempting to tally amount 1',
+  level: 'info',
+  timestamp: '2022-07-20T05:40:51.525Z'
+}
+{
+  ID: 'xahty',
+  human: true,
+  level: 'info',
+  message: 'Sending manual request email for the following user: \n' +
+    ' {"fullname":"Kim Man B","email":"kimyoungjin1001@gmail.com","mobilenumber":"1","project":"COVID Rice Relief","type":"paynow","amount":1,"chequenumber":"","country":""}',
+  timestamp: '2022-07-20T05:40:51.528Z'
+}
+{
+  ID: 'krygg',
+  human: true,
+  level: 'info',
+  message: 'Sending manual request email for the following user: \n' +
+    ' {"fullname":"Kim Man A","email":"kimyoungjin1001@gmail.com","mobilenumber":"1","project":"School Improvement","type":"paynow","amount":1,"chequenumber":"","country":""}',
+  timestamp: '2022-07-20T05:40:51.546Z'
+}
+{
+  ID: 'xahty',
+  level: 'info',
+  message: 'Updated donation confirmed column for donation ID xahty to N',
+  timestamp: '2022-07-20T05:40:54.656Z'
+}
+{
+  ID: 'krygg',
+  level: 'info',
+  message: 'Updated donation confirmed column for donation ID krygg to N',
+  timestamp: '2022-07-20T05:40:54.678Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: more pending than confirmed with donation IDs xahty,krygg',
+  level: 'info',
+  timestamp: '2022-07-20T05:40:54.685Z'
+}
+{
+  ID: undefined,
+  level: 'info',
+  message: 'Processing request from google sheet to send receipt for following user: {"amount":"1.0","project":"COVID Rice Relief","fullname":"Kim Man B","email":"kimyoungjin1001@gmail.com"}',
+  timestamp: '2022-07-20T05:41:48.579Z'
+}
+{
+  ID: undefined,
+  human: true,
+  level: 'info',
+  message: 'Sending receipt to the following user: \n' +
+    ' {"amount":"1.0","project":"COVID Rice Relief","fullname":"Kim Man B","email":"kimyoungjin1001@gmail.com"}',
+  timestamp: '2022-07-20T05:41:48.586Z'
+}

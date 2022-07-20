@@ -1,13 +1,29 @@
 const nunjucks = require("nunjucks");
+const comLogger = require("./logging.js");
+const {
+  RECEIPTEMAIL,
+  OTHERCHANNELEMAIL,
+  MANUALREQEMAIL,
+} = require("./constants.js");
 require("dotenv").config();
 
 const sgMail = require("@sendgrid/mail");
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 // We need to standardize naming of properties across google sheet and code to avoid bugs and cumberson name changes
-module.exports = async function sendEmail(sendReceipt, data) {
-  if (sendReceipt) {
-    console.log(`Receipt is being sent to ${data.fullname}`);
+module.exports = async function sendEmail({
+  operation,
+  userData,
+  userData: { fullname, amount, project, email },
+  donationID,
+  emailSubject,
+}) {
+  if (operation === RECEIPTEMAIL) {
+    comLogger(
+      "info",
+      `Sending receipt to the following user: \n ${JSON.stringify(userData)}`,
+      { ID: donationID, human: true }
+    );
 
     const date = new Date();
     const datestyle = {
@@ -17,26 +33,44 @@ module.exports = async function sendEmail(sendReceipt, data) {
     };
     const emailHtml = nunjucks.render("email/receipt-email.html", {
       date: date.toLocaleDateString("en", datestyle),
-      fullname: data.fullname,
-      amount: data.amount,
-      project: data.project,
+      fullname: fullname,
+      amount: amount,
+      project: project,
     });
     const msg = {
-      to: data.email,
+      to: email,
       from: "globalvillageforhope@gvh.sg",
       subject: "Contribution receipt",
       html: emailHtml,
     };
-    console.log("email sent");
     return sgMail.send(msg);
-  } else {
+  } else if (operation === MANUALREQEMAIL) {
+    comLogger(
+      "info",
+      `Sending manual request email for the following user: \n ${JSON.stringify(
+        userData
+      )}`,
+      { ID: donationID, human: true }
+    );
     const msg = {
       to: "gvhfinance@gmail.com",
       from: "globalvillageforhope@gvh.sg",
-      subject: data.subject,
-      text: JSON.stringify(data),
+      subject: emailSubject,
+      text: JSON.stringify(userData),
     };
-    console.log("Manual request/donation from other source sent");
+    return sgMail.send(msg);
+  } else if (operation === OTHERCHANNELEMAIL) {
+    comLogger(
+      "info",
+      `Sending unknown source payment email for the following donation amount: ${amount}`,
+      { human: true }
+    );
+    const msg = {
+      to: "gvhfinance@gmail.com",
+      from: "globalvillageforhope@gvh.sg",
+      subject: emailSubject,
+      text: `Payment amount: ${amount}`,
+    };
     return sgMail.send(msg);
   }
 };
