@@ -31,7 +31,7 @@ const server = http.createServer(app);
 //CORS origin needs to be explicitly defined since client is on a different port
 const io = new Server(server, {
   cors: {
-    origin: process.env.CLIENT_ORIGIN,
+    origin: [process.env.CLIENT_ORIGIN, "https://gvh.sg"],
     methods: ["GET", "POST"],
   },
 });
