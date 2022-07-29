@@ -21,18 +21,13 @@ sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 let port = process.env.PORT;
 
-if (port == null || port == "") {
-  port = 8000;
-}
-
 const app = express();
 const server = http.createServer(app);
 
 //CORS origin needs to be explicitly defined since client is on a different port
 const io = new Server(server, {
   cors: {
-    origin: [process.env.CLIENT_ORIGIN, "https://gvh.sg"],
-    methods: ["GET", "POST"],
+    origin: process.env.CLIENT_ORIGIN,
   },
 });
 module.exports = io;

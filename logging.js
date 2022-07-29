@@ -12,17 +12,19 @@ const logger = createLogger({
   transports: [new transports.File({ filename: "logs.log" })],
 });
 
-logger.add(
-  new TelegramLogger({
-    token: process.env.TELEGRAM_BOT_TOKEN,
-    chatId: process.env.DEV_CHAT_ID,
-    level: "verbose",
-    formatMessage: function (options, { level, message, ID, timestamp }) {
-      // Return different format for verbose
-      return `${timestamp} [${ID || "-"}] ${level}: ${message}`;
-    },
-  })
-);
+if (process.env.NODE_ENV === "development" || process.env.NODE_ENV === "e2e") {
+  logger.add(
+    new TelegramLogger({
+      token: process.env.TELEGRAM_BOT_TOKEN,
+      chatId: process.env.DEV_CHAT_ID,
+      level: "verbose",
+      formatMessage: function (options, { level, message, ID, timestamp }) {
+        // Return different format for verbose
+        return `${timestamp} [${ID || "-"}] ${level}: ${message}`;
+      },
+    })
+  );
+}
 
 //
 // If we're not in production then log to the `console` with the format:
@@ -46,29 +48,33 @@ if (process.env.NODE_ENV !== "production") {
 // Am forced to create a whole separate logger here because telegram winston lacks the ability to filter logs in its formatMessage
 // function.
 // What the? Seems like winston telegram doesn't even maintain the proper order of messages
-const humanLogger = createLogger({
-  level: "info",
-  format: combine(
-    timestamp(),
-    format((info, opts) => {
-      if (!info.human) return false;
-      return info;
-    })()
-  ),
-});
+let humanLogger;
+if (process.env.NODE_ENV === "production") {
+  humanLogger = createLogger({
+    level: "info",
+    format: combine(
+      timestamp(),
+      format((info, opts) => {
+        if (!info.human) return false;
+        return info;
+      })()
+    ),
+  });
 
-humanLogger.add(
-  new TelegramLogger({
-    token: process.env.TELEGRAM_BOT_TOKEN,
-    chatId: process.env.GVH_TEAM_CHAT_ID,
-    formatMessage: function (options, { message, timestamp }) {
-      return `[${timestamp}] ${message}`;
-    },
-  })
-);
+  // Only log to official donation tracking Telegram chat group in production
+  humanLogger.add(
+    new TelegramLogger({
+      token: process.env.TELEGRAM_BOT_TOKEN,
+      chatId: process.env.GVH_TEAM_CHAT_ID,
+      formatMessage: function (options, { message, timestamp }) {
+        return `[${timestamp}] ${message}`;
+      },
+    })
+  );
+}
 
 function comLogger(level, ...args) {
-  humanLogger[level](...args);
+  humanLogger && humanLogger[level](...args);
   logger[level](...args);
 }
 

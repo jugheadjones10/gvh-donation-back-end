@@ -1,18 +1,39 @@
 const request = require("supertest");
 
-const Redis = require("ioredis");
-const redis = new Redis();
+// const Redis = require("ioredis");
+// const redis = new Redis();
 const app = require("receipt-server.js");
-const { getMutex } = require("receipt.js");
+const io = require("server.js");
+const { getMutex, redis } = require("receipt.js");
 
-const sendReceipt = require("sendReceipt.js");
-const requestManualCheck = require("requestManualCheck.js");
-const donationFromOtherChannel = require("donationFromOtherChannel.js");
 const promiseCareTaker = require("promiseCareTaker.js");
+const actions = require("actions.js");
+const {
+  NOCONFIRMED,
+  MOREPENDINGTHANCONFIRMED,
+  TALLYSUCCESS,
+} = require("constants.js");
 
-jest.mock("sendReceipt");
-jest.mock("requestManualCheck");
-jest.mock("donationFromOtherChannel");
+jest.mock("actions");
+const {
+  sendReceipt,
+  requestManualCheck,
+  donationFromOtherChannel,
+  markDonationUnresolved,
+} = actions;
+
+// Super important point: providing an implementation like this prevents jest from "introspecting" server.js by requiring it and
+// thereby executing the code within it (and starting a whole express server).
+
+// Important realization: the string passed as the first arugment to jest.mock is the name of the module being imported - in other
+// words, the filename. It is NOT the variable name that the import is being assigned to. In this case, I'm assigning the server.js
+// import to the variable "io". jest.mock should receive the name of the module it is mocking, which is "server", not "io" in this
+// case. Later, in my tests, the actual mock object I can use will be "io".
+jest.mock("server", () => {
+  return {
+    emit: jest.fn(),
+  };
+});
 jest.mock("promiseCareTaker");
 
 const donationFormSubmission = {
@@ -37,34 +58,46 @@ const donationFormSubmissionB = {
   type: "paynow",
 };
 
+function bankEmail(amount) {
+  return {
+    text: `Please be advised that the below transaction has been Processed. You may login UOB Infinity to review the details. \n Transaction : Inward Remittance BIB Reference: IR22060164074051 Bank Reference: 586L222 20220629 Currency and Amount: SGD ${amount}.00 This is a system-generated mail. Please do not reply to this message.`,
+  };
+}
+
 //Change mock checks to check for calls AND arguments passed in
 
 jest.useFakeTimers();
 describe("Test receipt logic", () => {
   afterEach(async () => {
     await redis.flushdb();
+    sendReceipt.mockClear();
+    requestManualCheck.mockClear();
+    donationFromOtherChannel.mockClear();
+    markDonationUnresolved.mockClear();
+    io.emit.mockClear();
   });
 
   test("One intent submitted but no donation sent - should flag as manual", (done) => {
-    promiseCareTaker.mockImplementation((promisesArray) => {
-      promisesArray
-        .then(() => {
-          expect(requestManualCheck.mock.calls[0][0]).toEqual(
-            donationFormSubmission
-          );
-          done();
-        })
-        .catch((e) => {
-          done(e);
-        });
-    });
-
     request(app)
       .post("/donation-form")
       .send(donationFormSubmission)
       .set("Content-Type", "application/json")
       .then((response) => {
         expect(response.statusCode).toBe(200);
+        const ID = response.body.ID;
+
+        promiseCareTaker.mockImplementation((promisesArray) => {
+          promisesArray
+            .then(() => {
+              expect(markDonationUnresolved.mock.calls[0][0]).toBe(ID);
+              expect(io.emit.mock.calls[0][1]).toBe(NOCONFIRMED);
+              done();
+            })
+            .catch((e) => {
+              done(e);
+            });
+        });
+
         getMutex().then(() => {
           jest.runAllTimers();
         });
@@ -75,8 +108,8 @@ describe("Test receipt logic", () => {
     promiseCareTaker.mockImplementation((promisesArray) => {
       promisesArray
         .then(() => {
-          console.log(sendReceipt.mock.calls);
           expect(sendReceipt.mock.calls[0][0]).toEqual(donationFormSubmission);
+          expect(io.emit.mock.calls[0][1]).toBe(TALLYSUCCESS);
           done();
         })
         .catch((e) => {
@@ -90,38 +123,40 @@ describe("Test receipt logic", () => {
       .set("Content-Type", "application/json")
       .then((formResponse) => {
         expect(formResponse.statusCode).toBe(200);
+
         return request(app)
           .post("/bank-email")
-          .send({
-            amount: donationFormSubmission.amount,
-          })
+          .send(bankEmail(donationFormSubmission.amount))
           .set("Content-Type", "application/json");
       })
       .then((bankResponse) => {
         expect(bankResponse.statusCode).toBe(200);
+      })
+      .catch((e) => {
+        done(e);
       });
   });
 
   test("No intent submitted and one donation sent - should flag as other donation source", async () => {
     const bankResponse = await request(app)
       .post("/bank-email")
-      .send({
-        amount: donationFormSubmission.amount,
-      })
+      .send(bankEmail(donationFormSubmission.amount))
       .set("Content-Type", "application/json");
 
     expect(bankResponse.statusCode).toBe(200);
-    expect(donationFromOtherChannel.mock.calls.length).toBe(1);
+    expect(donationFromOtherChannel.mock.calls[0][0]).toBe(
+      donationFormSubmission.amount
+    );
   });
 
   test("Two intents submitted simultaneously with same donation amount and two donations sent simultaneously - should send receipt to both", (done) => {
     promiseCareTaker.mockImplementation((promisesArray) => {
       promisesArray
         .then(() => {
-          console.log(sendReceipt.mock.calls);
           const mappedMocks = sendReceipt.mock.calls.map((call) => call[0]);
           expect(mappedMocks).toContainEqual(donationFormSubmission);
           expect(mappedMocks).toContainEqual(donationFormSubmissionB);
+          expect(io.emit.mock.calls[0][1]).toBe(TALLYSUCCESS);
           done();
         })
         .catch((e) => {
@@ -150,15 +185,11 @@ describe("Test receipt logic", () => {
           return Promise.all([
             request(app)
               .post("/bank-email")
-              .send({
-                amount: donationFormSubmission.amount,
-              })
+              .send(bankEmail(donationFormSubmission.amount))
               .set("Content-Type", "application/json"),
             request(app)
               .post("/bank-email")
-              .send({
-                amount: donationFormSubmission.amount,
-              })
+              .send(bankEmail(donationFormSubmissionB.amount))
               .set("Content-Type", "application/json"),
           ]);
         });
@@ -173,10 +204,10 @@ describe("Test receipt logic", () => {
     promiseCareTaker.mockImplementation((promisesArray) => {
       promisesArray
         .then(() => {
-          console.log(sendReceipt.mock.calls);
           const mappedMocks = sendReceipt.mock.calls.map((call) => call[0]);
           expect(mappedMocks).toContainEqual(donationFormSubmission);
           expect(mappedMocks).toContainEqual(donationFormSubmissionB);
+          expect(io.emit.mock.calls[0][1]).toBe(TALLYSUCCESS);
           done();
         })
         .catch((e) => {
@@ -205,9 +236,7 @@ describe("Test receipt logic", () => {
 
           return request(app)
             .post("/bank-email")
-            .send({
-              amount: donationFormSubmission.amount,
-            })
+            .send(bankEmail(donationFormSubmission.amount))
             .set("Content-Type", "application/json");
         });
       })
@@ -217,14 +246,11 @@ describe("Test receipt logic", () => {
 
         return request(app)
           .post("/bank-email")
-          .send({
-            amount: donationFormSubmission.amount,
-          })
+          .send(bankEmail(donationFormSubmissionB.amount))
           .set("Content-Type", "application/json");
       })
       .then((bankResponse) => {
         expect(bankResponse.statusCode).toBe(200);
-        jest.runAllTimers();
       });
   });
 
@@ -232,12 +258,12 @@ describe("Test receipt logic", () => {
     promiseCareTaker.mockImplementation((promisesArray) => {
       promisesArray
         .then(() => {
-          console.log(sendReceipt.mock.calls);
           const mappedMocks = requestManualCheck.mock.calls.map(
             (call) => call[0]
           );
           expect(mappedMocks).toContainEqual(donationFormSubmission);
           expect(mappedMocks).toContainEqual(donationFormSubmissionB);
+          expect(io.emit.mock.calls[0][1]).toBe(MOREPENDINGTHANCONFIRMED);
           done();
         })
         .catch((e) => {
@@ -267,9 +293,7 @@ describe("Test receipt logic", () => {
 
           return request(app)
             .post("/bank-email")
-            .send({
-              amount: donationFormSubmission.amount,
-            })
+            .send(bankEmail(donationFormSubmission.amount))
             .set("Content-Type", "application/json");
         });
       })
@@ -284,12 +308,12 @@ describe("Test receipt logic", () => {
     promiseCareTaker.mockImplementation((promisesArray) => {
       promisesArray
         .then(() => {
-          console.log(sendReceipt.mock.calls);
           confirmedCount++;
           if (confirmedCount == 2) {
             const mappedMocks = sendReceipt.mock.calls.map((call) => call[0]);
             expect(mappedMocks).toContainEqual(donationFormSubmission);
             expect(mappedMocks).toContainEqual(donationFormSubmissionB);
+            expect(io.emit.mock.calls[0][1]).toBe(TALLYSUCCESS);
             done();
           }
         })
@@ -307,9 +331,10 @@ describe("Test receipt logic", () => {
         return getMutex().then(() => {
           jest.advanceTimersByTime(2 * 60 * 1000);
 
-          return request(app).post("/bank-email").send({
-            amount: donationFormSubmission.amount,
-          });
+          return request(app)
+            .post("/bank-email")
+            .send(bankEmail(donationFormSubmission.amount))
+            .set("Content-Type", "application/json");
         });
       })
       .then((bankResponse) => {
@@ -328,9 +353,7 @@ describe("Test receipt logic", () => {
 
           return request(app)
             .post("/bank-email")
-            .send({
-              amount: donationFormSubmission.amount,
-            })
+            .send(bankEmail(donationFormSubmissionB.amount))
             .set("Content-Type", "application/json");
         });
       })
