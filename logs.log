@@ -701,3 +701,3543 @@
     ' {"amount":"1.0","project":"COVID Rice Relief","fullname":"Kim Man B","email":"kimyoungjin1001@gmail.com"}',
   timestamp: '2022-07-20T05:41:48.586Z'
 }
+{
+  ID: 'nowcc',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-28T04:51:43.637Z'
+}
+{
+  message: 'Attempting to tally amount 3',
+  level: 'info',
+  timestamp: '2022-07-28T04:56:43.637Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: one pending and no confirmed with donation IDs nowcc',
+  level: 'info',
+  timestamp: '2022-07-28T04:56:43.638Z'
+}
+{
+  ID: 'lmqun',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-28T04:56:43.638Z'
+}
+{
+  message: 'Attempting to tally amount 3',
+  level: 'info',
+  timestamp: '2022-07-28T04:56:43.638Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: tally success with donation IDs lmqun',
+  level: 'info',
+  timestamp: '2022-07-28T04:56:43.638Z'
+}
+{
+  human: true,
+  level: 'warn',
+  message: 'Since there are no ongoing donation intents, incoming donation amount 3 has been classified as other channel',
+  timestamp: '2022-07-28T04:56:43.638Z'
+}
+{
+  ID: 'hjbdz',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-28T04:56:43.638Z'
+}
+{
+  ID: 'oouwy',
+  level: 'info',
+  message: 'Donation intent for amount 3 exists currently - incrementing pending counter by 1 and restarting timer',
+  timestamp: '2022-07-28T04:56:43.638Z'
+}
+{
+  message: 'Attempting to tally amount 3',
+  level: 'info',
+  timestamp: '2022-07-28T04:58:43.638Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: tally success with donation IDs oouwy,hjbdz',
+  level: 'info',
+  timestamp: '2022-07-28T04:58:43.638Z'
+}
+{
+  ID: 'xnpve',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-28T04:58:43.638Z'
+}
+{
+  ID: 'dsqti',
+  level: 'info',
+  message: 'Donation intent for amount 3 exists currently - incrementing pending counter by 1 and restarting timer',
+  timestamp: '2022-07-28T05:00:43.638Z'
+}
+{
+  message: 'Attempting to tally amount 3',
+  level: 'info',
+  timestamp: '2022-07-28T05:02:43.638Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: tally success with donation IDs dsqti,xnpve',
+  level: 'info',
+  timestamp: '2022-07-28T05:02:43.638Z'
+}
+{
+  ID: 'gcxtm',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-28T05:02:43.638Z'
+}
+{
+  ID: 'pbpky',
+  level: 'info',
+  message: 'Donation intent for amount 3 exists currently - incrementing pending counter by 1 and restarting timer',
+  timestamp: '2022-07-28T05:04:43.638Z'
+}
+{
+  message: 'Attempting to tally amount 3',
+  level: 'info',
+  timestamp: '2022-07-28T05:09:43.638Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: more pending than confirmed with donation IDs pbpky,gcxtm',
+  level: 'info',
+  timestamp: '2022-07-28T05:09:43.639Z'
+}
+{
+  ID: 'xioxn',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-28T05:09:43.639Z'
+}
+{
+  message: 'Attempting to tally amount 3',
+  level: 'info',
+  timestamp: '2022-07-28T05:11:43.639Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: tally success with donation IDs xioxn',
+  level: 'info',
+  timestamp: '2022-07-28T05:11:43.639Z'
+}
+{
+  ID: 'erinq',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-28T05:11:43.639Z'
+}
+{
+  message: 'Attempting to tally amount 3',
+  level: 'info',
+  timestamp: '2022-07-28T05:13:43.639Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: tally success with donation IDs erinq',
+  level: 'info',
+  timestamp: '2022-07-28T05:13:43.639Z'
+}
+{
+  ID: 'exjxe',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-28T04:52:14.770Z'
+}
+{
+  message: 'Attempting to tally amount 3',
+  level: 'info',
+  timestamp: '2022-07-28T04:57:14.770Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: one pending and no confirmed with donation IDs exjxe',
+  level: 'info',
+  timestamp: '2022-07-28T04:57:14.771Z'
+}
+{
+  ID: 'ptffn',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-28T04:57:14.771Z'
+}
+{
+  message: 'Attempting to tally amount 3',
+  level: 'info',
+  timestamp: '2022-07-28T04:57:14.771Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: tally success with donation IDs ptffn',
+  level: 'info',
+  timestamp: '2022-07-28T04:57:14.771Z'
+}
+{
+  human: true,
+  level: 'warn',
+  message: 'Since there are no ongoing donation intents, incoming donation amount 3 has been classified as other channel',
+  timestamp: '2022-07-28T04:57:14.771Z'
+}
+{
+  ID: 'gerxb',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-28T04:57:14.771Z'
+}
+{
+  ID: 'itiip',
+  level: 'info',
+  message: 'Donation intent for amount 3 exists currently - incrementing pending counter by 1 and restarting timer',
+  timestamp: '2022-07-28T04:57:14.771Z'
+}
+{
+  message: 'Attempting to tally amount 3',
+  level: 'info',
+  timestamp: '2022-07-28T04:59:14.771Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: tally success with donation IDs itiip,gerxb',
+  level: 'info',
+  timestamp: '2022-07-28T04:59:14.771Z'
+}
+{
+  ID: 'qwrrn',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-28T04:59:14.771Z'
+}
+{
+  ID: 'lglfi',
+  level: 'info',
+  message: 'Donation intent for amount 3 exists currently - incrementing pending counter by 1 and restarting timer',
+  timestamp: '2022-07-28T05:01:14.771Z'
+}
+{
+  message: 'Attempting to tally amount 3',
+  level: 'info',
+  timestamp: '2022-07-28T05:03:14.771Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: tally success with donation IDs lglfi,qwrrn',
+  level: 'info',
+  timestamp: '2022-07-28T05:03:14.771Z'
+}
+{
+  ID: 'xplzp',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-28T05:03:14.771Z'
+}
+{
+  ID: 'giqjs',
+  level: 'info',
+  message: 'Donation intent for amount 3 exists currently - incrementing pending counter by 1 and restarting timer',
+  timestamp: '2022-07-28T05:05:14.771Z'
+}
+{
+  message: 'Attempting to tally amount 3',
+  level: 'info',
+  timestamp: '2022-07-28T05:10:14.771Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: more pending than confirmed with donation IDs giqjs,xplzp',
+  level: 'info',
+  timestamp: '2022-07-28T05:10:14.772Z'
+}
+{
+  ID: 'ohbbw',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-28T05:10:14.772Z'
+}
+{
+  message: 'Attempting to tally amount 3',
+  level: 'info',
+  timestamp: '2022-07-28T05:12:14.772Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: tally success with donation IDs ohbbw',
+  level: 'info',
+  timestamp: '2022-07-28T05:12:14.772Z'
+}
+{
+  ID: 'uizww',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-28T05:12:14.772Z'
+}
+{
+  message: 'Attempting to tally amount 3',
+  level: 'info',
+  timestamp: '2022-07-28T05:14:14.772Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: tally success with donation IDs uizww',
+  level: 'info',
+  timestamp: '2022-07-28T05:14:14.772Z'
+}
+{
+  ID: 'asxjs',
+  human: true,
+  level: 'info',
+  message: 'Received donation form submission with reference ID asxjs \n' +
+    ' Request body: {"fullname":"Kim test","email":"kimyoungjin@gmail.com","mobilenumber":"123","project":"Water Well","type":"paynow","amount":1,"chequenumber":"","country":""}',
+  timestamp: '2022-07-28T06:37:56.839Z'
+}
+{
+  ID: 'asxjs',
+  level: 'info',
+  message: 'Adding the following row to Google Sheet: ["asxjs","Kim test","kimyoungjin@gmail.com","123","Water Well","paynow",1,"","","28/07/2022, 2:37:56 pm"]',
+  timestamp: '2022-07-28T06:37:56.921Z'
+}
+{
+  ID: 'asxjs',
+  level: 'info',
+  message: 'No donation intent for amount 1 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-28T06:37:56.967Z'
+}
+{
+  message: 'Attempting to tally amount 1',
+  level: 'info',
+  timestamp: '2022-07-28T06:42:56.994Z'
+}
+{
+  ID: 'asxjs',
+  human: true,
+  level: 'info',
+  message: 'Sending manual request email for the following user: \n' +
+    ' {"fullname":"Kim test","email":"kimyoungjin@gmail.com","mobilenumber":"123","project":"Water Well","type":"paynow","amount":1,"chequenumber":"","country":""}',
+  timestamp: '2022-07-28T06:42:57.004Z'
+}
+{
+  ID: 'asxjs',
+  level: 'info',
+  message: 'Updated donation confirmed column for donation ID asxjs to N',
+  timestamp: '2022-07-28T06:43:00.120Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: one pending and no confirmed with donation IDs asxjs',
+  level: 'info',
+  timestamp: '2022-07-28T06:43:00.122Z'
+}
+{
+  ID: 'ytkrz',
+  human: true,
+  level: 'info',
+  message: 'Received donation form submission with reference ID ytkrz \n' +
+    ' Request body: {"fullname":"Kim test","email":"kimyoungjin1001@gmail.com","mobilenumber":"234","project":"Rice for Hope","type":"paynow","amount":1,"chequenumber":"","country":""}',
+  timestamp: '2022-07-28T06:56:37.568Z'
+}
+{
+  ID: 'ytkrz',
+  level: 'info',
+  message: 'Adding the following row to Google Sheet: ["ytkrz","Kim test","kimyoungjin1001@gmail.com","234","Rice for Hope","paynow",1,"","","28/07/2022, 2:56:37 pm"]',
+  timestamp: '2022-07-28T06:56:37.655Z'
+}
+{
+  ID: 'ytkrz',
+  level: 'info',
+  message: 'No donation intent for amount 1 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-28T06:56:37.692Z'
+}
+{
+  message: 'Attempting to tally amount 1',
+  level: 'info',
+  timestamp: '2022-07-28T07:01:37.758Z'
+}
+{
+  ID: 'ytkrz',
+  human: true,
+  level: 'info',
+  message: 'Sending manual request email for the following user: \n' +
+    ' {"fullname":"Kim test","email":"kimyoungjin1001@gmail.com","mobilenumber":"234","project":"Rice for Hope","type":"paynow","amount":1,"chequenumber":"","country":""}',
+  timestamp: '2022-07-28T07:01:37.762Z'
+}
+{
+  ID: 'ytkrz',
+  level: 'info',
+  message: 'Updated donation confirmed column for donation ID ytkrz to N',
+  timestamp: '2022-07-28T07:01:41.181Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: more pending than confirmed with donation IDs ytkrz',
+  level: 'info',
+  timestamp: '2022-07-28T07:01:41.183Z'
+}
+{
+  ID: 'kzdgb',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-28T07:04:53.319Z'
+}
+{
+  message: 'Attempting to tally amount 3',
+  level: 'info',
+  timestamp: '2022-07-28T07:09:53.319Z'
+}
+{
+  ID: 'kzdgb',
+  human: true,
+  level: 'info',
+  message: 'Sending manual request email for the following user: \n' +
+    ' {"fullname":"Kim","email":"test@gmail.com","mobilenumber":"234","project":"Rice for Hope","amount":3,"chequenumber":"","country":"","type":"paynow"}',
+  timestamp: '2022-07-28T07:09:53.320Z'
+}
+{
+  ID: 'fsati',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-28T07:09:53.320Z'
+}
+{
+  message: 'Attempting to tally amount 3',
+  level: 'info',
+  timestamp: '2022-07-28T07:09:53.320Z'
+}
+{
+  ID: 'fsati',
+  human: true,
+  level: 'info',
+  message: 'Sending receipt to the following user: \n' +
+    ' {"fullname":"Kim","email":"test@gmail.com","mobilenumber":"234","project":"Rice for Hope","amount":3,"chequenumber":"","country":"","type":"paynow"}',
+  timestamp: '2022-07-28T07:09:53.320Z'
+}
+{
+  human: true,
+  level: 'warn',
+  message: 'Since there are no ongoing donation intents, incoming donation amount 3 has been classified as other channel',
+  timestamp: '2022-07-28T07:09:53.320Z'
+}
+{
+  human: true,
+  level: 'info',
+  message: 'Sending unknown source payment email for the following donation amount: 3',
+  timestamp: '2022-07-28T07:09:53.320Z'
+}
+{
+  ID: 'sdqhs',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-28T07:09:53.320Z'
+}
+{
+  ID: 'lbwbr',
+  level: 'info',
+  message: 'Donation intent for amount 3 exists currently - incrementing pending counter by 1 and restarting timer',
+  timestamp: '2022-07-28T07:09:53.320Z'
+}
+{
+  message: 'Attempting to tally amount 3',
+  level: 'info',
+  timestamp: '2022-07-28T07:11:53.320Z'
+}
+{
+  ID: 'lbwbr',
+  human: true,
+  level: 'info',
+  message: 'Sending receipt to the following user: \n' +
+    ' {"fullname":"Josh","email":"test2@gmail.com","mobilenumber":"234","project":"Rice for Hope","amount":3,"chequenumber":"","country":"","type":"paynow"}',
+  timestamp: '2022-07-28T07:11:53.320Z'
+}
+{
+  ID: 'sdqhs',
+  human: true,
+  level: 'info',
+  message: 'Sending receipt to the following user: \n' +
+    ' {"fullname":"Kim","email":"test@gmail.com","mobilenumber":"234","project":"Rice for Hope","amount":3,"chequenumber":"","country":"","type":"paynow"}',
+  timestamp: '2022-07-28T07:11:53.320Z'
+}
+{
+  ID: 'odcde',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-28T07:11:53.320Z'
+}
+{
+  ID: 'upkch',
+  level: 'info',
+  message: 'Donation intent for amount 3 exists currently - incrementing pending counter by 1 and restarting timer',
+  timestamp: '2022-07-28T07:13:53.320Z'
+}
+{
+  message: 'Attempting to tally amount 3',
+  level: 'info',
+  timestamp: '2022-07-28T07:15:53.320Z'
+}
+{
+  ID: 'upkch',
+  human: true,
+  level: 'info',
+  message: 'Sending receipt to the following user: \n' +
+    ' {"fullname":"Josh","email":"test2@gmail.com","mobilenumber":"234","project":"Rice for Hope","amount":3,"chequenumber":"","country":"","type":"paynow"}',
+  timestamp: '2022-07-28T07:15:53.320Z'
+}
+{
+  ID: 'odcde',
+  human: true,
+  level: 'info',
+  message: 'Sending receipt to the following user: \n' +
+    ' {"fullname":"Kim","email":"test@gmail.com","mobilenumber":"234","project":"Rice for Hope","amount":3,"chequenumber":"","country":"","type":"paynow"}',
+  timestamp: '2022-07-28T07:15:53.320Z'
+}
+{
+  ID: 'oqdya',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-28T07:15:53.320Z'
+}
+{
+  ID: 'hljpo',
+  level: 'info',
+  message: 'Donation intent for amount 3 exists currently - incrementing pending counter by 1 and restarting timer',
+  timestamp: '2022-07-28T07:17:53.320Z'
+}
+{
+  message: 'Attempting to tally amount 3',
+  level: 'info',
+  timestamp: '2022-07-28T07:22:53.320Z'
+}
+{
+  ID: 'hljpo',
+  human: true,
+  level: 'info',
+  message: 'Sending manual request email for the following user: \n' +
+    ' {"fullname":"Josh","email":"test2@gmail.com","mobilenumber":"234","project":"Rice for Hope","amount":3,"chequenumber":"","country":"","type":"paynow"}',
+  timestamp: '2022-07-28T07:22:53.321Z'
+}
+{
+  ID: 'oqdya',
+  human: true,
+  level: 'info',
+  message: 'Sending manual request email for the following user: \n' +
+    ' {"fullname":"Kim","email":"test@gmail.com","mobilenumber":"234","project":"Rice for Hope","amount":3,"chequenumber":"","country":"","type":"paynow"}',
+  timestamp: '2022-07-28T07:22:53.321Z'
+}
+{
+  ID: 'seznc',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-28T07:22:53.321Z'
+}
+{
+  message: 'Attempting to tally amount 3',
+  level: 'info',
+  timestamp: '2022-07-28T07:24:53.321Z'
+}
+{
+  ID: 'seznc',
+  human: true,
+  level: 'info',
+  message: 'Sending receipt to the following user: \n' +
+    ' {"fullname":"Kim","email":"test@gmail.com","mobilenumber":"234","project":"Rice for Hope","amount":3,"chequenumber":"","country":"","type":"paynow"}',
+  timestamp: '2022-07-28T07:24:53.321Z'
+}
+{
+  ID: 'yymut',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-28T07:08:00.763Z'
+}
+{
+  message: 'Attempting to tally amount 3',
+  level: 'info',
+  timestamp: '2022-07-28T07:13:00.763Z'
+}
+{
+  ID: 'yymut',
+  human: true,
+  level: 'info',
+  message: 'Sending manual request email for the following user: \n' +
+    ' {"fullname":"Kim","email":"test@gmail.com","mobilenumber":"234","project":"Rice for Hope","amount":3,"chequenumber":"","country":"","type":"paynow"}',
+  timestamp: '2022-07-28T07:13:00.764Z'
+}
+{
+  ID: 'dkgll',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-28T07:13:00.764Z'
+}
+{
+  message: 'Attempting to tally amount 3',
+  level: 'info',
+  timestamp: '2022-07-28T07:13:00.764Z'
+}
+{
+  ID: 'dkgll',
+  human: true,
+  level: 'info',
+  message: 'Sending receipt to the following user: \n' +
+    ' {"fullname":"Kim","email":"test@gmail.com","mobilenumber":"234","project":"Rice for Hope","amount":3,"chequenumber":"","country":"","type":"paynow"}',
+  timestamp: '2022-07-28T07:13:00.764Z'
+}
+{
+  human: true,
+  level: 'warn',
+  message: 'Since there are no ongoing donation intents, incoming donation amount 3 has been classified as other channel',
+  timestamp: '2022-07-28T07:13:00.764Z'
+}
+{
+  human: true,
+  level: 'info',
+  message: 'Sending unknown source payment email for the following donation amount: 3',
+  timestamp: '2022-07-28T07:13:00.764Z'
+}
+{
+  ID: 'octhg',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-28T07:13:00.764Z'
+}
+{
+  ID: 'fjkam',
+  level: 'info',
+  message: 'Donation intent for amount 3 exists currently - incrementing pending counter by 1 and restarting timer',
+  timestamp: '2022-07-28T07:13:00.764Z'
+}
+{
+  message: 'Attempting to tally amount 3',
+  level: 'info',
+  timestamp: '2022-07-28T07:15:00.764Z'
+}
+{
+  ID: 'fjkam',
+  human: true,
+  level: 'info',
+  message: 'Sending receipt to the following user: \n' +
+    ' {"fullname":"Josh","email":"test2@gmail.com","mobilenumber":"234","project":"Rice for Hope","amount":3,"chequenumber":"","country":"","type":"paynow"}',
+  timestamp: '2022-07-28T07:15:00.764Z'
+}
+{
+  ID: 'octhg',
+  human: true,
+  level: 'info',
+  message: 'Sending receipt to the following user: \n' +
+    ' {"fullname":"Kim","email":"test@gmail.com","mobilenumber":"234","project":"Rice for Hope","amount":3,"chequenumber":"","country":"","type":"paynow"}',
+  timestamp: '2022-07-28T07:15:00.764Z'
+}
+{
+  ID: 'ccldg',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-28T07:15:00.764Z'
+}
+{
+  ID: 'umitq',
+  level: 'info',
+  message: 'Donation intent for amount 3 exists currently - incrementing pending counter by 1 and restarting timer',
+  timestamp: '2022-07-28T07:17:00.764Z'
+}
+{
+  message: 'Attempting to tally amount 3',
+  level: 'info',
+  timestamp: '2022-07-28T07:19:00.764Z'
+}
+{
+  ID: 'umitq',
+  human: true,
+  level: 'info',
+  message: 'Sending receipt to the following user: \n' +
+    ' {"fullname":"Josh","email":"test2@gmail.com","mobilenumber":"234","project":"Rice for Hope","amount":3,"chequenumber":"","country":"","type":"paynow"}',
+  timestamp: '2022-07-28T07:19:00.764Z'
+}
+{
+  ID: 'ccldg',
+  human: true,
+  level: 'info',
+  message: 'Sending receipt to the following user: \n' +
+    ' {"fullname":"Kim","email":"test@gmail.com","mobilenumber":"234","project":"Rice for Hope","amount":3,"chequenumber":"","country":"","type":"paynow"}',
+  timestamp: '2022-07-28T07:19:00.764Z'
+}
+{
+  ID: 'cwdqi',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-28T07:19:00.764Z'
+}
+{
+  ID: 'gtppj',
+  level: 'info',
+  message: 'Donation intent for amount 3 exists currently - incrementing pending counter by 1 and restarting timer',
+  timestamp: '2022-07-28T07:21:00.764Z'
+}
+{
+  message: 'Attempting to tally amount 3',
+  level: 'info',
+  timestamp: '2022-07-28T07:26:00.764Z'
+}
+{
+  ID: 'gtppj',
+  human: true,
+  level: 'info',
+  message: 'Sending manual request email for the following user: \n' +
+    ' {"fullname":"Josh","email":"test2@gmail.com","mobilenumber":"234","project":"Rice for Hope","amount":3,"chequenumber":"","country":"","type":"paynow"}',
+  timestamp: '2022-07-28T07:26:00.765Z'
+}
+{
+  ID: 'cwdqi',
+  human: true,
+  level: 'info',
+  message: 'Sending manual request email for the following user: \n' +
+    ' {"fullname":"Kim","email":"test@gmail.com","mobilenumber":"234","project":"Rice for Hope","amount":3,"chequenumber":"","country":"","type":"paynow"}',
+  timestamp: '2022-07-28T07:26:00.765Z'
+}
+{
+  ID: 'wzmvg',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-28T07:26:00.765Z'
+}
+{
+  message: 'Attempting to tally amount 3',
+  level: 'info',
+  timestamp: '2022-07-28T07:28:00.765Z'
+}
+{
+  ID: 'wzmvg',
+  human: true,
+  level: 'info',
+  message: 'Sending receipt to the following user: \n' +
+    ' {"fullname":"Kim","email":"test@gmail.com","mobilenumber":"234","project":"Rice for Hope","amount":3,"chequenumber":"","country":"","type":"paynow"}',
+  timestamp: '2022-07-28T07:28:00.765Z'
+}
+{
+  ID: 'zlnkm',
+  human: true,
+  level: 'info',
+  message: 'Received donation form submission with reference ID zlnkm \n' +
+    ' Request body: {"fullname":"Kim test","email":"kimyoungjin1001@gmail.com","mobilenumber":"123","project":"Water Well","type":"paynow","amount":1,"chequenumber":"","country":""}',
+  timestamp: '2022-07-28T07:10:28.422Z'
+}
+{
+  ID: 'zlnkm',
+  level: 'info',
+  message: 'Adding the following row to Google Sheet: ["zlnkm","Kim test","kimyoungjin1001@gmail.com","123","Water Well","paynow",1,"","","28/07/2022, 3:10:28 pm"]',
+  timestamp: '2022-07-28T07:10:28.466Z'
+}
+{
+  ID: 'zlnkm',
+  level: 'info',
+  message: 'No donation intent for amount 1 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-28T07:10:28.521Z'
+}
+{
+  message: 'Attempting to tally amount 1',
+  level: 'info',
+  timestamp: '2022-07-28T07:15:28.534Z'
+}
+{
+  ID: 'zlnkm',
+  level: 'info',
+  message: 'Updated donation confirmed column for donation ID zlnkm to N',
+  timestamp: '2022-07-28T07:15:31.555Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: no confirmed with donation IDs zlnkm',
+  level: 'info',
+  timestamp: '2022-07-28T07:15:31.555Z'
+}
+{
+  ID: 'tswet',
+  human: true,
+  level: 'info',
+  message: 'Received donation form submission with reference ID tswet \n' +
+    ' Request body: {"fullname":"kim","email":"kimyoungjin1001@gmail.com","mobilenumber":"123","project":"Rice for Hope","type":"paynow","amount":1,"chequenumber":"","country":""}',
+  timestamp: '2022-07-28T07:30:44.460Z'
+}
+{
+  ID: 'tswet',
+  level: 'info',
+  message: 'Adding the following row to Google Sheet: ["tswet","kim","kimyoungjin1001@gmail.com","123","Rice for Hope","paynow",1,"","","28/07/2022, 3:30:44 pm"]',
+  timestamp: '2022-07-28T07:30:44.532Z'
+}
+{
+  ID: 'tswet',
+  level: 'info',
+  message: 'No donation intent for amount 1 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-28T07:30:44.560Z'
+}
+{
+  message: 'Attempting to tally amount 1',
+  level: 'info',
+  timestamp: '2022-07-28T07:35:44.600Z'
+}
+{
+  ID: 'tswet',
+  level: 'info',
+  message: 'Updated donation confirmed column for donation ID tswet to N',
+  timestamp: '2022-07-28T07:35:48.009Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: no confirmed with donation IDs tswet',
+  level: 'info',
+  timestamp: '2022-07-28T07:35:48.011Z'
+}
+{
+  ID: 'pbrat',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-28T09:25:45.443Z'
+}
+{
+  message: 'Attempting to tally amount 3',
+  level: 'info',
+  timestamp: '2022-07-28T09:30:45.443Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: no confirmed with donation IDs pbrat',
+  level: 'info',
+  timestamp: '2022-07-28T09:30:45.444Z'
+}
+{
+  ID: 'zeqdm',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-28T09:27:40.975Z'
+}
+{
+  message: 'Attempting to tally amount 3',
+  level: 'info',
+  timestamp: '2022-07-28T09:32:40.975Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: no confirmed with donation IDs zeqdm',
+  level: 'info',
+  timestamp: '2022-07-28T09:32:40.976Z'
+}
+{
+  ID: 'bqcfd',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-28T09:31:33.890Z'
+}
+{
+  message: 'Attempting to tally amount 3',
+  level: 'info',
+  timestamp: '2022-07-28T09:36:33.890Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: no confirmed with donation IDs bqcfd',
+  level: 'info',
+  timestamp: '2022-07-28T09:36:33.891Z'
+}
+{
+  ID: 'pltob',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-28T09:38:21.823Z'
+}
+{
+  message: 'Attempting to tally amount 3',
+  level: 'info',
+  timestamp: '2022-07-28T09:43:21.823Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: no confirmed with donation IDs pltob',
+  level: 'info',
+  timestamp: '2022-07-28T09:43:21.824Z'
+}
+{
+  ID: 'crkap',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-28T09:40:59.087Z'
+}
+{
+  message: 'Attempting to tally amount 3',
+  level: 'info',
+  timestamp: '2022-07-28T09:45:59.087Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: no confirmed with donation IDs crkap',
+  level: 'info',
+  timestamp: '2022-07-28T09:45:59.088Z'
+}
+{
+  ID: 'zgwni',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-28T10:14:19.751Z'
+}
+{
+  message: 'Attempting to tally amount 3',
+  level: 'info',
+  timestamp: '2022-07-28T10:19:19.751Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: no confirmed with donation IDs zgwni',
+  level: 'info',
+  timestamp: '2022-07-28T10:19:19.752Z'
+}
+{
+  ID: 'dolzb',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-28T10:16:08.785Z'
+}
+{
+  message: 'Attempting to tally amount 3',
+  level: 'info',
+  timestamp: '2022-07-28T10:21:08.785Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: no confirmed with donation IDs dolzb',
+  level: 'info',
+  timestamp: '2022-07-28T10:21:08.786Z'
+}
+{
+  ID: 'ewwav',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-28T10:19:49.922Z'
+}
+{
+  message: 'Attempting to tally amount 3',
+  level: 'info',
+  timestamp: '2022-07-28T10:24:49.922Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: no confirmed with donation IDs ewwav',
+  level: 'info',
+  timestamp: '2022-07-28T10:24:49.923Z'
+}
+{
+  ID: 'gxeql',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-28T10:25:53.017Z'
+}
+{
+  message: 'Attempting to tally amount 3',
+  level: 'info',
+  timestamp: '2022-07-28T10:30:53.017Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: no confirmed with donation IDs gxeql',
+  level: 'info',
+  timestamp: '2022-07-28T10:30:53.018Z'
+}
+{
+  ID: 'zsvtw',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-28T10:27:43.795Z'
+}
+{
+  message: 'Attempting to tally amount 3',
+  level: 'info',
+  timestamp: '2022-07-28T10:32:43.795Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: no confirmed with donation IDs zsvtw',
+  level: 'info',
+  timestamp: '2022-07-28T10:32:43.796Z'
+}
+{
+  ID: 'nopxf',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-28T10:28:04.803Z'
+}
+{
+  message: 'Attempting to tally amount 3',
+  level: 'info',
+  timestamp: '2022-07-28T10:33:04.803Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: no confirmed with donation IDs nopxf',
+  level: 'info',
+  timestamp: '2022-07-28T10:33:04.804Z'
+}
+{
+  ID: 'yfiua',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-28T10:32:57.617Z'
+}
+{
+  message: 'Attempting to tally amount 3',
+  level: 'info',
+  timestamp: '2022-07-28T10:37:57.617Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: no confirmed with donation IDs yfiua',
+  level: 'info',
+  timestamp: '2022-07-28T10:37:57.618Z'
+}
+{
+  ID: 'uhmwg',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-28T10:33:06.639Z'
+}
+{
+  message: 'Attempting to tally amount 3',
+  level: 'info',
+  timestamp: '2022-07-28T10:38:06.639Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: no confirmed with donation IDs uhmwg',
+  level: 'info',
+  timestamp: '2022-07-28T10:38:06.640Z'
+}
+{
+  ID: 'epavn',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-28T10:42:37.736Z'
+}
+{
+  message: 'Attempting to tally amount 3',
+  level: 'info',
+  timestamp: '2022-07-28T10:47:37.736Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: no confirmed with donation IDs epavn',
+  level: 'info',
+  timestamp: '2022-07-28T10:47:37.737Z'
+}
+{
+  ID: 'opbsw',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-28T10:47:37.737Z'
+}
+{
+  ID: 'mlpfs',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-28T10:47:37.737Z'
+}
+{
+  ID: 'flmlo',
+  level: 'info',
+  message: 'Donation intent for amount 3 exists currently - incrementing pending counter by 1 and restarting timer',
+  timestamp: '2022-07-28T10:47:37.737Z'
+}
+{
+  ID: 'cotne',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-28T10:49:37.737Z'
+}
+{
+  ID: 'vvctd',
+  level: 'info',
+  message: 'Donation intent for amount 3 exists currently - incrementing pending counter by 1 and restarting timer',
+  timestamp: '2022-07-28T10:51:37.737Z'
+}
+{
+  message: 'Attempting to tally amount 3',
+  level: 'info',
+  timestamp: '2022-07-28T10:52:37.737Z'
+}
+{
+  message: 'Attempting to tally amount 3',
+  level: 'info',
+  timestamp: '2022-07-28T10:52:37.737Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: no confirmed with donation IDs vvctd,cotne',
+  level: 'info',
+  timestamp: '2022-07-28T10:52:37.737Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: no confirmed with donation IDs vvctd,cotne',
+  level: 'info',
+  timestamp: '2022-07-28T10:52:37.737Z'
+}
+{
+  ID: 'jajvp',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-28T10:52:37.737Z'
+}
+{
+  ID: 'keauy',
+  level: 'info',
+  message: 'Donation intent for amount 3 exists currently - incrementing pending counter by 1 and restarting timer',
+  timestamp: '2022-07-28T10:54:37.737Z'
+}
+{
+  ID: 'alfht',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-28T10:55:37.737Z'
+}
+{
+  message: 'Attempting to tally amount 3',
+  level: 'info',
+  timestamp: '2022-07-28T10:56:37.737Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: no confirmed with donation IDs alfht',
+  level: 'info',
+  timestamp: '2022-07-28T10:57:37.737Z'
+}
+{
+  ID: 'ieeja',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-28T10:44:16.591Z'
+}
+{
+  ID: 'cofpr',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-28T10:45:19.943Z'
+}
+{
+  ID: 'wgngw',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-28T10:51:41.259Z'
+}
+{
+  message: 'Attempting to tally amount 3',
+  level: 'info',
+  timestamp: '2022-07-28T10:56:41.259Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: no confirmed with donation IDs wgngw',
+  level: 'info',
+  timestamp: '2022-07-28T10:56:41.260Z'
+}
+{
+  ID: 'mrhyj',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-28T10:54:19.194Z'
+}
+{
+  ID: 'rwzqk',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-28T13:48:20.911Z'
+}
+{
+  ID: 'ynfys',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-28T13:49:19.216Z'
+}
+{
+  ID: 'pejje',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-28T13:50:05.525Z'
+}
+{
+  ID: 'qrrxj',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-28T13:51:01.448Z'
+}
+{
+  ID: 'ektiq',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-28T13:51:29.043Z'
+}
+{
+  ID: 'pnyez',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-28T13:56:15.637Z'
+}
+{
+  ID: 'srtdq',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-28T13:57:31.876Z'
+}
+{
+  ID: 'ertqw',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-28T14:01:25.410Z'
+}
+{
+  ID: 'wskpo',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-28T14:02:12.440Z'
+}
+{
+  ID: 'vhopf',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-28T14:05:26.256Z'
+}
+{
+  ID: 'cfvcp',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-28T14:06:48.366Z'
+}
+{
+  ID: 'xqdmd',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-28T14:07:19.120Z'
+}
+{
+  ID: 'hkqzd',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-28T14:07:40.034Z'
+}
+{
+  ID: 'ernob',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-28T14:12:11.207Z'
+}
+{
+  ID: 'jlzlt',
+  level: 'info',
+  message: 'Donation intent for amount 3 exists currently - incrementing pending counter by 1 and restarting timer',
+  timestamp: '2022-07-28T14:13:33.591Z'
+}
+{
+  ID: 'qebni',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-28T22:24:53.811Z'
+}
+{
+  ID: 'uamnk',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-28T22:25:21.557Z'
+}
+{
+  ID: 'pughi',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-28T22:25:39.212Z'
+}
+{
+  ID: 'ypecq',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-28T22:26:43.284Z'
+}
+{
+  ID: 'vfiyq',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-28T22:31:27.566Z'
+}
+{
+  ID: 'smngg',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-28T22:35:16.948Z'
+}
+{
+  ID: 'oigaf',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-28T22:43:53.306Z'
+}
+{
+  ID: 'ckknp',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-28T22:47:50.597Z'
+}
+{
+  ID: 'udyxh',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-28T22:48:40.348Z'
+}
+{
+  ID: 'airek',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-28T22:51:01.262Z'
+}
+{
+  ID: 'zloca',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-28T22:51:44.430Z'
+}
+{
+  ID: 'likyh',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-28T22:52:35.610Z'
+}
+{
+  ID: 'qgfva',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-28T22:55:59.436Z'
+}
+{
+  ID: 'ljsga',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-28T22:58:49.939Z'
+}
+{
+  ID: 'ggtqh',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-28T22:59:12.427Z'
+}
+{
+  ID: 'etufc',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-28T23:04:50.173Z'
+}
+{
+  message: 'Attempting to tally amount 3',
+  level: 'info',
+  timestamp: '2022-07-28T23:09:50.373Z'
+}
+{
+  ID: 'uddaa',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-28T23:13:46.831Z'
+}
+{
+  ID: 'rbmrq',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-28T23:14:35.912Z'
+}
+{
+  message: 'Attempting to tally amount 3',
+  level: 'info',
+  timestamp: '2022-07-28T23:14:36.042Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: tally success with donation IDs rbmrq',
+  level: 'info',
+  timestamp: '2022-07-28T23:14:36.060Z'
+}
+{
+  ID: 'fndkv',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-28T23:15:37.521Z'
+}
+{
+  message: 'Attempting to tally amount 3',
+  level: 'info',
+  timestamp: '2022-07-28T23:20:37.753Z'
+}
+{
+  ID: 'eeikr',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-28T23:31:30.793Z'
+}
+{
+  ID: 'dtblp',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-28T23:31:58.207Z'
+}
+{
+  message: 'Attempting to tally amount 3',
+  level: 'info',
+  timestamp: '2022-07-28T23:36:58.413Z'
+}
+{
+  ID: 'xnugr',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-28T23:50:39.444Z'
+}
+{
+  ID: 'larsa',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-29T00:01:20.312Z'
+}
+{
+  ID: 'ohdqk',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-29T00:01:35.198Z'
+}
+{
+  message: 'Attempting to tally amount 3',
+  level: 'info',
+  timestamp: '2022-07-29T00:01:35.198Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: tally success with donation IDs ohdqk',
+  level: 'info',
+  timestamp: '2022-07-29T00:01:35.198Z'
+}
+{
+  ID: 'hfrtb',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-29T00:04:29.009Z'
+}
+{
+  message: 'Attempting to tally amount 3',
+  level: 'info',
+  timestamp: '2022-07-29T00:04:29.009Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: tally success with donation IDs hfrtb',
+  level: 'info',
+  timestamp: '2022-07-29T00:04:29.009Z'
+}
+{
+  human: true,
+  level: 'warn',
+  message: 'Since there are no ongoing donation intents, incoming donation amount 3 has been classified as other channel',
+  timestamp: '2022-07-29T00:04:29.009Z'
+}
+{
+  ID: 'zmxwa',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-29T00:13:05.452Z'
+}
+{
+  ID: 'wrlme',
+  level: 'info',
+  message: 'Donation intent for amount 3 exists currently - incrementing pending counter by 1 and restarting timer',
+  timestamp: '2022-07-29T00:13:05.452Z'
+}
+{
+  message: 'Attempting to tally amount 3',
+  level: 'info',
+  timestamp: '2022-07-29T00:15:05.452Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: tally success with donation IDs wrlme,zmxwa',
+  level: 'info',
+  timestamp: '2022-07-29T00:15:05.452Z'
+}
+{
+  ID: 'entth',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-29T00:15:11.153Z'
+}
+{
+  ID: 'pfbjv',
+  level: 'info',
+  message: 'Donation intent for amount 3 exists currently - incrementing pending counter by 1 and restarting timer',
+  timestamp: '2022-07-29T00:17:11.153Z'
+}
+{
+  message: 'Attempting to tally amount 3',
+  level: 'info',
+  timestamp: '2022-07-29T00:19:11.153Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: tally success with donation IDs pfbjv,entth',
+  level: 'info',
+  timestamp: '2022-07-29T00:19:11.153Z'
+}
+{
+  ID: 'ibqyt',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-29T00:18:24.697Z'
+}
+{
+  ID: 'iangc',
+  level: 'info',
+  message: 'Donation intent for amount 3 exists currently - incrementing pending counter by 1 and restarting timer',
+  timestamp: '2022-07-29T00:20:24.697Z'
+}
+{
+  message: 'Attempting to tally amount 3',
+  level: 'info',
+  timestamp: '2022-07-29T00:22:24.697Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: tally success with donation IDs iangc,ibqyt',
+  level: 'info',
+  timestamp: '2022-07-29T00:22:24.697Z'
+}
+{
+  ID: 'lvzxa',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-29T00:19:58.306Z'
+}
+{
+  ID: 'wzxve',
+  level: 'info',
+  message: 'Donation intent for amount 3 exists currently - incrementing pending counter by 1 and restarting timer',
+  timestamp: '2022-07-29T00:21:58.306Z'
+}
+{
+  message: 'Attempting to tally amount 3',
+  level: 'info',
+  timestamp: '2022-07-29T00:23:58.306Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: tally success with donation IDs wzxve,lvzxa',
+  level: 'info',
+  timestamp: '2022-07-29T00:23:58.306Z'
+}
+{
+  ID: 'zdoqn',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-29T00:21:07.991Z'
+}
+{
+  ID: 'ddome',
+  level: 'info',
+  message: 'Donation intent for amount 3 exists currently - incrementing pending counter by 1 and restarting timer',
+  timestamp: '2022-07-29T00:23:07.991Z'
+}
+{
+  message: 'Attempting to tally amount 3',
+  level: 'info',
+  timestamp: '2022-07-29T00:28:07.991Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: more pending than confirmed with donation IDs ddome,zdoqn',
+  level: 'info',
+  timestamp: '2022-07-29T00:28:07.992Z'
+}
+{
+  ID: 'vilgc',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-29T00:23:44.686Z'
+}
+{
+  message: 'Attempting to tally amount 3',
+  level: 'info',
+  timestamp: '2022-07-29T00:25:44.686Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: tally success with donation IDs vilgc',
+  level: 'info',
+  timestamp: '2022-07-29T00:25:44.686Z'
+}
+{
+  ID: 'pvuqt',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-29T00:25:44.686Z'
+}
+{
+  message: 'Attempting to tally amount 3',
+  level: 'info',
+  timestamp: '2022-07-29T00:27:44.686Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: tally success with donation IDs pvuqt',
+  level: 'info',
+  timestamp: '2022-07-29T00:27:44.686Z'
+}
+{
+  ID: 'asdph',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-29T00:24:06.209Z'
+}
+{
+  message: 'Attempting to tally amount 3',
+  level: 'info',
+  timestamp: '2022-07-29T00:29:06.209Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: no confirmed with donation IDs asdph',
+  level: 'info',
+  timestamp: '2022-07-29T00:29:06.210Z'
+}
+{
+  ID: 'bvrjr',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-29T00:29:06.210Z'
+}
+{
+  message: 'Attempting to tally amount 3',
+  level: 'info',
+  timestamp: '2022-07-29T00:29:06.210Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: tally success with donation IDs bvrjr',
+  level: 'info',
+  timestamp: '2022-07-29T00:29:06.210Z'
+}
+{
+  human: true,
+  level: 'warn',
+  message: 'Since there are no ongoing donation intents, incoming donation amount 3 has been classified as other channel',
+  timestamp: '2022-07-29T00:29:06.210Z'
+}
+{
+  ID: 'ltdaj',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-29T00:29:06.210Z'
+}
+{
+  ID: 'gaixw',
+  level: 'info',
+  message: 'Donation intent for amount 3 exists currently - incrementing pending counter by 1 and restarting timer',
+  timestamp: '2022-07-29T00:29:06.210Z'
+}
+{
+  message: 'Attempting to tally amount 3',
+  level: 'info',
+  timestamp: '2022-07-29T00:31:06.210Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: tally success with donation IDs gaixw,ltdaj',
+  level: 'info',
+  timestamp: '2022-07-29T00:31:06.210Z'
+}
+{
+  ID: 'fafcp',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-29T00:31:06.210Z'
+}
+{
+  ID: 'huljy',
+  level: 'info',
+  message: 'Donation intent for amount 3 exists currently - incrementing pending counter by 1 and restarting timer',
+  timestamp: '2022-07-29T00:33:06.210Z'
+}
+{
+  message: 'Attempting to tally amount 3',
+  level: 'info',
+  timestamp: '2022-07-29T00:35:06.210Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: tally success with donation IDs huljy,fafcp',
+  level: 'info',
+  timestamp: '2022-07-29T00:35:06.210Z'
+}
+{
+  ID: 'fvcog',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-29T00:35:06.210Z'
+}
+{
+  ID: 'mupnv',
+  level: 'info',
+  message: 'Donation intent for amount 3 exists currently - incrementing pending counter by 1 and restarting timer',
+  timestamp: '2022-07-29T00:37:06.210Z'
+}
+{
+  message: 'Attempting to tally amount 3',
+  level: 'info',
+  timestamp: '2022-07-29T00:42:06.210Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: more pending than confirmed with donation IDs mupnv,fvcog',
+  level: 'info',
+  timestamp: '2022-07-29T00:42:06.211Z'
+}
+{
+  ID: 'wdnpe',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-29T00:42:06.211Z'
+}
+{
+  message: 'Attempting to tally amount 3',
+  level: 'info',
+  timestamp: '2022-07-29T00:44:06.211Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: tally success with donation IDs wdnpe',
+  level: 'info',
+  timestamp: '2022-07-29T00:44:06.211Z'
+}
+{
+  ID: 'zpqlk',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-29T00:44:06.211Z'
+}
+{
+  message: 'Attempting to tally amount 3',
+  level: 'info',
+  timestamp: '2022-07-29T00:46:06.211Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: tally success with donation IDs zpqlk',
+  level: 'info',
+  timestamp: '2022-07-29T00:46:06.211Z'
+}
+{
+  ID: 'hugil',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-29T00:24:51.972Z'
+}
+{
+  message: 'Attempting to tally amount 3',
+  level: 'info',
+  timestamp: '2022-07-29T00:29:51.972Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: no confirmed with donation IDs hugil',
+  level: 'info',
+  timestamp: '2022-07-29T00:29:51.973Z'
+}
+{
+  ID: 'oklbf',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-29T00:29:51.973Z'
+}
+{
+  message: 'Attempting to tally amount 3',
+  level: 'info',
+  timestamp: '2022-07-29T00:29:51.973Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: tally success with donation IDs oklbf',
+  level: 'info',
+  timestamp: '2022-07-29T00:29:51.973Z'
+}
+{
+  human: true,
+  level: 'warn',
+  message: 'Since there are no ongoing donation intents, incoming donation amount 3 has been classified as other channel',
+  timestamp: '2022-07-29T00:29:51.973Z'
+}
+{
+  ID: 'ycwda',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-29T00:29:51.973Z'
+}
+{
+  ID: 'doxps',
+  level: 'info',
+  message: 'Donation intent for amount 3 exists currently - incrementing pending counter by 1 and restarting timer',
+  timestamp: '2022-07-29T00:29:51.973Z'
+}
+{
+  message: 'Attempting to tally amount 3',
+  level: 'info',
+  timestamp: '2022-07-29T00:31:51.973Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: tally success with donation IDs doxps,ycwda',
+  level: 'info',
+  timestamp: '2022-07-29T00:31:51.973Z'
+}
+{
+  ID: 'hlkwu',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-29T00:31:51.973Z'
+}
+{
+  ID: 'hezdd',
+  level: 'info',
+  message: 'Donation intent for amount 3 exists currently - incrementing pending counter by 1 and restarting timer',
+  timestamp: '2022-07-29T00:33:51.973Z'
+}
+{
+  message: 'Attempting to tally amount 3',
+  level: 'info',
+  timestamp: '2022-07-29T00:35:51.973Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: tally success with donation IDs hezdd,hlkwu',
+  level: 'info',
+  timestamp: '2022-07-29T00:35:51.973Z'
+}
+{
+  ID: 'notcb',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-29T00:35:51.973Z'
+}
+{
+  ID: 'xnbln',
+  level: 'info',
+  message: 'Donation intent for amount 3 exists currently - incrementing pending counter by 1 and restarting timer',
+  timestamp: '2022-07-29T00:37:51.973Z'
+}
+{
+  message: 'Attempting to tally amount 3',
+  level: 'info',
+  timestamp: '2022-07-29T00:42:51.973Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: more pending than confirmed with donation IDs xnbln,notcb',
+  level: 'info',
+  timestamp: '2022-07-29T00:42:51.974Z'
+}
+{
+  ID: 'rjnwg',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-29T00:42:51.974Z'
+}
+{
+  message: 'Attempting to tally amount 3',
+  level: 'info',
+  timestamp: '2022-07-29T00:44:51.974Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: tally success with donation IDs rjnwg',
+  level: 'info',
+  timestamp: '2022-07-29T00:44:51.974Z'
+}
+{
+  ID: 'wpcen',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-29T00:44:51.974Z'
+}
+{
+  message: 'Attempting to tally amount 3',
+  level: 'info',
+  timestamp: '2022-07-29T00:46:51.974Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: tally success with donation IDs wpcen',
+  level: 'info',
+  timestamp: '2022-07-29T00:46:51.974Z'
+}
+{
+  ID: 'jiein',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-29T02:05:31.070Z'
+}
+{
+  message: 'Attempting to tally amount 3',
+  level: 'info',
+  timestamp: '2022-07-29T02:10:31.070Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: no confirmed with donation IDs jiein',
+  level: 'info',
+  timestamp: '2022-07-29T02:10:31.071Z'
+}
+{
+  ID: 'ithiq',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-29T02:05:50.386Z'
+}
+{
+  message: 'Attempting to tally amount 3',
+  level: 'info',
+  timestamp: '2022-07-29T02:10:50.386Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: no confirmed with donation IDs ithiq',
+  level: 'info',
+  timestamp: '2022-07-29T02:10:50.387Z'
+}
+{
+  ID: 'yvzqe',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-29T02:07:47.871Z'
+}
+{
+  message: 'Attempting to tally amount 3',
+  level: 'info',
+  timestamp: '2022-07-29T02:12:47.871Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: no confirmed with donation IDs yvzqe',
+  level: 'info',
+  timestamp: '2022-07-29T02:12:47.872Z'
+}
+{
+  ID: 'bvbwj',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-29T02:08:19.127Z'
+}
+{
+  message: 'Attempting to tally amount 3',
+  level: 'info',
+  timestamp: '2022-07-29T02:13:19.127Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: no confirmed with donation IDs bvbwj',
+  level: 'info',
+  timestamp: '2022-07-29T02:13:19.128Z'
+}
+{
+  ID: 'gzdni',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-29T02:08:49.147Z'
+}
+{
+  message: 'Attempting to tally amount 3',
+  level: 'info',
+  timestamp: '2022-07-29T02:13:49.147Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: no confirmed with donation IDs gzdni',
+  level: 'info',
+  timestamp: '2022-07-29T02:13:49.148Z'
+}
+{
+  ID: 'ufroc',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-29T02:12:46.282Z'
+}
+{
+  message: 'Attempting to tally amount 3',
+  level: 'info',
+  timestamp: '2022-07-29T02:17:46.282Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: no confirmed with donation IDs ufroc',
+  level: 'info',
+  timestamp: '2022-07-29T02:17:46.283Z'
+}
+{
+  ID: 'zwwiy',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-29T05:24:28.340Z'
+}
+{
+  message: 'Attempting to tally amount 3',
+  level: 'info',
+  timestamp: '2022-07-29T05:29:28.340Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: no confirmed with donation IDs zwwiy',
+  level: 'info',
+  timestamp: '2022-07-29T05:29:28.341Z'
+}
+{
+  ID: 'cxqyf',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-29T05:29:28.341Z'
+}
+{
+  message: 'Attempting to tally amount 3',
+  level: 'info',
+  timestamp: '2022-07-29T05:29:28.341Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: tally success with donation IDs cxqyf',
+  level: 'info',
+  timestamp: '2022-07-29T05:29:28.341Z'
+}
+{
+  human: true,
+  level: 'warn',
+  message: 'Since there are no ongoing donation intents, incoming donation amount 3 has been classified as other channel',
+  timestamp: '2022-07-29T05:29:28.341Z'
+}
+{
+  ID: 'ajlrx',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-29T05:29:28.341Z'
+}
+{
+  ID: 'iwojh',
+  level: 'info',
+  message: 'Donation intent for amount 3 exists currently - incrementing pending counter by 1 and restarting timer',
+  timestamp: '2022-07-29T05:29:28.341Z'
+}
+{
+  message: 'Attempting to tally amount 3',
+  level: 'info',
+  timestamp: '2022-07-29T05:31:28.341Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: tally success with donation IDs iwojh,ajlrx',
+  level: 'info',
+  timestamp: '2022-07-29T05:31:28.341Z'
+}
+{
+  ID: 'ebwfn',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-29T05:31:28.341Z'
+}
+{
+  ID: 'lkyca',
+  level: 'info',
+  message: 'Donation intent for amount 3 exists currently - incrementing pending counter by 1 and restarting timer',
+  timestamp: '2022-07-29T05:33:28.341Z'
+}
+{
+  message: 'Attempting to tally amount 3',
+  level: 'info',
+  timestamp: '2022-07-29T05:35:28.341Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: tally success with donation IDs lkyca,ebwfn',
+  level: 'info',
+  timestamp: '2022-07-29T05:35:28.341Z'
+}
+{
+  ID: 'laqjn',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-29T05:35:28.341Z'
+}
+{
+  ID: 'nweng',
+  level: 'info',
+  message: 'Donation intent for amount 3 exists currently - incrementing pending counter by 1 and restarting timer',
+  timestamp: '2022-07-29T05:37:28.341Z'
+}
+{
+  message: 'Attempting to tally amount 3',
+  level: 'info',
+  timestamp: '2022-07-29T05:42:28.341Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: more pending than confirmed with donation IDs nweng,laqjn',
+  level: 'info',
+  timestamp: '2022-07-29T05:42:28.342Z'
+}
+{
+  ID: 'plyry',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-29T05:42:28.342Z'
+}
+{
+  message: 'Attempting to tally amount 3',
+  level: 'info',
+  timestamp: '2022-07-29T05:44:28.342Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: tally success with donation IDs plyry',
+  level: 'info',
+  timestamp: '2022-07-29T05:44:28.342Z'
+}
+{
+  ID: 'awotg',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-29T05:44:28.342Z'
+}
+{
+  message: 'Attempting to tally amount 3',
+  level: 'info',
+  timestamp: '2022-07-29T05:46:28.342Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: tally success with donation IDs awotg',
+  level: 'info',
+  timestamp: '2022-07-29T05:46:28.342Z'
+}
+{
+  ID: 'fqzxs',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-29T05:26:57.700Z'
+}
+{
+  message: 'Attempting to tally amount 3',
+  level: 'info',
+  timestamp: '2022-07-29T05:26:57.700Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: tally success with donation IDs fqzxs',
+  level: 'info',
+  timestamp: '2022-07-29T05:26:57.700Z'
+}
+{
+  ID: 'wgjmp',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-29T05:27:24.602Z'
+}
+{
+  message: 'Attempting to tally amount 3',
+  level: 'info',
+  timestamp: '2022-07-29T05:32:24.602Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: no confirmed with donation IDs wgjmp',
+  level: 'info',
+  timestamp: '2022-07-29T05:32:24.603Z'
+}
+{
+  ID: 'csrfj',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-29T05:32:24.603Z'
+}
+{
+  message: 'Attempting to tally amount 3',
+  level: 'info',
+  timestamp: '2022-07-29T05:32:24.603Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: tally success with donation IDs csrfj',
+  level: 'info',
+  timestamp: '2022-07-29T05:32:24.603Z'
+}
+{
+  human: true,
+  level: 'warn',
+  message: 'Since there are no ongoing donation intents, incoming donation amount 3 has been classified as other channel',
+  timestamp: '2022-07-29T05:32:24.603Z'
+}
+{
+  ID: 'noawd',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-29T05:32:24.603Z'
+}
+{
+  ID: 'mdxwo',
+  level: 'info',
+  message: 'Donation intent for amount 3 exists currently - incrementing pending counter by 1 and restarting timer',
+  timestamp: '2022-07-29T05:32:24.603Z'
+}
+{
+  message: 'Attempting to tally amount 3',
+  level: 'info',
+  timestamp: '2022-07-29T05:34:24.603Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: tally success with donation IDs mdxwo,noawd',
+  level: 'info',
+  timestamp: '2022-07-29T05:34:24.603Z'
+}
+{
+  ID: 'vhjlt',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-29T05:34:24.603Z'
+}
+{
+  ID: 'joxan',
+  level: 'info',
+  message: 'Donation intent for amount 3 exists currently - incrementing pending counter by 1 and restarting timer',
+  timestamp: '2022-07-29T05:36:24.603Z'
+}
+{
+  message: 'Attempting to tally amount 3',
+  level: 'info',
+  timestamp: '2022-07-29T05:38:24.603Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: tally success with donation IDs joxan,vhjlt',
+  level: 'info',
+  timestamp: '2022-07-29T05:38:24.603Z'
+}
+{
+  ID: 'wsvky',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-29T05:38:24.603Z'
+}
+{
+  ID: 'gjdtm',
+  level: 'info',
+  message: 'Donation intent for amount 3 exists currently - incrementing pending counter by 1 and restarting timer',
+  timestamp: '2022-07-29T05:40:24.603Z'
+}
+{
+  message: 'Attempting to tally amount 3',
+  level: 'info',
+  timestamp: '2022-07-29T05:45:24.603Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: more pending than confirmed with donation IDs gjdtm,wsvky',
+  level: 'info',
+  timestamp: '2022-07-29T05:45:24.604Z'
+}
+{
+  ID: 'apllz',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-29T05:45:24.604Z'
+}
+{
+  message: 'Attempting to tally amount 3',
+  level: 'info',
+  timestamp: '2022-07-29T05:47:24.604Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: tally success with donation IDs apllz',
+  level: 'info',
+  timestamp: '2022-07-29T05:47:24.604Z'
+}
+{
+  ID: 'hnmec',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-29T05:47:24.604Z'
+}
+{
+  message: 'Attempting to tally amount 3',
+  level: 'info',
+  timestamp: '2022-07-29T05:49:24.604Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: tally success with donation IDs hnmec',
+  level: 'info',
+  timestamp: '2022-07-29T05:49:24.604Z'
+}
+{
+  ID: 'zetqh',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-29T05:29:09.769Z'
+}
+{
+  message: 'Attempting to tally amount 3',
+  level: 'info',
+  timestamp: '2022-07-29T05:34:09.769Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: no confirmed with donation IDs zetqh',
+  level: 'info',
+  timestamp: '2022-07-29T05:34:09.770Z'
+}
+{
+  ID: 'iucpo',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-29T05:34:09.770Z'
+}
+{
+  message: 'Attempting to tally amount 3',
+  level: 'info',
+  timestamp: '2022-07-29T05:34:09.770Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: tally success with donation IDs iucpo',
+  level: 'info',
+  timestamp: '2022-07-29T05:34:09.770Z'
+}
+{
+  human: true,
+  level: 'warn',
+  message: 'Since there are no ongoing donation intents, incoming donation amount 3 has been classified as other channel',
+  timestamp: '2022-07-29T05:34:09.770Z'
+}
+{
+  ID: 'yaxdx',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-29T05:34:09.770Z'
+}
+{
+  ID: 'esigx',
+  level: 'info',
+  message: 'Donation intent for amount 3 exists currently - incrementing pending counter by 1 and restarting timer',
+  timestamp: '2022-07-29T05:34:09.770Z'
+}
+{
+  message: 'Attempting to tally amount 3',
+  level: 'info',
+  timestamp: '2022-07-29T05:36:09.770Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: tally success with donation IDs esigx,yaxdx',
+  level: 'info',
+  timestamp: '2022-07-29T05:36:09.770Z'
+}
+{
+  ID: 'efrwq',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-29T05:36:09.770Z'
+}
+{
+  ID: 'nqudq',
+  level: 'info',
+  message: 'Donation intent for amount 3 exists currently - incrementing pending counter by 1 and restarting timer',
+  timestamp: '2022-07-29T05:38:09.770Z'
+}
+{
+  message: 'Attempting to tally amount 3',
+  level: 'info',
+  timestamp: '2022-07-29T05:40:09.770Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: tally success with donation IDs nqudq,efrwq',
+  level: 'info',
+  timestamp: '2022-07-29T05:40:09.770Z'
+}
+{
+  ID: 'mywcj',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-29T05:40:09.770Z'
+}
+{
+  ID: 'kwvaq',
+  level: 'info',
+  message: 'Donation intent for amount 3 exists currently - incrementing pending counter by 1 and restarting timer',
+  timestamp: '2022-07-29T05:42:09.770Z'
+}
+{
+  message: 'Attempting to tally amount 3',
+  level: 'info',
+  timestamp: '2022-07-29T05:47:09.770Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: more pending than confirmed with donation IDs kwvaq,mywcj',
+  level: 'info',
+  timestamp: '2022-07-29T05:47:09.771Z'
+}
+{
+  ID: 'cmfjf',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-29T05:47:09.771Z'
+}
+{
+  message: 'Attempting to tally amount 3',
+  level: 'info',
+  timestamp: '2022-07-29T05:49:09.771Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: tally success with donation IDs cmfjf',
+  level: 'info',
+  timestamp: '2022-07-29T05:49:09.771Z'
+}
+{
+  ID: 'flomh',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-29T05:49:09.771Z'
+}
+{
+  message: 'Attempting to tally amount 3',
+  level: 'info',
+  timestamp: '2022-07-29T05:51:09.771Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: tally success with donation IDs flomh',
+  level: 'info',
+  timestamp: '2022-07-29T05:51:09.771Z'
+}
+{
+  ID: 'hadvc',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-29T05:32:41.332Z'
+}
+{
+  message: 'Attempting to tally amount 3',
+  level: 'info',
+  timestamp: '2022-07-29T05:37:41.332Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: no confirmed with donation IDs hadvc',
+  level: 'info',
+  timestamp: '2022-07-29T05:37:41.333Z'
+}
+{
+  ID: 'mxiyh',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-29T05:37:41.333Z'
+}
+{
+  message: 'Attempting to tally amount 3',
+  level: 'info',
+  timestamp: '2022-07-29T05:37:41.333Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: tally success with donation IDs mxiyh',
+  level: 'info',
+  timestamp: '2022-07-29T05:37:41.333Z'
+}
+{
+  human: true,
+  level: 'warn',
+  message: 'Since there are no ongoing donation intents, incoming donation amount 3 has been classified as other channel',
+  timestamp: '2022-07-29T05:37:41.333Z'
+}
+{
+  ID: 'bszpk',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-29T05:37:41.333Z'
+}
+{
+  ID: 'iublq',
+  level: 'info',
+  message: 'Donation intent for amount 3 exists currently - incrementing pending counter by 1 and restarting timer',
+  timestamp: '2022-07-29T05:37:41.333Z'
+}
+{
+  message: 'Attempting to tally amount 3',
+  level: 'info',
+  timestamp: '2022-07-29T05:39:41.333Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: tally success with donation IDs iublq,bszpk',
+  level: 'info',
+  timestamp: '2022-07-29T05:39:41.333Z'
+}
+{
+  ID: 'swmew',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-29T05:39:41.333Z'
+}
+{
+  ID: 'pddhe',
+  level: 'info',
+  message: 'Donation intent for amount 3 exists currently - incrementing pending counter by 1 and restarting timer',
+  timestamp: '2022-07-29T05:41:41.333Z'
+}
+{
+  message: 'Attempting to tally amount 3',
+  level: 'info',
+  timestamp: '2022-07-29T05:43:41.333Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: tally success with donation IDs pddhe,swmew',
+  level: 'info',
+  timestamp: '2022-07-29T05:43:41.333Z'
+}
+{
+  ID: 'dwmcu',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-29T05:43:41.333Z'
+}
+{
+  ID: 'pulmc',
+  level: 'info',
+  message: 'Donation intent for amount 3 exists currently - incrementing pending counter by 1 and restarting timer',
+  timestamp: '2022-07-29T05:45:41.333Z'
+}
+{
+  message: 'Attempting to tally amount 3',
+  level: 'info',
+  timestamp: '2022-07-29T05:50:41.333Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: more pending than confirmed with donation IDs pulmc,dwmcu',
+  level: 'info',
+  timestamp: '2022-07-29T05:50:41.334Z'
+}
+{
+  ID: 'jiymt',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-29T05:50:41.334Z'
+}
+{
+  message: 'Attempting to tally amount 3',
+  level: 'info',
+  timestamp: '2022-07-29T05:52:41.334Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: tally success with donation IDs jiymt',
+  level: 'info',
+  timestamp: '2022-07-29T05:52:41.334Z'
+}
+{
+  ID: 'jtrqu',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-29T05:52:41.334Z'
+}
+{
+  message: 'Attempting to tally amount 3',
+  level: 'info',
+  timestamp: '2022-07-29T05:54:41.334Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: tally success with donation IDs jtrqu',
+  level: 'info',
+  timestamp: '2022-07-29T05:54:41.334Z'
+}
+{
+  ID: 'zstsq',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-29T05:33:20.059Z'
+}
+{
+  message: 'Attempting to tally amount 3',
+  level: 'info',
+  timestamp: '2022-07-29T05:38:20.059Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: no confirmed with donation IDs zstsq',
+  level: 'info',
+  timestamp: '2022-07-29T05:38:20.060Z'
+}
+{
+  ID: 'zoobo',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-29T05:38:20.060Z'
+}
+{
+  message: 'Attempting to tally amount 3',
+  level: 'info',
+  timestamp: '2022-07-29T05:38:20.060Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: tally success with donation IDs zoobo',
+  level: 'info',
+  timestamp: '2022-07-29T05:38:20.060Z'
+}
+{
+  human: true,
+  level: 'warn',
+  message: 'Since there are no ongoing donation intents, incoming donation amount 3 has been classified as other channel',
+  timestamp: '2022-07-29T05:38:20.060Z'
+}
+{
+  ID: 'jyqsz',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-29T05:38:20.060Z'
+}
+{
+  ID: 'hjkhm',
+  level: 'info',
+  message: 'Donation intent for amount 3 exists currently - incrementing pending counter by 1 and restarting timer',
+  timestamp: '2022-07-29T05:38:20.060Z'
+}
+{
+  message: 'Attempting to tally amount 3',
+  level: 'info',
+  timestamp: '2022-07-29T05:40:20.060Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: tally success with donation IDs hjkhm,jyqsz',
+  level: 'info',
+  timestamp: '2022-07-29T05:40:20.060Z'
+}
+{
+  ID: 'pweeg',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-29T05:40:20.060Z'
+}
+{
+  ID: 'hcnai',
+  level: 'info',
+  message: 'Donation intent for amount 3 exists currently - incrementing pending counter by 1 and restarting timer',
+  timestamp: '2022-07-29T05:42:20.060Z'
+}
+{
+  message: 'Attempting to tally amount 3',
+  level: 'info',
+  timestamp: '2022-07-29T05:44:20.060Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: tally success with donation IDs hcnai,pweeg',
+  level: 'info',
+  timestamp: '2022-07-29T05:44:20.060Z'
+}
+{
+  ID: 'nckhq',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-29T05:44:20.060Z'
+}
+{
+  ID: 'mhoju',
+  level: 'info',
+  message: 'Donation intent for amount 3 exists currently - incrementing pending counter by 1 and restarting timer',
+  timestamp: '2022-07-29T05:46:20.060Z'
+}
+{
+  message: 'Attempting to tally amount 3',
+  level: 'info',
+  timestamp: '2022-07-29T05:51:20.060Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: more pending than confirmed with donation IDs mhoju,nckhq',
+  level: 'info',
+  timestamp: '2022-07-29T05:51:20.061Z'
+}
+{
+  ID: 'tptuw',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-29T05:51:20.061Z'
+}
+{
+  message: 'Attempting to tally amount 3',
+  level: 'info',
+  timestamp: '2022-07-29T05:53:20.061Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: tally success with donation IDs tptuw',
+  level: 'info',
+  timestamp: '2022-07-29T05:53:20.061Z'
+}
+{
+  ID: 'czbup',
+  level: 'info',
+  message: 'No donation intent for amount 3 exists currently - adding new intent and starting timer',
+  timestamp: '2022-07-29T05:53:20.061Z'
+}
+{
+  message: 'Attempting to tally amount 3',
+  level: 'info',
+  timestamp: '2022-07-29T05:55:20.061Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: tally success with donation IDs czbup',
+  level: 'info',
+  timestamp: '2022-07-29T05:55:20.061Z'
+}
+{
+  ID: 'mmgdd',
+  human: true,
+  level: 'info',
+  message: 'Received donation form submission with reference ID mmgdd \n' +
+    ' Request body: {"fullname":"Kim Young Jin e2e test","email":"kimyoungjin1001@gmail.com","mobilenumber":"81189254","project":"Education","type":"paynow","amount":1,"chequenumber":"","country":""}',
+  timestamp: '2022-08-01T11:33:55.857Z'
+}
+{
+  ID: 'mmgdd',
+  level: 'info',
+  message: 'Adding the following row to Google Sheet: ["mmgdd","Kim Young Jin e2e test","kimyoungjin1001@gmail.com","81189254","Education","paynow",1,"","","01/08/2022, 7:33:55 pm"]',
+  timestamp: '2022-08-01T11:33:56.061Z'
+}
+{
+  ID: 'mmgdd',
+  level: 'info',
+  message: 'No donation intent for amount 1 exists currently - adding new intent and starting timer',
+  timestamp: '2022-08-01T11:33:56.259Z'
+}
+{
+  ID: 'zczfg',
+  human: true,
+  level: 'info',
+  message: 'Received donation form submission with reference ID zczfg \n' +
+    ' Request body: {"fullname":"Kim Young Jin e2e test","email":"kimyoungjin1001@gmail.com","mobilenumber":"81189254","project":"Education","type":"paynow","amount":1,"chequenumber":"","country":""}',
+  timestamp: '2022-08-01T11:38:33.534Z'
+}
+{
+  ID: 'zczfg',
+  level: 'info',
+  message: 'Adding the following row to Google Sheet: ["zczfg","Kim Young Jin e2e test","kimyoungjin1001@gmail.com","81189254","Education","paynow",1,"","","01/08/2022, 7:38:33 pm"]',
+  timestamp: '2022-08-01T11:38:33.622Z'
+}
+{
+  ID: 'zczfg',
+  level: 'info',
+  message: 'Donation intent for amount 1 exists currently - incrementing pending counter by 1 and restarting timer',
+  timestamp: '2022-08-01T11:38:33.665Z'
+}
+{
+  ID: 'bdcmj',
+  human: true,
+  level: 'info',
+  message: 'Received donation form submission with reference ID bdcmj \n' +
+    ' Request body: {"fullname":"Kim Young Jin e2e test","email":"kimyoungjin1001@gmail.com","mobilenumber":"81189254","project":"Education","type":"paynow","amount":1,"chequenumber":"","country":""}',
+  timestamp: '2022-08-01T11:40:12.391Z'
+}
+{
+  ID: 'bdcmj',
+  level: 'info',
+  message: 'Adding the following row to Google Sheet: ["bdcmj","Kim Young Jin e2e test","kimyoungjin1001@gmail.com","81189254","Education","paynow",1,"","","01/08/2022, 7:40:12 pm"]',
+  timestamp: '2022-08-01T11:40:12.654Z'
+}
+{
+  ID: 'bdcmj',
+  level: 'info',
+  message: 'Donation intent for amount 1 exists currently - incrementing pending counter by 1 and restarting timer',
+  timestamp: '2022-08-01T11:40:12.724Z'
+}
+{
+  message: 'Attempting to tally amount 1',
+  level: 'info',
+  timestamp: '2022-08-01T11:45:12.849Z'
+}
+{
+  ID: 'bdcmj',
+  level: 'info',
+  message: 'Updated donation confirmed column for donation ID bdcmj to N',
+  timestamp: '2022-08-01T11:45:16.087Z'
+}
+{
+  ID: 'mmgdd',
+  level: 'info',
+  message: 'Updated donation confirmed column for donation ID mmgdd to N',
+  timestamp: '2022-08-01T11:45:16.666Z'
+}
+{
+  ID: 'zczfg',
+  level: 'info',
+  message: 'Updated donation confirmed column for donation ID zczfg to N',
+  timestamp: '2022-08-01T11:45:16.677Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: no confirmed with donation IDs bdcmj,zczfg,mmgdd',
+  level: 'info',
+  timestamp: '2022-08-01T11:45:16.678Z'
+}
+{
+  ID: 'urdfi',
+  human: true,
+  level: 'info',
+  message: 'Received donation form submission with reference ID urdfi \n' +
+    ' Request body: {"fullname":"Kim Young Jin e2e test","email":"kimyoungjin1001@gmail.com","mobilenumber":"81189254","project":"Education","type":"paynow","amount":1,"chequenumber":"","country":""}',
+  timestamp: '2022-08-01T22:53:38.752Z'
+}
+{
+  ID: 'urdfi',
+  level: 'info',
+  message: 'Adding the following row to Google Sheet: ["urdfi","Kim Young Jin e2e test","kimyoungjin1001@gmail.com","81189254","Education","paynow",1,"","","02/08/2022, 6:53:38 am"]',
+  timestamp: '2022-08-01T22:53:39.060Z'
+}
+{
+  ID: 'urdfi',
+  level: 'info',
+  message: 'No donation intent for amount 1 exists currently - adding new intent and starting timer',
+  timestamp: '2022-08-01T22:53:39.194Z'
+}
+{
+  message: 'Attempting to tally amount 1',
+  level: 'info',
+  timestamp: '2022-08-01T22:53:49.226Z'
+}
+{
+  ID: 'urdfi',
+  level: 'info',
+  message: 'Updated donation confirmed column for donation ID urdfi to N',
+  timestamp: '2022-08-01T22:53:51.572Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: no confirmed with donation IDs urdfi',
+  level: 'info',
+  timestamp: '2022-08-01T22:53:51.574Z'
+}
+{
+  ID: 'jneje',
+  human: true,
+  level: 'info',
+  message: 'Received donation form submission with reference ID jneje \n' +
+    ' Request body: {"fullname":"Kim Young Jin e2e test","email":"kimyoungjin1001@gmail.com","mobilenumber":"81189254","project":"Education","type":"paynow","amount":1,"chequenumber":"","country":""}',
+  timestamp: '2022-08-01T23:32:23.704Z'
+}
+{
+  ID: 'jneje',
+  level: 'info',
+  message: 'Adding the following row to Google Sheet: ["jneje","Kim Young Jin e2e test","kimyoungjin1001@gmail.com","81189254","Education","paynow",1,"","","02/08/2022, 7:32:23 am"]',
+  timestamp: '2022-08-01T23:32:23.941Z'
+}
+{
+  ID: 'jneje',
+  level: 'info',
+  message: 'No donation intent for amount 1 exists currently - adding new intent and starting timer',
+  timestamp: '2022-08-01T23:32:24.033Z'
+}
+{
+  message: 'Received payment notification from bank for amount 1 \n' +
+    ' Email Contents: Please be advised that the below transaction has been Processed. You may login UOB Infinity to review the details. \n' +
+    ' Transaction : Inward Remittance BIB Reference: IR22060164074051 Bank Reference: 586L222 20220629 Currency and Amount: SGD 1.00 This is a system-generated mail. Please do not reply to this message.',
+  level: 'info',
+  timestamp: '2022-08-01T23:32:28.845Z'
+}
+{
+  message: 'Attempting to tally amount 1',
+  level: 'info',
+  timestamp: '2022-08-01T23:32:28.853Z'
+}
+{
+  ID: 'jneje',
+  human: true,
+  level: 'info',
+  message: 'Sending receipt to the following user: \n' +
+    ' {"fullname":"Kim Young Jin e2e test","email":"kimyoungjin1001@gmail.com","mobilenumber":"81189254","project":"Education","type":"paynow","amount":1,"chequenumber":"","country":""}',
+  timestamp: '2022-08-01T23:32:28.891Z'
+}
+{
+  ID: 'jneje',
+  level: 'info',
+  message: 'Updated donation confirmed column for donation ID jneje to Y',
+  timestamp: '2022-08-01T23:32:31.239Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: tally success with donation IDs jneje',
+  level: 'info',
+  timestamp: '2022-08-01T23:32:31.242Z'
+}
+{
+  ID: 'nmgod',
+  human: true,
+  level: 'info',
+  message: 'Received donation form submission with reference ID nmgod \n' +
+    ' Request body: {"fullname":"Kim Young Jin e2e test","email":"kimyoungjin1001@gmail.com","mobilenumber":"81189254","project":"Education","type":"paynow","amount":1,"chequenumber":"","country":""}',
+  timestamp: '2022-08-01T23:41:26.254Z'
+}
+{
+  ID: 'nmgod',
+  level: 'info',
+  message: 'Adding the following row to Google Sheet: ["nmgod","Kim Young Jin e2e test","kimyoungjin1001@gmail.com","81189254","Education","paynow",1,"","","02/08/2022, 7:41:26 am"]',
+  timestamp: '2022-08-01T23:41:26.461Z'
+}
+{
+  ID: 'nmgod',
+  level: 'info',
+  message: 'No donation intent for amount 1 exists currently - adding new intent and starting timer',
+  timestamp: '2022-08-01T23:41:26.531Z'
+}
+{
+  message: 'Received payment notification from bank for amount 1 \n' +
+    ' Email Contents: Please be advised that the below transaction has been Processed. You may login UOB Infinity to review the details. \n' +
+    ' Transaction : Inward Remittance BIB Reference: IR22060164074051 Bank Reference: 586L222 20220629 Currency and Amount: SGD 1.00 This is a system-generated mail. Please do not reply to this message.',
+  level: 'info',
+  timestamp: '2022-08-01T23:41:31.129Z'
+}
+{
+  message: 'Attempting to tally amount 1',
+  level: 'info',
+  timestamp: '2022-08-01T23:41:31.144Z'
+}
+{
+  ID: 'nmgod',
+  human: true,
+  level: 'info',
+  message: 'Sending receipt to the following user: \n' +
+    ' {"fullname":"Kim Young Jin e2e test","email":"kimyoungjin1001@gmail.com","mobilenumber":"81189254","project":"Education","type":"paynow","amount":1,"chequenumber":"","country":""}',
+  timestamp: '2022-08-01T23:41:31.162Z'
+}
+{
+  ID: 'nmgod',
+  level: 'info',
+  message: 'Updated donation confirmed column for donation ID nmgod to Y',
+  timestamp: '2022-08-01T23:41:33.438Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: tally success with donation IDs nmgod',
+  level: 'info',
+  timestamp: '2022-08-01T23:41:33.439Z'
+}
+{
+  ID: 'kzxco',
+  human: true,
+  level: 'info',
+  message: 'Received donation form submission with reference ID kzxco \n' +
+    ' Request body: {"fullname":"Kim Young Jin e2e test","email":"kimyoungjin1001@gmail.com","mobilenumber":"81189254","project":"Education","type":"paynow","amount":1,"chequenumber":"","country":""}',
+  timestamp: '2022-08-01T23:46:48.902Z'
+}
+{
+  ID: 'kzxco',
+  level: 'info',
+  message: 'Adding the following row to Google Sheet: ["kzxco","Kim Young Jin e2e test","kimyoungjin1001@gmail.com","81189254","Education","paynow",1,"","","02/08/2022, 7:46:49 am"]',
+  timestamp: '2022-08-01T23:46:49.050Z'
+}
+{
+  ID: 'kzxco',
+  level: 'info',
+  message: 'No donation intent for amount 1 exists currently - adding new intent and starting timer',
+  timestamp: '2022-08-01T23:46:49.146Z'
+}
+{
+  message: 'Received payment notification from bank for amount 1 \n' +
+    ' Email Contents: Please be advised that the below transaction has been Processed. You may login UOB Infinity to review the details. \n' +
+    ' Transaction : Inward Remittance BIB Reference: IR22060164074051 Bank Reference: 586L222 20220629 Currency and Amount: SGD 1.00 This is a system-generated mail. Please do not reply to this message.',
+  level: 'info',
+  timestamp: '2022-08-01T23:46:53.557Z'
+}
+{
+  message: 'Attempting to tally amount 1',
+  level: 'info',
+  timestamp: '2022-08-01T23:46:53.562Z'
+}
+{
+  ID: 'kzxco',
+  human: true,
+  level: 'info',
+  message: 'Sending receipt to the following user: \n' +
+    ' {"fullname":"Kim Young Jin e2e test","email":"kimyoungjin1001@gmail.com","mobilenumber":"81189254","project":"Education","type":"paynow","amount":1,"chequenumber":"","country":""}',
+  timestamp: '2022-08-01T23:46:53.576Z'
+}
+{
+  ID: 'kzxco',
+  level: 'info',
+  message: 'Updated donation confirmed column for donation ID kzxco to Y',
+  timestamp: '2022-08-01T23:46:55.808Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: tally success with donation IDs kzxco',
+  level: 'info',
+  timestamp: '2022-08-01T23:46:55.810Z'
+}
+{
+  ID: 'lkawa',
+  human: true,
+  level: 'info',
+  message: 'Received donation form submission with reference ID lkawa \n' +
+    ' Request body: {"fullname":"Kim Young Jin e2e test","email":"kimyoungjin1001@gmail.com","mobilenumber":"81189254","project":"Education","type":"paynow","amount":1,"chequenumber":"","country":""}',
+  timestamp: '2022-08-01T23:49:57.907Z'
+}
+{
+  ID: 'lkawa',
+  level: 'info',
+  message: 'Adding the following row to Google Sheet: ["lkawa","Kim Young Jin e2e test","kimyoungjin1001@gmail.com","81189254","Education","paynow",1,"","","02/08/2022, 7:49:57 am"]',
+  timestamp: '2022-08-01T23:49:57.910Z'
+}
+{
+  ID: 'lkawa',
+  level: 'info',
+  message: 'No donation intent for amount 1 exists currently - adding new intent and starting timer',
+  timestamp: '2022-08-01T23:49:57.991Z'
+}
+{
+  message: 'Received payment notification from bank for amount 1 \n' +
+    ' Email Contents: Please be advised that the below transaction has been Processed. You may login UOB Infinity to review the details. \n' +
+    ' Transaction : Inward Remittance BIB Reference: IR22060164074051 Bank Reference: 586L222 20220629 Currency and Amount: SGD 1.00 This is a system-generated mail. Please do not reply to this message.',
+  level: 'info',
+  timestamp: '2022-08-01T23:50:02.059Z'
+}
+{
+  message: 'Attempting to tally amount 1',
+  level: 'info',
+  timestamp: '2022-08-01T23:50:02.064Z'
+}
+{
+  ID: 'lkawa',
+  human: true,
+  level: 'info',
+  message: 'Sending receipt to the following user: \n' +
+    ' {"fullname":"Kim Young Jin e2e test","email":"kimyoungjin1001@gmail.com","mobilenumber":"81189254","project":"Education","type":"paynow","amount":1,"chequenumber":"","country":""}',
+  timestamp: '2022-08-01T23:50:02.074Z'
+}
+{
+  ID: 'lkawa',
+  level: 'info',
+  message: 'Updated donation confirmed column for donation ID lkawa to Y',
+  timestamp: '2022-08-01T23:50:04.318Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: tally success with donation IDs lkawa',
+  level: 'info',
+  timestamp: '2022-08-01T23:50:04.319Z'
+}
+{
+  ID: 'tbukz',
+  human: true,
+  level: 'info',
+  message: 'Received donation form submission with reference ID tbukz \n' +
+    ' Request body: {"fullname":"Kim Young Jin e2e test","email":"kimyoungjin1001@gmail.com","mobilenumber":"81189254","project":"Education","type":"paynow","amount":1,"chequenumber":"","country":""}',
+  timestamp: '2022-08-01T23:51:17.487Z'
+}
+{
+  ID: 'tbukz',
+  level: 'info',
+  message: 'Adding the following row to Google Sheet: ["tbukz","Kim Young Jin e2e test","kimyoungjin1001@gmail.com","81189254","Education","paynow",1,"","","02/08/2022, 7:51:17 am"]',
+  timestamp: '2022-08-01T23:51:17.490Z'
+}
+{
+  ID: 'tbukz',
+  level: 'info',
+  message: 'No donation intent for amount 1 exists currently - adding new intent and starting timer',
+  timestamp: '2022-08-01T23:51:17.545Z'
+}
+{
+  message: 'Received payment notification from bank for amount 1 \n' +
+    ' Email Contents: Please be advised that the below transaction has been Processed. You may login UOB Infinity to review the details. \n' +
+    ' Transaction : Inward Remittance BIB Reference: IR22060164074051 Bank Reference: 586L222 20220629 Currency and Amount: SGD 1.00 This is a system-generated mail. Please do not reply to this message.',
+  level: 'info',
+  timestamp: '2022-08-01T23:51:21.589Z'
+}
+{
+  message: 'Attempting to tally amount 1',
+  level: 'info',
+  timestamp: '2022-08-01T23:51:21.592Z'
+}
+{
+  ID: 'tbukz',
+  human: true,
+  level: 'info',
+  message: 'Sending receipt to the following user: \n' +
+    ' {"fullname":"Kim Young Jin e2e test","email":"kimyoungjin1001@gmail.com","mobilenumber":"81189254","project":"Education","type":"paynow","amount":1,"chequenumber":"","country":""}',
+  timestamp: '2022-08-01T23:51:21.605Z'
+}
+{
+  ID: 'tbukz',
+  level: 'info',
+  message: 'Updated donation confirmed column for donation ID tbukz to Y',
+  timestamp: '2022-08-01T23:51:23.807Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: tally success with donation IDs tbukz',
+  level: 'info',
+  timestamp: '2022-08-01T23:51:23.811Z'
+}
+{
+  ID: 'dzncu',
+  human: true,
+  level: 'info',
+  message: 'Received donation form submission with reference ID dzncu \n' +
+    ' Request body: {"fullname":"Kim Young Jin e2e test","email":"kimyoungjin1001@gmail.com","mobilenumber":"81189254","project":"Education","type":"paynow","amount":1,"chequenumber":"","country":""}',
+  timestamp: '2022-08-01T23:54:56.445Z'
+}
+{
+  ID: 'dzncu',
+  level: 'info',
+  message: 'Adding the following row to Google Sheet: ["dzncu","Kim Young Jin e2e test","kimyoungjin1001@gmail.com","81189254","Education","paynow",1,"","","02/08/2022, 7:54:56 am"]',
+  timestamp: '2022-08-01T23:54:56.694Z'
+}
+{
+  ID: 'dzncu',
+  level: 'info',
+  message: 'No donation intent for amount 1 exists currently - adding new intent and starting timer',
+  timestamp: '2022-08-01T23:54:56.773Z'
+}
+{
+  message: 'Received payment notification from bank for amount 1 \n' +
+    ' Email Contents: Please be advised that the below transaction has been Processed. You may login UOB Infinity to review the details. \n' +
+    ' Transaction : Inward Remittance BIB Reference: IR22060164074051 Bank Reference: 586L222 20220629 Currency and Amount: SGD 1.00 This is a system-generated mail. Please do not reply to this message.',
+  level: 'info',
+  timestamp: '2022-08-01T23:55:01.165Z'
+}
+{
+  message: 'Attempting to tally amount 1',
+  level: 'info',
+  timestamp: '2022-08-01T23:55:01.171Z'
+}
+{
+  ID: 'dzncu',
+  human: true,
+  level: 'info',
+  message: 'Sending receipt to the following user: \n' +
+    ' {"fullname":"Kim Young Jin e2e test","email":"kimyoungjin1001@gmail.com","mobilenumber":"81189254","project":"Education","type":"paynow","amount":1,"chequenumber":"","country":""}',
+  timestamp: '2022-08-01T23:55:01.190Z'
+}
+{
+  ID: 'dzncu',
+  level: 'info',
+  message: 'Updated donation confirmed column for donation ID dzncu to Y',
+  timestamp: '2022-08-01T23:55:03.474Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: tally success with donation IDs dzncu',
+  level: 'info',
+  timestamp: '2022-08-01T23:55:03.476Z'
+}
+{
+  message: 'Sending 200 for bank email response',
+  level: 'info',
+  timestamp: '2022-08-01T23:55:03.489Z'
+}
+{
+  ID: 'mljls',
+  human: true,
+  level: 'info',
+  message: 'Received donation form submission with reference ID mljls \n' +
+    ' Request body: {"fullname":"Kim Young Jin e2e test","email":"kimyoungjin1001@gmail.com","mobilenumber":"81189254","project":"Education","type":"paynow","amount":1,"chequenumber":"","country":""}',
+  timestamp: '2022-08-02T00:08:50.610Z'
+}
+{
+  ID: 'mljls',
+  level: 'info',
+  message: 'Adding the following row to Google Sheet: ["mljls","Kim Young Jin e2e test","kimyoungjin1001@gmail.com","81189254","Education","paynow",1,"","","02/08/2022, 8:08:50 am"]',
+  timestamp: '2022-08-02T00:08:50.749Z'
+}
+{
+  ID: 'mljls',
+  level: 'info',
+  message: 'No donation intent for amount 1 exists currently - adding new intent and starting timer',
+  timestamp: '2022-08-02T00:08:50.875Z'
+}
+{
+  message: 'Received payment notification from bank for amount 1 \n' +
+    ' Email Contents: Please be advised that the below transaction has been Processed. You may login UOB Infinity to review the details. \n' +
+    ' Transaction : Inward Remittance BIB Reference: IR22060164074051 Bank Reference: 586L222 20220629 Currency and Amount: SGD 1.00 This is a system-generated mail. Please do not reply to this message.',
+  level: 'info',
+  timestamp: '2022-08-02T00:08:55.640Z'
+}
+{
+  message: 'Attempting to tally amount 1',
+  level: 'info',
+  timestamp: '2022-08-02T00:08:55.645Z'
+}
+{
+  ID: 'mljls',
+  human: true,
+  level: 'info',
+  message: 'Sending receipt to the following user: \n' +
+    ' {"fullname":"Kim Young Jin e2e test","email":"kimyoungjin1001@gmail.com","mobilenumber":"81189254","project":"Education","type":"paynow","amount":1,"chequenumber":"","country":""}',
+  timestamp: '2022-08-02T00:08:55.652Z'
+}
+{
+  ID: 'mljls',
+  level: 'info',
+  message: 'Updated donation confirmed column for donation ID mljls to Y',
+  timestamp: '2022-08-02T00:08:57.991Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: tally success with donation IDs mljls',
+  level: 'info',
+  timestamp: '2022-08-02T00:08:57.994Z'
+}
+{
+  message: 'Sending 200 for bank email response',
+  level: 'info',
+  timestamp: '2022-08-02T00:08:58.011Z'
+}
+{
+  ID: 'skzrt',
+  human: true,
+  level: 'info',
+  message: 'Received donation form submission with reference ID skzrt \n' +
+    ' Request body: {"fullname":"Kim Young Jin e2e test","email":"kimyoungjin1001@gmail.com","mobilenumber":"81189254","project":"Education","type":"paynow","amount":1,"chequenumber":"","country":""}',
+  timestamp: '2022-08-02T00:09:36.511Z'
+}
+{
+  ID: 'skzrt',
+  level: 'info',
+  message: 'Adding the following row to Google Sheet: ["skzrt","Kim Young Jin e2e test","kimyoungjin1001@gmail.com","81189254","Education","paynow",1,"","","02/08/2022, 8:09:36 am"]',
+  timestamp: '2022-08-02T00:09:36.527Z'
+}
+{
+  ID: 'skzrt',
+  level: 'info',
+  message: 'No donation intent for amount 1 exists currently - adding new intent and starting timer',
+  timestamp: '2022-08-02T00:09:36.593Z'
+}
+{
+  message: 'Received payment notification from bank for amount 1 \n' +
+    ' Email Contents: Please be advised that the below transaction has been Processed. You may login UOB Infinity to review the details. \n' +
+    ' Transaction : Inward Remittance BIB Reference: IR22060164074051 Bank Reference: 586L222 20220629 Currency and Amount: SGD 1.00 This is a system-generated mail. Please do not reply to this message.',
+  level: 'info',
+  timestamp: '2022-08-02T00:09:40.631Z'
+}
+{
+  message: 'Attempting to tally amount 1',
+  level: 'info',
+  timestamp: '2022-08-02T00:09:40.637Z'
+}
+{
+  ID: 'skzrt',
+  human: true,
+  level: 'info',
+  message: 'Sending receipt to the following user: \n' +
+    ' {"fullname":"Kim Young Jin e2e test","email":"kimyoungjin1001@gmail.com","mobilenumber":"81189254","project":"Education","type":"paynow","amount":1,"chequenumber":"","country":""}',
+  timestamp: '2022-08-02T00:09:40.645Z'
+}
+{
+  ID: 'skzrt',
+  level: 'info',
+  message: 'Updated donation confirmed column for donation ID skzrt to Y',
+  timestamp: '2022-08-02T00:09:42.880Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: tally success with donation IDs skzrt',
+  level: 'info',
+  timestamp: '2022-08-02T00:09:42.883Z'
+}
+{
+  message: 'Sending 200 for bank email response',
+  level: 'info',
+  timestamp: '2022-08-02T00:09:42.885Z'
+}
+{
+  ID: 'oyepx',
+  human: true,
+  level: 'info',
+  message: 'Received donation form submission with reference ID oyepx \n' +
+    ' Request body: {"fullname":"Kim Young Jin e2e test","email":"kimyoungjin1001@gmail.com","mobilenumber":"81189254","project":"Education","type":"paynow","amount":1,"chequenumber":"","country":""}',
+  timestamp: '2022-08-02T00:13:31.918Z'
+}
+{
+  ID: 'oyepx',
+  level: 'info',
+  message: 'Adding the following row to Google Sheet: ["oyepx","Kim Young Jin e2e test","kimyoungjin1001@gmail.com","81189254","Education","paynow",1,"","","02/08/2022, 8:13:31 am"]',
+  timestamp: '2022-08-02T00:13:31.923Z'
+}
+{
+  ID: 'oyepx',
+  level: 'info',
+  message: 'No donation intent for amount 1 exists currently - adding new intent and starting timer',
+  timestamp: '2022-08-02T00:13:32.025Z'
+}
+{
+  message: 'Received payment notification from bank for amount 1 \n' +
+    ' Email Contents: Please be advised that the below transaction has been Processed. You may login UOB Infinity to review the details. \n' +
+    ' Transaction : Inward Remittance BIB Reference: IR22060164074051 Bank Reference: 586L222 20220629 Currency and Amount: SGD 1.00 This is a system-generated mail. Please do not reply to this message.',
+  level: 'info',
+  timestamp: '2022-08-02T00:13:36.188Z'
+}
+{
+  message: 'Attempting to tally amount 1',
+  level: 'info',
+  timestamp: '2022-08-02T00:13:36.193Z'
+}
+{
+  ID: 'oyepx',
+  human: true,
+  level: 'info',
+  message: 'Sending receipt to the following user: \n' +
+    ' {"fullname":"Kim Young Jin e2e test","email":"kimyoungjin1001@gmail.com","mobilenumber":"81189254","project":"Education","type":"paynow","amount":1,"chequenumber":"","country":""}',
+  timestamp: '2022-08-02T00:13:36.214Z'
+}
+{
+  ID: 'oyepx',
+  level: 'info',
+  message: 'Updated donation confirmed column for donation ID oyepx to Y',
+  timestamp: '2022-08-02T00:13:38.604Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: tally success with donation IDs oyepx',
+  level: 'info',
+  timestamp: '2022-08-02T00:13:38.607Z'
+}
+{
+  message: 'Sending 200 for bank email response',
+  level: 'info',
+  timestamp: '2022-08-02T00:13:38.617Z'
+}
+{
+  ID: 'lhfjd',
+  human: true,
+  level: 'info',
+  message: 'Received donation form submission with reference ID lhfjd \n' +
+    ' Request body: {"fullname":"Kim Young Jin e2e test","email":"kimyoungjin1001@gmail.com","mobilenumber":"81189254","project":"Education","type":"paynow","amount":1,"chequenumber":"","country":""}',
+  timestamp: '2022-08-02T00:46:50.637Z'
+}
+{
+  ID: 'lhfjd',
+  level: 'info',
+  message: 'Adding the following row to Google Sheet: ["lhfjd","Kim Young Jin e2e test","kimyoungjin1001@gmail.com","81189254","Education","paynow",1,"","","02/08/2022, 8:46:50 am"]',
+  timestamp: '2022-08-02T00:46:50.853Z'
+}
+{
+  ID: 'lhfjd',
+  level: 'info',
+  message: 'No donation intent for amount 1 exists currently - adding new intent and starting timer',
+  timestamp: '2022-08-02T00:46:50.928Z'
+}
+{
+  message: 'Received payment notification from bank for amount 1 \n' +
+    ' Email Contents: Please be advised that the below transaction has been Processed. You may login UOB Infinity to review the details. \n' +
+    ' Transaction : Inward Remittance BIB Reference: IR22060164074051 Bank Reference: 586L222 20220629 Currency and Amount: SGD 1.00 This is a system-generated mail. Please do not reply to this message.',
+  level: 'info',
+  timestamp: '2022-08-02T00:46:56.803Z'
+}
+{
+  message: 'Attempting to tally amount 1',
+  level: 'info',
+  timestamp: '2022-08-02T00:46:56.814Z'
+}
+{
+  ID: 'lhfjd',
+  human: true,
+  level: 'info',
+  message: 'Sending receipt to the following user: \n' +
+    ' {"fullname":"Kim Young Jin e2e test","email":"kimyoungjin1001@gmail.com","mobilenumber":"81189254","project":"Education","type":"paynow","amount":1,"chequenumber":"","country":""}',
+  timestamp: '2022-08-02T00:46:56.835Z'
+}
+{
+  ID: 'lhfjd',
+  level: 'info',
+  message: 'Updated donation confirmed column for donation ID lhfjd to Y',
+  timestamp: '2022-08-02T00:46:59.630Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: tally success with donation IDs lhfjd',
+  level: 'info',
+  timestamp: '2022-08-02T00:46:59.632Z'
+}
+{
+  message: 'Sending 200 for bank email response',
+  level: 'info',
+  timestamp: '2022-08-02T00:46:59.664Z'
+}
+{
+  ID: 'zlycu',
+  human: true,
+  level: 'info',
+  message: 'Received donation form submission with reference ID zlycu \n' +
+    ' Request body: {"fullname":"Kim Young Jin e2e test","email":"kimyoungjin1001@gmail.com","mobilenumber":"81189254","project":"Education","type":"paynow","amount":1,"chequenumber":"","country":""}',
+  timestamp: '2022-08-02T00:47:44.047Z'
+}
+{
+  ID: 'zlycu',
+  level: 'info',
+  message: 'Adding the following row to Google Sheet: ["zlycu","Kim Young Jin e2e test","kimyoungjin1001@gmail.com","81189254","Education","paynow",1,"","","02/08/2022, 8:47:44 am"]',
+  timestamp: '2022-08-02T00:47:44.123Z'
+}
+{
+  ID: 'zlycu',
+  level: 'info',
+  message: 'No donation intent for amount 1 exists currently - adding new intent and starting timer',
+  timestamp: '2022-08-02T00:47:44.189Z'
+}
+{
+  message: 'Received payment notification from bank for amount 1 \n' +
+    ' Email Contents: Please be advised that the below transaction has been Processed. You may login UOB Infinity to review the details. \n' +
+    ' Transaction : Inward Remittance BIB Reference: IR22060164074051 Bank Reference: 586L222 20220629 Currency and Amount: SGD 1.00 This is a system-generated mail. Please do not reply to this message.',
+  level: 'info',
+  timestamp: '2022-08-02T00:47:50.066Z'
+}
+{
+  message: 'Attempting to tally amount 1',
+  level: 'info',
+  timestamp: '2022-08-02T00:47:50.069Z'
+}
+{
+  ID: 'zlycu',
+  human: true,
+  level: 'info',
+  message: 'Sending receipt to the following user: \n' +
+    ' {"fullname":"Kim Young Jin e2e test","email":"kimyoungjin1001@gmail.com","mobilenumber":"81189254","project":"Education","type":"paynow","amount":1,"chequenumber":"","country":""}',
+  timestamp: '2022-08-02T00:47:50.072Z'
+}
+{
+  ID: 'zlycu',
+  level: 'info',
+  message: 'Updated donation confirmed column for donation ID zlycu to Y',
+  timestamp: '2022-08-02T00:47:52.956Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: tally success with donation IDs zlycu',
+  level: 'info',
+  timestamp: '2022-08-02T00:47:52.959Z'
+}
+{
+  message: 'Sending 200 for bank email response',
+  level: 'info',
+  timestamp: '2022-08-02T00:47:52.982Z'
+}
+{
+  ID: 'dbigw',
+  human: true,
+  level: 'info',
+  message: 'Received donation form submission with reference ID dbigw \n' +
+    ' Request body: {"fullname":"Kim Young Jin e2e test","email":"kimyoungjin1001@gmail.com","mobilenumber":"81189254","project":"Education","type":"paynow","amount":1,"chequenumber":"","country":""}',
+  timestamp: '2022-08-02T00:50:13.646Z'
+}
+{
+  ID: 'dbigw',
+  level: 'info',
+  message: 'Adding the following row to Google Sheet: ["dbigw","Kim Young Jin e2e test","kimyoungjin1001@gmail.com","81189254","Education","paynow",1,"","","02/08/2022, 8:50:13 am"]',
+  timestamp: '2022-08-02T00:50:13.710Z'
+}
+{
+  ID: 'dbigw',
+  level: 'info',
+  message: 'No donation intent for amount 1 exists currently - adding new intent and starting timer',
+  timestamp: '2022-08-02T00:50:13.828Z'
+}
+{
+  message: 'Received payment notification from bank for amount 1 \n' +
+    ' Email Contents: Please be advised that the below transaction has been Processed. You may login UOB Infinity to review the details. \n' +
+    ' Transaction : Inward Remittance BIB Reference: IR22060164074051 Bank Reference: 586L222 20220629 Currency and Amount: SGD 1.00 This is a system-generated mail. Please do not reply to this message.',
+  level: 'info',
+  timestamp: '2022-08-02T00:50:18.638Z'
+}
+{
+  message: 'Attempting to tally amount 1',
+  level: 'info',
+  timestamp: '2022-08-02T00:50:18.646Z'
+}
+{
+  ID: 'dbigw',
+  human: true,
+  level: 'info',
+  message: 'Sending receipt to the following user: \n' +
+    ' {"fullname":"Kim Young Jin e2e test","email":"kimyoungjin1001@gmail.com","mobilenumber":"81189254","project":"Education","type":"paynow","amount":1,"chequenumber":"","country":""}',
+  timestamp: '2022-08-02T00:50:18.658Z'
+}
+{
+  ID: 'dbigw',
+  level: 'info',
+  message: 'Updated donation confirmed column for donation ID dbigw to Y',
+  timestamp: '2022-08-02T00:50:21.488Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: tally success with donation IDs dbigw',
+  level: 'info',
+  timestamp: '2022-08-02T00:50:21.493Z'
+}
+{
+  message: 'Sending 200 for bank email response',
+  level: 'info',
+  timestamp: '2022-08-02T00:50:21.507Z'
+}
+{
+  ID: 'hladd',
+  human: true,
+  level: 'info',
+  message: 'Received donation form submission with reference ID hladd \n' +
+    ' Request body: {"fullname":"Kim Young Jin e2e test","email":"kimyoungjin1001@gmail.com","mobilenumber":"81189254","project":"Education","type":"paynow","amount":1,"chequenumber":"","country":""}',
+  timestamp: '2022-08-02T00:53:46.038Z'
+}
+{
+  ID: 'hladd',
+  level: 'info',
+  message: 'Adding the following row to Google Sheet: ["hladd","Kim Young Jin e2e test","kimyoungjin1001@gmail.com","81189254","Education","paynow",1,"","","02/08/2022, 8:53:46 am"]',
+  timestamp: '2022-08-02T00:53:46.050Z'
+}
+{
+  ID: 'hladd',
+  level: 'info',
+  message: 'No donation intent for amount 1 exists currently - adding new intent and starting timer',
+  timestamp: '2022-08-02T00:53:46.115Z'
+}
+{
+  message: 'Received payment notification from bank for amount 1 \n' +
+    ' Email Contents: Please be advised that the below transaction has been Processed. You may login UOB Infinity to review the details. \n' +
+    ' Transaction : Inward Remittance BIB Reference: IR22060164074051 Bank Reference: 586L222 20220629 Currency and Amount: SGD 1.00 This is a system-generated mail. Please do not reply to this message.',
+  level: 'info',
+  timestamp: '2022-08-02T00:53:51.090Z'
+}
+{
+  message: 'Attempting to tally amount 1',
+  level: 'info',
+  timestamp: '2022-08-02T00:53:51.105Z'
+}
+{
+  ID: 'hladd',
+  human: true,
+  level: 'info',
+  message: 'Sending receipt to the following user: \n' +
+    ' {"fullname":"Kim Young Jin e2e test","email":"kimyoungjin1001@gmail.com","mobilenumber":"81189254","project":"Education","type":"paynow","amount":1,"chequenumber":"","country":""}',
+  timestamp: '2022-08-02T00:53:51.121Z'
+}
+{
+  ID: 'hladd',
+  level: 'info',
+  message: 'Updated donation confirmed column for donation ID hladd to Y',
+  timestamp: '2022-08-02T00:53:53.979Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: tally success with donation IDs hladd',
+  level: 'info',
+  timestamp: '2022-08-02T00:53:53.992Z'
+}
+{
+  message: 'Sending 200 for bank email response',
+  level: 'info',
+  timestamp: '2022-08-02T00:53:54.005Z'
+}
+{
+  ID: 'jgdfa',
+  human: true,
+  level: 'info',
+  message: 'Received donation form submission with reference ID jgdfa \n' +
+    ' Request body: {"fullname":"Kim Young Jin e2e test","email":"kimyoungjin1001@gmail.com","mobilenumber":"81189254","project":"Education","type":"paynow","amount":1,"chequenumber":"","country":""}',
+  timestamp: '2022-08-02T00:54:10.947Z'
+}
+{
+  ID: 'jgdfa',
+  level: 'info',
+  message: 'Adding the following row to Google Sheet: ["jgdfa","Kim Young Jin e2e test","kimyoungjin1001@gmail.com","81189254","Education","paynow",1,"","","02/08/2022, 8:54:10 am"]',
+  timestamp: '2022-08-02T00:54:10.957Z'
+}
+{
+  ID: 'jgdfa',
+  level: 'info',
+  message: 'No donation intent for amount 1 exists currently - adding new intent and starting timer',
+  timestamp: '2022-08-02T00:54:11.017Z'
+}
+{
+  message: 'Received payment notification from bank for amount 1 \n' +
+    ' Email Contents: Please be advised that the below transaction has been Processed. You may login UOB Infinity to review the details. \n' +
+    ' Transaction : Inward Remittance BIB Reference: IR22060164074051 Bank Reference: 586L222 20220629 Currency and Amount: SGD 1.00 This is a system-generated mail. Please do not reply to this message.',
+  level: 'info',
+  timestamp: '2022-08-02T00:54:15.828Z'
+}
+{
+  message: 'Attempting to tally amount 1',
+  level: 'info',
+  timestamp: '2022-08-02T00:54:15.830Z'
+}
+{
+  ID: 'jgdfa',
+  human: true,
+  level: 'info',
+  message: 'Sending receipt to the following user: \n' +
+    ' {"fullname":"Kim Young Jin e2e test","email":"kimyoungjin1001@gmail.com","mobilenumber":"81189254","project":"Education","type":"paynow","amount":1,"chequenumber":"","country":""}',
+  timestamp: '2022-08-02T00:54:15.831Z'
+}
+{
+  ID: 'jgdfa',
+  level: 'info',
+  message: 'Updated donation confirmed column for donation ID jgdfa to Y',
+  timestamp: '2022-08-02T00:54:18.687Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: tally success with donation IDs jgdfa',
+  level: 'info',
+  timestamp: '2022-08-02T00:54:18.688Z'
+}
+{
+  message: 'Sending 200 for bank email response',
+  level: 'info',
+  timestamp: '2022-08-02T00:54:18.699Z'
+}
+{
+  ID: 'usqfa',
+  human: true,
+  level: 'info',
+  message: 'Received donation form submission with reference ID usqfa \n' +
+    ' Request body: {"fullname":"Kim Young Jin e2e test","email":"kimyoungjin1001@gmail.com","mobilenumber":"81189254","project":"Education","type":"paynow","amount":1,"chequenumber":"","country":""}',
+  timestamp: '2022-08-02T00:54:38.824Z'
+}
+{
+  ID: 'usqfa',
+  level: 'info',
+  message: 'Adding the following row to Google Sheet: ["usqfa","Kim Young Jin e2e test","kimyoungjin1001@gmail.com","81189254","Education","paynow",1,"","","02/08/2022, 8:54:38 am"]',
+  timestamp: '2022-08-02T00:54:38.832Z'
+}
+{
+  ID: 'usqfa',
+  level: 'info',
+  message: 'No donation intent for amount 1 exists currently - adding new intent and starting timer',
+  timestamp: '2022-08-02T00:54:38.900Z'
+}
+{
+  message: 'Received payment notification from bank for amount 1 \n' +
+    ' Email Contents: Please be advised that the below transaction has been Processed. You may login UOB Infinity to review the details. \n' +
+    ' Transaction : Inward Remittance BIB Reference: IR22060164074051 Bank Reference: 586L222 20220629 Currency and Amount: SGD 1.00 This is a system-generated mail. Please do not reply to this message.',
+  level: 'info',
+  timestamp: '2022-08-02T00:54:43.823Z'
+}
+{
+  message: 'Attempting to tally amount 1',
+  level: 'info',
+  timestamp: '2022-08-02T00:54:43.860Z'
+}
+{
+  ID: 'usqfa',
+  human: true,
+  level: 'info',
+  message: 'Sending receipt to the following user: \n' +
+    ' {"fullname":"Kim Young Jin e2e test","email":"kimyoungjin1001@gmail.com","mobilenumber":"81189254","project":"Education","type":"paynow","amount":1,"chequenumber":"","country":""}',
+  timestamp: '2022-08-02T00:54:43.903Z'
+}
+{
+  ID: 'usqfa',
+  level: 'info',
+  message: 'Updated donation confirmed column for donation ID usqfa to Y',
+  timestamp: '2022-08-02T00:54:46.834Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: tally success with donation IDs usqfa',
+  level: 'info',
+  timestamp: '2022-08-02T00:54:46.837Z'
+}
+{
+  message: 'Sending 200 for bank email response',
+  level: 'info',
+  timestamp: '2022-08-02T00:54:46.857Z'
+}

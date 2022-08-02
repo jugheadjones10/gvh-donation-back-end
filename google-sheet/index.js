@@ -15,6 +15,13 @@ function authenticate(sheetID) {
     });
 }
 
+exports.getLastRow = async function getLastRow(sheetID) {
+  const sheet = await authenticate(sheetID);
+  const rows = await sheet.getRows();
+
+  return rows[rows.length - 1];
+};
+
 exports.addToGoogleSheet = function addToGoogleSheet(row, sheetID) {
   comLogger(
     "info",

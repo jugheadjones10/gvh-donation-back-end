@@ -6,6 +6,7 @@ const {
   MANUALREQEMAIL,
 } = require("./constants.js");
 require("dotenv").config();
+const notifEmail = process.env.NOTIFICATIONS_EMAIL;
 
 const sgMail = require("@sendgrid/mail");
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
@@ -32,6 +33,7 @@ module.exports = async function sendEmail({
       month: "short",
     };
     const emailHtml = nunjucks.render("email/receipt-email.html", {
+      logo: process.env.HOSTNAME + ":" + process.env.PORT + "/logo.webp",
       date: date.toLocaleDateString("en", datestyle),
       fullname: fullname,
       amount: amount,
@@ -53,7 +55,7 @@ module.exports = async function sendEmail({
       { ID: donationID, human: true }
     );
     const msg = {
-      to: "gvhfinance@gmail.com",
+      to: notifEmail,
       from: "globalvillageforhope@gvh.sg",
       subject: emailSubject,
       text: JSON.stringify(userData),
@@ -66,7 +68,7 @@ module.exports = async function sendEmail({
       { human: true }
     );
     const msg = {
-      to: "gvhfinance@gmail.com",
+      to: notifEmail,
       from: "globalvillageforhope@gvh.sg",
       subject: emailSubject,
       text: `Payment amount: ${amount}`,

@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "test": "jest --detectOpenHandles",
-    "start": "node server.js"
+    "start": "NODE_ENV=development node server.js",
+    "e2e-test": "NODE_ENV=e2e DOTENV_CONFIG_PATH=.e2e.env node -r dotenv/config server.js"
   },
   "author": "",
   "license": "ISC",
@@ -37,6 +38,7 @@
     "winston-telegram": "^2.6.0"
   },
   "devDependencies": {
+    "@playwright/test": "^1.24.2",
     "eslint": "^8.9.0",
     "eslint-config-prettier": "^8.3.0",
     "jest": "^28.1.2",
@@ -45,7 +47,9 @@
   },
   "jest": {
     "modulePaths": [
-      "<rootDir>/receipt/"
+      "<rootDir>/receipt/",
+      "<rootDir>/tests/",
+      "<rootDir>"
     ]
   },
   "eslintConfig": {

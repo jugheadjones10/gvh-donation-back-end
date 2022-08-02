@@ -1,33 +1,42 @@
 const Redis = require("ioredis");
 const redis = new Redis(process.env.REDIS_URL);
+exports.redis = redis;
 
 const {
-  ONEPENDINGANDNOCONFIRMED,
+  NOCONFIRMED,
   MOREPENDINGTHANCONFIRMED,
   TALLYSUCCESS,
 } = require("../constants.js");
 
 const comLogger = require("../logging.js");
 
-const sendReceipt = require("./sendReceipt.js");
-const requestManualCheck = require("./requestManualCheck.js");
-const donationFromOtherChannel = require("./donationFromOtherChannel.js");
+const {
+  sendReceipt,
+  requestManualCheck,
+  donationFromOtherChannel,
+  markDonationUnresolved,
+} = require("./actions.js");
 const promiseCareTaker = require("./promiseCareTaker.js");
 
 const timerList = {};
 
 var queueIntentMutex = Promise.resolve();
 exports.donationFormReceived = async function (userData, ID) {
-  // Storing user data separately so that we can just attach an array of IDs to the donation intent objects. Then when sending
-  // receipts, we can loop through the attached IDs and retrieve user data using each ID in order to construct the receipt email
-  // using user data
-  await redis.set("ID" + ID, JSON.stringify(userData));
-
   // Need to catch errors explicitly here because queueIntentMutex is a separate promise that isn't returned to any express routes.
   // Failed promises won't use the express error handler.
-  queueIntentMutex = queueIntentMutex.then(() => {
-    return queueIntent(userData.amount, ID);
-  });
+  queueIntentMutex = queueIntentMutex
+    .then(() => {
+      // Storing user data separately so that we can just attach an array of IDs to the donation intent objects. Then when sending
+      // receipts, we can loop through the attached IDs and retrieve user data using each ID in order to construct the receipt email
+      // using user data
+      //
+      // It's important that this redis set is done here instead of being awaited before the assignment to queueIntentMutex. If
+      // redis.set takes too long for some reason, it might break some tests.
+      return redis.set("ID" + ID, JSON.stringify(userData));
+    })
+    .then(() => {
+      return queueIntent(userData.amount, ID);
+    });
 };
 
 exports.bankEmailReceived = async function (amount) {
@@ -50,7 +59,8 @@ exports.bankEmailReceived = async function (amount) {
     return donationFromOtherChannel(amount);
     //flag as donation from channel other than website donation form (should retrun a promise)
   } else {
-    return await redis
+    // Might need await keyword after return keyword?
+    return redis
       .multi()
       .hincrby(amount, "confirmed", 1)
       .hgetall(amount)
@@ -99,7 +109,11 @@ async function queueIntent(amount, ID) {
         .lpush("donors" + amount, [ID])
         .exec();
 
-      const timeoutId = setTimeout(tallyAmounts, 5 * 60 * 1000, amount);
+      const timeoutId = setTimeout(
+        tallyAmounts,
+        process.env.TIMEOUT_SECONDS * 1000,
+        amount
+      );
       timerList[amount] = timeoutId;
     } else {
       comLogger(
@@ -115,7 +129,11 @@ async function queueIntent(amount, ID) {
         .exec();
 
       clearTimeout(timerList[amount]);
-      timerList[amount] = setTimeout(tallyAmounts, 5 * 60 * 1000, amount);
+      timerList[amount] = setTimeout(
+        tallyAmounts,
+        process.env.TIMEOUT_SECONDS * 1000,
+        amount
+      );
     }
   } catch (e) {
     comLogger(
@@ -151,6 +169,14 @@ function tallyAmounts(amount) {
         ).then(() => {
           return [TALLYSUCCESS, lrangeRes];
         });
+      } else if (parseInt(hgetallRes.confirmed) === 0) {
+        actionsPromises = Promise.all(
+          lrangeRes.map((ID) => {
+            return markDonationUnresolved(ID);
+          })
+        ).then(() => {
+          return [NOCONFIRMED, lrangeRes];
+        });
       } else {
         actionsPromises = Promise.all(
           lrangeRes.map((ID) => {
@@ -159,19 +185,7 @@ function tallyAmounts(amount) {
             });
           })
         ).then(() => {
-          // Two possibilities here - a single person made a donation intent, but didn't donate. In that case we should
-          // tell him that his time has expired and ask him to fill up the form and submit again when ready (would be good to save form
-          // state and pre-fill for user)
-
-          // Second possibility is when there are more than one pending donation intentions, but fewer confirmed intents than pending
-          // intents. In that case we don't know which user is the one that didn't donate and should be shown the "expired, try again"
-          // notification, so we need to send out the same messasge to all users that there was an overlap and that we will soon be
-          // sending a manual receipt
-          const tallyResult =
-            hgetallRes.pending === "1"
-              ? ONEPENDINGANDNOCONFIRMED
-              : MOREPENDINGTHANCONFIRMED;
-          return [tallyResult, lrangeRes];
+          return [MOREPENDINGTHANCONFIRMED, lrangeRes];
         });
       }
 
