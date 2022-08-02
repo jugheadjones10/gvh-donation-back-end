@@ -81,6 +81,8 @@ app.post("/bank-email", upload.any(), async (req, res) => {
 
   await bankEmailReceived(amount);
 
+  comLogger("info", `Sending 200 for bank email response`);
+
   res.send(200);
 });
 

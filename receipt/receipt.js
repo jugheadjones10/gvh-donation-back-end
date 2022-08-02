@@ -109,7 +109,11 @@ async function queueIntent(amount, ID) {
         .lpush("donors" + amount, [ID])
         .exec();
 
-      const timeoutId = setTimeout(tallyAmounts, 5 * 60 * 1000, amount);
+      const timeoutId = setTimeout(
+        tallyAmounts,
+        process.env.TIMEOUT_SECONDS * 1000,
+        amount
+      );
       timerList[amount] = timeoutId;
     } else {
       comLogger(
@@ -125,7 +129,11 @@ async function queueIntent(amount, ID) {
         .exec();
 
       clearTimeout(timerList[amount]);
-      timerList[amount] = setTimeout(tallyAmounts, 5 * 60 * 1000, amount);
+      timerList[amount] = setTimeout(
+        tallyAmounts,
+        process.env.TIMEOUT_SECONDS * 1000,
+        amount
+      );
     }
   } catch (e) {
     comLogger(

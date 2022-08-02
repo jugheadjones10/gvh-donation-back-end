@@ -3302,3 +3302,942 @@
   level: 'info',
   timestamp: '2022-07-29T05:55:20.061Z'
 }
+{
+  ID: 'mmgdd',
+  human: true,
+  level: 'info',
+  message: 'Received donation form submission with reference ID mmgdd \n' +
+    ' Request body: {"fullname":"Kim Young Jin e2e test","email":"kimyoungjin1001@gmail.com","mobilenumber":"81189254","project":"Education","type":"paynow","amount":1,"chequenumber":"","country":""}',
+  timestamp: '2022-08-01T11:33:55.857Z'
+}
+{
+  ID: 'mmgdd',
+  level: 'info',
+  message: 'Adding the following row to Google Sheet: ["mmgdd","Kim Young Jin e2e test","kimyoungjin1001@gmail.com","81189254","Education","paynow",1,"","","01/08/2022, 7:33:55 pm"]',
+  timestamp: '2022-08-01T11:33:56.061Z'
+}
+{
+  ID: 'mmgdd',
+  level: 'info',
+  message: 'No donation intent for amount 1 exists currently - adding new intent and starting timer',
+  timestamp: '2022-08-01T11:33:56.259Z'
+}
+{
+  ID: 'zczfg',
+  human: true,
+  level: 'info',
+  message: 'Received donation form submission with reference ID zczfg \n' +
+    ' Request body: {"fullname":"Kim Young Jin e2e test","email":"kimyoungjin1001@gmail.com","mobilenumber":"81189254","project":"Education","type":"paynow","amount":1,"chequenumber":"","country":""}',
+  timestamp: '2022-08-01T11:38:33.534Z'
+}
+{
+  ID: 'zczfg',
+  level: 'info',
+  message: 'Adding the following row to Google Sheet: ["zczfg","Kim Young Jin e2e test","kimyoungjin1001@gmail.com","81189254","Education","paynow",1,"","","01/08/2022, 7:38:33 pm"]',
+  timestamp: '2022-08-01T11:38:33.622Z'
+}
+{
+  ID: 'zczfg',
+  level: 'info',
+  message: 'Donation intent for amount 1 exists currently - incrementing pending counter by 1 and restarting timer',
+  timestamp: '2022-08-01T11:38:33.665Z'
+}
+{
+  ID: 'bdcmj',
+  human: true,
+  level: 'info',
+  message: 'Received donation form submission with reference ID bdcmj \n' +
+    ' Request body: {"fullname":"Kim Young Jin e2e test","email":"kimyoungjin1001@gmail.com","mobilenumber":"81189254","project":"Education","type":"paynow","amount":1,"chequenumber":"","country":""}',
+  timestamp: '2022-08-01T11:40:12.391Z'
+}
+{
+  ID: 'bdcmj',
+  level: 'info',
+  message: 'Adding the following row to Google Sheet: ["bdcmj","Kim Young Jin e2e test","kimyoungjin1001@gmail.com","81189254","Education","paynow",1,"","","01/08/2022, 7:40:12 pm"]',
+  timestamp: '2022-08-01T11:40:12.654Z'
+}
+{
+  ID: 'bdcmj',
+  level: 'info',
+  message: 'Donation intent for amount 1 exists currently - incrementing pending counter by 1 and restarting timer',
+  timestamp: '2022-08-01T11:40:12.724Z'
+}
+{
+  message: 'Attempting to tally amount 1',
+  level: 'info',
+  timestamp: '2022-08-01T11:45:12.849Z'
+}
+{
+  ID: 'bdcmj',
+  level: 'info',
+  message: 'Updated donation confirmed column for donation ID bdcmj to N',
+  timestamp: '2022-08-01T11:45:16.087Z'
+}
+{
+  ID: 'mmgdd',
+  level: 'info',
+  message: 'Updated donation confirmed column for donation ID mmgdd to N',
+  timestamp: '2022-08-01T11:45:16.666Z'
+}
+{
+  ID: 'zczfg',
+  level: 'info',
+  message: 'Updated donation confirmed column for donation ID zczfg to N',
+  timestamp: '2022-08-01T11:45:16.677Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: no confirmed with donation IDs bdcmj,zczfg,mmgdd',
+  level: 'info',
+  timestamp: '2022-08-01T11:45:16.678Z'
+}
+{
+  ID: 'urdfi',
+  human: true,
+  level: 'info',
+  message: 'Received donation form submission with reference ID urdfi \n' +
+    ' Request body: {"fullname":"Kim Young Jin e2e test","email":"kimyoungjin1001@gmail.com","mobilenumber":"81189254","project":"Education","type":"paynow","amount":1,"chequenumber":"","country":""}',
+  timestamp: '2022-08-01T22:53:38.752Z'
+}
+{
+  ID: 'urdfi',
+  level: 'info',
+  message: 'Adding the following row to Google Sheet: ["urdfi","Kim Young Jin e2e test","kimyoungjin1001@gmail.com","81189254","Education","paynow",1,"","","02/08/2022, 6:53:38 am"]',
+  timestamp: '2022-08-01T22:53:39.060Z'
+}
+{
+  ID: 'urdfi',
+  level: 'info',
+  message: 'No donation intent for amount 1 exists currently - adding new intent and starting timer',
+  timestamp: '2022-08-01T22:53:39.194Z'
+}
+{
+  message: 'Attempting to tally amount 1',
+  level: 'info',
+  timestamp: '2022-08-01T22:53:49.226Z'
+}
+{
+  ID: 'urdfi',
+  level: 'info',
+  message: 'Updated donation confirmed column for donation ID urdfi to N',
+  timestamp: '2022-08-01T22:53:51.572Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: no confirmed with donation IDs urdfi',
+  level: 'info',
+  timestamp: '2022-08-01T22:53:51.574Z'
+}
+{
+  ID: 'jneje',
+  human: true,
+  level: 'info',
+  message: 'Received donation form submission with reference ID jneje \n' +
+    ' Request body: {"fullname":"Kim Young Jin e2e test","email":"kimyoungjin1001@gmail.com","mobilenumber":"81189254","project":"Education","type":"paynow","amount":1,"chequenumber":"","country":""}',
+  timestamp: '2022-08-01T23:32:23.704Z'
+}
+{
+  ID: 'jneje',
+  level: 'info',
+  message: 'Adding the following row to Google Sheet: ["jneje","Kim Young Jin e2e test","kimyoungjin1001@gmail.com","81189254","Education","paynow",1,"","","02/08/2022, 7:32:23 am"]',
+  timestamp: '2022-08-01T23:32:23.941Z'
+}
+{
+  ID: 'jneje',
+  level: 'info',
+  message: 'No donation intent for amount 1 exists currently - adding new intent and starting timer',
+  timestamp: '2022-08-01T23:32:24.033Z'
+}
+{
+  message: 'Received payment notification from bank for amount 1 \n' +
+    ' Email Contents: Please be advised that the below transaction has been Processed. You may login UOB Infinity to review the details. \n' +
+    ' Transaction : Inward Remittance BIB Reference: IR22060164074051 Bank Reference: 586L222 20220629 Currency and Amount: SGD 1.00 This is a system-generated mail. Please do not reply to this message.',
+  level: 'info',
+  timestamp: '2022-08-01T23:32:28.845Z'
+}
+{
+  message: 'Attempting to tally amount 1',
+  level: 'info',
+  timestamp: '2022-08-01T23:32:28.853Z'
+}
+{
+  ID: 'jneje',
+  human: true,
+  level: 'info',
+  message: 'Sending receipt to the following user: \n' +
+    ' {"fullname":"Kim Young Jin e2e test","email":"kimyoungjin1001@gmail.com","mobilenumber":"81189254","project":"Education","type":"paynow","amount":1,"chequenumber":"","country":""}',
+  timestamp: '2022-08-01T23:32:28.891Z'
+}
+{
+  ID: 'jneje',
+  level: 'info',
+  message: 'Updated donation confirmed column for donation ID jneje to Y',
+  timestamp: '2022-08-01T23:32:31.239Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: tally success with donation IDs jneje',
+  level: 'info',
+  timestamp: '2022-08-01T23:32:31.242Z'
+}
+{
+  ID: 'nmgod',
+  human: true,
+  level: 'info',
+  message: 'Received donation form submission with reference ID nmgod \n' +
+    ' Request body: {"fullname":"Kim Young Jin e2e test","email":"kimyoungjin1001@gmail.com","mobilenumber":"81189254","project":"Education","type":"paynow","amount":1,"chequenumber":"","country":""}',
+  timestamp: '2022-08-01T23:41:26.254Z'
+}
+{
+  ID: 'nmgod',
+  level: 'info',
+  message: 'Adding the following row to Google Sheet: ["nmgod","Kim Young Jin e2e test","kimyoungjin1001@gmail.com","81189254","Education","paynow",1,"","","02/08/2022, 7:41:26 am"]',
+  timestamp: '2022-08-01T23:41:26.461Z'
+}
+{
+  ID: 'nmgod',
+  level: 'info',
+  message: 'No donation intent for amount 1 exists currently - adding new intent and starting timer',
+  timestamp: '2022-08-01T23:41:26.531Z'
+}
+{
+  message: 'Received payment notification from bank for amount 1 \n' +
+    ' Email Contents: Please be advised that the below transaction has been Processed. You may login UOB Infinity to review the details. \n' +
+    ' Transaction : Inward Remittance BIB Reference: IR22060164074051 Bank Reference: 586L222 20220629 Currency and Amount: SGD 1.00 This is a system-generated mail. Please do not reply to this message.',
+  level: 'info',
+  timestamp: '2022-08-01T23:41:31.129Z'
+}
+{
+  message: 'Attempting to tally amount 1',
+  level: 'info',
+  timestamp: '2022-08-01T23:41:31.144Z'
+}
+{
+  ID: 'nmgod',
+  human: true,
+  level: 'info',
+  message: 'Sending receipt to the following user: \n' +
+    ' {"fullname":"Kim Young Jin e2e test","email":"kimyoungjin1001@gmail.com","mobilenumber":"81189254","project":"Education","type":"paynow","amount":1,"chequenumber":"","country":""}',
+  timestamp: '2022-08-01T23:41:31.162Z'
+}
+{
+  ID: 'nmgod',
+  level: 'info',
+  message: 'Updated donation confirmed column for donation ID nmgod to Y',
+  timestamp: '2022-08-01T23:41:33.438Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: tally success with donation IDs nmgod',
+  level: 'info',
+  timestamp: '2022-08-01T23:41:33.439Z'
+}
+{
+  ID: 'kzxco',
+  human: true,
+  level: 'info',
+  message: 'Received donation form submission with reference ID kzxco \n' +
+    ' Request body: {"fullname":"Kim Young Jin e2e test","email":"kimyoungjin1001@gmail.com","mobilenumber":"81189254","project":"Education","type":"paynow","amount":1,"chequenumber":"","country":""}',
+  timestamp: '2022-08-01T23:46:48.902Z'
+}
+{
+  ID: 'kzxco',
+  level: 'info',
+  message: 'Adding the following row to Google Sheet: ["kzxco","Kim Young Jin e2e test","kimyoungjin1001@gmail.com","81189254","Education","paynow",1,"","","02/08/2022, 7:46:49 am"]',
+  timestamp: '2022-08-01T23:46:49.050Z'
+}
+{
+  ID: 'kzxco',
+  level: 'info',
+  message: 'No donation intent for amount 1 exists currently - adding new intent and starting timer',
+  timestamp: '2022-08-01T23:46:49.146Z'
+}
+{
+  message: 'Received payment notification from bank for amount 1 \n' +
+    ' Email Contents: Please be advised that the below transaction has been Processed. You may login UOB Infinity to review the details. \n' +
+    ' Transaction : Inward Remittance BIB Reference: IR22060164074051 Bank Reference: 586L222 20220629 Currency and Amount: SGD 1.00 This is a system-generated mail. Please do not reply to this message.',
+  level: 'info',
+  timestamp: '2022-08-01T23:46:53.557Z'
+}
+{
+  message: 'Attempting to tally amount 1',
+  level: 'info',
+  timestamp: '2022-08-01T23:46:53.562Z'
+}
+{
+  ID: 'kzxco',
+  human: true,
+  level: 'info',
+  message: 'Sending receipt to the following user: \n' +
+    ' {"fullname":"Kim Young Jin e2e test","email":"kimyoungjin1001@gmail.com","mobilenumber":"81189254","project":"Education","type":"paynow","amount":1,"chequenumber":"","country":""}',
+  timestamp: '2022-08-01T23:46:53.576Z'
+}
+{
+  ID: 'kzxco',
+  level: 'info',
+  message: 'Updated donation confirmed column for donation ID kzxco to Y',
+  timestamp: '2022-08-01T23:46:55.808Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: tally success with donation IDs kzxco',
+  level: 'info',
+  timestamp: '2022-08-01T23:46:55.810Z'
+}
+{
+  ID: 'lkawa',
+  human: true,
+  level: 'info',
+  message: 'Received donation form submission with reference ID lkawa \n' +
+    ' Request body: {"fullname":"Kim Young Jin e2e test","email":"kimyoungjin1001@gmail.com","mobilenumber":"81189254","project":"Education","type":"paynow","amount":1,"chequenumber":"","country":""}',
+  timestamp: '2022-08-01T23:49:57.907Z'
+}
+{
+  ID: 'lkawa',
+  level: 'info',
+  message: 'Adding the following row to Google Sheet: ["lkawa","Kim Young Jin e2e test","kimyoungjin1001@gmail.com","81189254","Education","paynow",1,"","","02/08/2022, 7:49:57 am"]',
+  timestamp: '2022-08-01T23:49:57.910Z'
+}
+{
+  ID: 'lkawa',
+  level: 'info',
+  message: 'No donation intent for amount 1 exists currently - adding new intent and starting timer',
+  timestamp: '2022-08-01T23:49:57.991Z'
+}
+{
+  message: 'Received payment notification from bank for amount 1 \n' +
+    ' Email Contents: Please be advised that the below transaction has been Processed. You may login UOB Infinity to review the details. \n' +
+    ' Transaction : Inward Remittance BIB Reference: IR22060164074051 Bank Reference: 586L222 20220629 Currency and Amount: SGD 1.00 This is a system-generated mail. Please do not reply to this message.',
+  level: 'info',
+  timestamp: '2022-08-01T23:50:02.059Z'
+}
+{
+  message: 'Attempting to tally amount 1',
+  level: 'info',
+  timestamp: '2022-08-01T23:50:02.064Z'
+}
+{
+  ID: 'lkawa',
+  human: true,
+  level: 'info',
+  message: 'Sending receipt to the following user: \n' +
+    ' {"fullname":"Kim Young Jin e2e test","email":"kimyoungjin1001@gmail.com","mobilenumber":"81189254","project":"Education","type":"paynow","amount":1,"chequenumber":"","country":""}',
+  timestamp: '2022-08-01T23:50:02.074Z'
+}
+{
+  ID: 'lkawa',
+  level: 'info',
+  message: 'Updated donation confirmed column for donation ID lkawa to Y',
+  timestamp: '2022-08-01T23:50:04.318Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: tally success with donation IDs lkawa',
+  level: 'info',
+  timestamp: '2022-08-01T23:50:04.319Z'
+}
+{
+  ID: 'tbukz',
+  human: true,
+  level: 'info',
+  message: 'Received donation form submission with reference ID tbukz \n' +
+    ' Request body: {"fullname":"Kim Young Jin e2e test","email":"kimyoungjin1001@gmail.com","mobilenumber":"81189254","project":"Education","type":"paynow","amount":1,"chequenumber":"","country":""}',
+  timestamp: '2022-08-01T23:51:17.487Z'
+}
+{
+  ID: 'tbukz',
+  level: 'info',
+  message: 'Adding the following row to Google Sheet: ["tbukz","Kim Young Jin e2e test","kimyoungjin1001@gmail.com","81189254","Education","paynow",1,"","","02/08/2022, 7:51:17 am"]',
+  timestamp: '2022-08-01T23:51:17.490Z'
+}
+{
+  ID: 'tbukz',
+  level: 'info',
+  message: 'No donation intent for amount 1 exists currently - adding new intent and starting timer',
+  timestamp: '2022-08-01T23:51:17.545Z'
+}
+{
+  message: 'Received payment notification from bank for amount 1 \n' +
+    ' Email Contents: Please be advised that the below transaction has been Processed. You may login UOB Infinity to review the details. \n' +
+    ' Transaction : Inward Remittance BIB Reference: IR22060164074051 Bank Reference: 586L222 20220629 Currency and Amount: SGD 1.00 This is a system-generated mail. Please do not reply to this message.',
+  level: 'info',
+  timestamp: '2022-08-01T23:51:21.589Z'
+}
+{
+  message: 'Attempting to tally amount 1',
+  level: 'info',
+  timestamp: '2022-08-01T23:51:21.592Z'
+}
+{
+  ID: 'tbukz',
+  human: true,
+  level: 'info',
+  message: 'Sending receipt to the following user: \n' +
+    ' {"fullname":"Kim Young Jin e2e test","email":"kimyoungjin1001@gmail.com","mobilenumber":"81189254","project":"Education","type":"paynow","amount":1,"chequenumber":"","country":""}',
+  timestamp: '2022-08-01T23:51:21.605Z'
+}
+{
+  ID: 'tbukz',
+  level: 'info',
+  message: 'Updated donation confirmed column for donation ID tbukz to Y',
+  timestamp: '2022-08-01T23:51:23.807Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: tally success with donation IDs tbukz',
+  level: 'info',
+  timestamp: '2022-08-01T23:51:23.811Z'
+}
+{
+  ID: 'dzncu',
+  human: true,
+  level: 'info',
+  message: 'Received donation form submission with reference ID dzncu \n' +
+    ' Request body: {"fullname":"Kim Young Jin e2e test","email":"kimyoungjin1001@gmail.com","mobilenumber":"81189254","project":"Education","type":"paynow","amount":1,"chequenumber":"","country":""}',
+  timestamp: '2022-08-01T23:54:56.445Z'
+}
+{
+  ID: 'dzncu',
+  level: 'info',
+  message: 'Adding the following row to Google Sheet: ["dzncu","Kim Young Jin e2e test","kimyoungjin1001@gmail.com","81189254","Education","paynow",1,"","","02/08/2022, 7:54:56 am"]',
+  timestamp: '2022-08-01T23:54:56.694Z'
+}
+{
+  ID: 'dzncu',
+  level: 'info',
+  message: 'No donation intent for amount 1 exists currently - adding new intent and starting timer',
+  timestamp: '2022-08-01T23:54:56.773Z'
+}
+{
+  message: 'Received payment notification from bank for amount 1 \n' +
+    ' Email Contents: Please be advised that the below transaction has been Processed. You may login UOB Infinity to review the details. \n' +
+    ' Transaction : Inward Remittance BIB Reference: IR22060164074051 Bank Reference: 586L222 20220629 Currency and Amount: SGD 1.00 This is a system-generated mail. Please do not reply to this message.',
+  level: 'info',
+  timestamp: '2022-08-01T23:55:01.165Z'
+}
+{
+  message: 'Attempting to tally amount 1',
+  level: 'info',
+  timestamp: '2022-08-01T23:55:01.171Z'
+}
+{
+  ID: 'dzncu',
+  human: true,
+  level: 'info',
+  message: 'Sending receipt to the following user: \n' +
+    ' {"fullname":"Kim Young Jin e2e test","email":"kimyoungjin1001@gmail.com","mobilenumber":"81189254","project":"Education","type":"paynow","amount":1,"chequenumber":"","country":""}',
+  timestamp: '2022-08-01T23:55:01.190Z'
+}
+{
+  ID: 'dzncu',
+  level: 'info',
+  message: 'Updated donation confirmed column for donation ID dzncu to Y',
+  timestamp: '2022-08-01T23:55:03.474Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: tally success with donation IDs dzncu',
+  level: 'info',
+  timestamp: '2022-08-01T23:55:03.476Z'
+}
+{
+  message: 'Sending 200 for bank email response',
+  level: 'info',
+  timestamp: '2022-08-01T23:55:03.489Z'
+}
+{
+  ID: 'mljls',
+  human: true,
+  level: 'info',
+  message: 'Received donation form submission with reference ID mljls \n' +
+    ' Request body: {"fullname":"Kim Young Jin e2e test","email":"kimyoungjin1001@gmail.com","mobilenumber":"81189254","project":"Education","type":"paynow","amount":1,"chequenumber":"","country":""}',
+  timestamp: '2022-08-02T00:08:50.610Z'
+}
+{
+  ID: 'mljls',
+  level: 'info',
+  message: 'Adding the following row to Google Sheet: ["mljls","Kim Young Jin e2e test","kimyoungjin1001@gmail.com","81189254","Education","paynow",1,"","","02/08/2022, 8:08:50 am"]',
+  timestamp: '2022-08-02T00:08:50.749Z'
+}
+{
+  ID: 'mljls',
+  level: 'info',
+  message: 'No donation intent for amount 1 exists currently - adding new intent and starting timer',
+  timestamp: '2022-08-02T00:08:50.875Z'
+}
+{
+  message: 'Received payment notification from bank for amount 1 \n' +
+    ' Email Contents: Please be advised that the below transaction has been Processed. You may login UOB Infinity to review the details. \n' +
+    ' Transaction : Inward Remittance BIB Reference: IR22060164074051 Bank Reference: 586L222 20220629 Currency and Amount: SGD 1.00 This is a system-generated mail. Please do not reply to this message.',
+  level: 'info',
+  timestamp: '2022-08-02T00:08:55.640Z'
+}
+{
+  message: 'Attempting to tally amount 1',
+  level: 'info',
+  timestamp: '2022-08-02T00:08:55.645Z'
+}
+{
+  ID: 'mljls',
+  human: true,
+  level: 'info',
+  message: 'Sending receipt to the following user: \n' +
+    ' {"fullname":"Kim Young Jin e2e test","email":"kimyoungjin1001@gmail.com","mobilenumber":"81189254","project":"Education","type":"paynow","amount":1,"chequenumber":"","country":""}',
+  timestamp: '2022-08-02T00:08:55.652Z'
+}
+{
+  ID: 'mljls',
+  level: 'info',
+  message: 'Updated donation confirmed column for donation ID mljls to Y',
+  timestamp: '2022-08-02T00:08:57.991Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: tally success with donation IDs mljls',
+  level: 'info',
+  timestamp: '2022-08-02T00:08:57.994Z'
+}
+{
+  message: 'Sending 200 for bank email response',
+  level: 'info',
+  timestamp: '2022-08-02T00:08:58.011Z'
+}
+{
+  ID: 'skzrt',
+  human: true,
+  level: 'info',
+  message: 'Received donation form submission with reference ID skzrt \n' +
+    ' Request body: {"fullname":"Kim Young Jin e2e test","email":"kimyoungjin1001@gmail.com","mobilenumber":"81189254","project":"Education","type":"paynow","amount":1,"chequenumber":"","country":""}',
+  timestamp: '2022-08-02T00:09:36.511Z'
+}
+{
+  ID: 'skzrt',
+  level: 'info',
+  message: 'Adding the following row to Google Sheet: ["skzrt","Kim Young Jin e2e test","kimyoungjin1001@gmail.com","81189254","Education","paynow",1,"","","02/08/2022, 8:09:36 am"]',
+  timestamp: '2022-08-02T00:09:36.527Z'
+}
+{
+  ID: 'skzrt',
+  level: 'info',
+  message: 'No donation intent for amount 1 exists currently - adding new intent and starting timer',
+  timestamp: '2022-08-02T00:09:36.593Z'
+}
+{
+  message: 'Received payment notification from bank for amount 1 \n' +
+    ' Email Contents: Please be advised that the below transaction has been Processed. You may login UOB Infinity to review the details. \n' +
+    ' Transaction : Inward Remittance BIB Reference: IR22060164074051 Bank Reference: 586L222 20220629 Currency and Amount: SGD 1.00 This is a system-generated mail. Please do not reply to this message.',
+  level: 'info',
+  timestamp: '2022-08-02T00:09:40.631Z'
+}
+{
+  message: 'Attempting to tally amount 1',
+  level: 'info',
+  timestamp: '2022-08-02T00:09:40.637Z'
+}
+{
+  ID: 'skzrt',
+  human: true,
+  level: 'info',
+  message: 'Sending receipt to the following user: \n' +
+    ' {"fullname":"Kim Young Jin e2e test","email":"kimyoungjin1001@gmail.com","mobilenumber":"81189254","project":"Education","type":"paynow","amount":1,"chequenumber":"","country":""}',
+  timestamp: '2022-08-02T00:09:40.645Z'
+}
+{
+  ID: 'skzrt',
+  level: 'info',
+  message: 'Updated donation confirmed column for donation ID skzrt to Y',
+  timestamp: '2022-08-02T00:09:42.880Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: tally success with donation IDs skzrt',
+  level: 'info',
+  timestamp: '2022-08-02T00:09:42.883Z'
+}
+{
+  message: 'Sending 200 for bank email response',
+  level: 'info',
+  timestamp: '2022-08-02T00:09:42.885Z'
+}
+{
+  ID: 'oyepx',
+  human: true,
+  level: 'info',
+  message: 'Received donation form submission with reference ID oyepx \n' +
+    ' Request body: {"fullname":"Kim Young Jin e2e test","email":"kimyoungjin1001@gmail.com","mobilenumber":"81189254","project":"Education","type":"paynow","amount":1,"chequenumber":"","country":""}',
+  timestamp: '2022-08-02T00:13:31.918Z'
+}
+{
+  ID: 'oyepx',
+  level: 'info',
+  message: 'Adding the following row to Google Sheet: ["oyepx","Kim Young Jin e2e test","kimyoungjin1001@gmail.com","81189254","Education","paynow",1,"","","02/08/2022, 8:13:31 am"]',
+  timestamp: '2022-08-02T00:13:31.923Z'
+}
+{
+  ID: 'oyepx',
+  level: 'info',
+  message: 'No donation intent for amount 1 exists currently - adding new intent and starting timer',
+  timestamp: '2022-08-02T00:13:32.025Z'
+}
+{
+  message: 'Received payment notification from bank for amount 1 \n' +
+    ' Email Contents: Please be advised that the below transaction has been Processed. You may login UOB Infinity to review the details. \n' +
+    ' Transaction : Inward Remittance BIB Reference: IR22060164074051 Bank Reference: 586L222 20220629 Currency and Amount: SGD 1.00 This is a system-generated mail. Please do not reply to this message.',
+  level: 'info',
+  timestamp: '2022-08-02T00:13:36.188Z'
+}
+{
+  message: 'Attempting to tally amount 1',
+  level: 'info',
+  timestamp: '2022-08-02T00:13:36.193Z'
+}
+{
+  ID: 'oyepx',
+  human: true,
+  level: 'info',
+  message: 'Sending receipt to the following user: \n' +
+    ' {"fullname":"Kim Young Jin e2e test","email":"kimyoungjin1001@gmail.com","mobilenumber":"81189254","project":"Education","type":"paynow","amount":1,"chequenumber":"","country":""}',
+  timestamp: '2022-08-02T00:13:36.214Z'
+}
+{
+  ID: 'oyepx',
+  level: 'info',
+  message: 'Updated donation confirmed column for donation ID oyepx to Y',
+  timestamp: '2022-08-02T00:13:38.604Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: tally success with donation IDs oyepx',
+  level: 'info',
+  timestamp: '2022-08-02T00:13:38.607Z'
+}
+{
+  message: 'Sending 200 for bank email response',
+  level: 'info',
+  timestamp: '2022-08-02T00:13:38.617Z'
+}
+{
+  ID: 'lhfjd',
+  human: true,
+  level: 'info',
+  message: 'Received donation form submission with reference ID lhfjd \n' +
+    ' Request body: {"fullname":"Kim Young Jin e2e test","email":"kimyoungjin1001@gmail.com","mobilenumber":"81189254","project":"Education","type":"paynow","amount":1,"chequenumber":"","country":""}',
+  timestamp: '2022-08-02T00:46:50.637Z'
+}
+{
+  ID: 'lhfjd',
+  level: 'info',
+  message: 'Adding the following row to Google Sheet: ["lhfjd","Kim Young Jin e2e test","kimyoungjin1001@gmail.com","81189254","Education","paynow",1,"","","02/08/2022, 8:46:50 am"]',
+  timestamp: '2022-08-02T00:46:50.853Z'
+}
+{
+  ID: 'lhfjd',
+  level: 'info',
+  message: 'No donation intent for amount 1 exists currently - adding new intent and starting timer',
+  timestamp: '2022-08-02T00:46:50.928Z'
+}
+{
+  message: 'Received payment notification from bank for amount 1 \n' +
+    ' Email Contents: Please be advised that the below transaction has been Processed. You may login UOB Infinity to review the details. \n' +
+    ' Transaction : Inward Remittance BIB Reference: IR22060164074051 Bank Reference: 586L222 20220629 Currency and Amount: SGD 1.00 This is a system-generated mail. Please do not reply to this message.',
+  level: 'info',
+  timestamp: '2022-08-02T00:46:56.803Z'
+}
+{
+  message: 'Attempting to tally amount 1',
+  level: 'info',
+  timestamp: '2022-08-02T00:46:56.814Z'
+}
+{
+  ID: 'lhfjd',
+  human: true,
+  level: 'info',
+  message: 'Sending receipt to the following user: \n' +
+    ' {"fullname":"Kim Young Jin e2e test","email":"kimyoungjin1001@gmail.com","mobilenumber":"81189254","project":"Education","type":"paynow","amount":1,"chequenumber":"","country":""}',
+  timestamp: '2022-08-02T00:46:56.835Z'
+}
+{
+  ID: 'lhfjd',
+  level: 'info',
+  message: 'Updated donation confirmed column for donation ID lhfjd to Y',
+  timestamp: '2022-08-02T00:46:59.630Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: tally success with donation IDs lhfjd',
+  level: 'info',
+  timestamp: '2022-08-02T00:46:59.632Z'
+}
+{
+  message: 'Sending 200 for bank email response',
+  level: 'info',
+  timestamp: '2022-08-02T00:46:59.664Z'
+}
+{
+  ID: 'zlycu',
+  human: true,
+  level: 'info',
+  message: 'Received donation form submission with reference ID zlycu \n' +
+    ' Request body: {"fullname":"Kim Young Jin e2e test","email":"kimyoungjin1001@gmail.com","mobilenumber":"81189254","project":"Education","type":"paynow","amount":1,"chequenumber":"","country":""}',
+  timestamp: '2022-08-02T00:47:44.047Z'
+}
+{
+  ID: 'zlycu',
+  level: 'info',
+  message: 'Adding the following row to Google Sheet: ["zlycu","Kim Young Jin e2e test","kimyoungjin1001@gmail.com","81189254","Education","paynow",1,"","","02/08/2022, 8:47:44 am"]',
+  timestamp: '2022-08-02T00:47:44.123Z'
+}
+{
+  ID: 'zlycu',
+  level: 'info',
+  message: 'No donation intent for amount 1 exists currently - adding new intent and starting timer',
+  timestamp: '2022-08-02T00:47:44.189Z'
+}
+{
+  message: 'Received payment notification from bank for amount 1 \n' +
+    ' Email Contents: Please be advised that the below transaction has been Processed. You may login UOB Infinity to review the details. \n' +
+    ' Transaction : Inward Remittance BIB Reference: IR22060164074051 Bank Reference: 586L222 20220629 Currency and Amount: SGD 1.00 This is a system-generated mail. Please do not reply to this message.',
+  level: 'info',
+  timestamp: '2022-08-02T00:47:50.066Z'
+}
+{
+  message: 'Attempting to tally amount 1',
+  level: 'info',
+  timestamp: '2022-08-02T00:47:50.069Z'
+}
+{
+  ID: 'zlycu',
+  human: true,
+  level: 'info',
+  message: 'Sending receipt to the following user: \n' +
+    ' {"fullname":"Kim Young Jin e2e test","email":"kimyoungjin1001@gmail.com","mobilenumber":"81189254","project":"Education","type":"paynow","amount":1,"chequenumber":"","country":""}',
+  timestamp: '2022-08-02T00:47:50.072Z'
+}
+{
+  ID: 'zlycu',
+  level: 'info',
+  message: 'Updated donation confirmed column for donation ID zlycu to Y',
+  timestamp: '2022-08-02T00:47:52.956Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: tally success with donation IDs zlycu',
+  level: 'info',
+  timestamp: '2022-08-02T00:47:52.959Z'
+}
+{
+  message: 'Sending 200 for bank email response',
+  level: 'info',
+  timestamp: '2022-08-02T00:47:52.982Z'
+}
+{
+  ID: 'dbigw',
+  human: true,
+  level: 'info',
+  message: 'Received donation form submission with reference ID dbigw \n' +
+    ' Request body: {"fullname":"Kim Young Jin e2e test","email":"kimyoungjin1001@gmail.com","mobilenumber":"81189254","project":"Education","type":"paynow","amount":1,"chequenumber":"","country":""}',
+  timestamp: '2022-08-02T00:50:13.646Z'
+}
+{
+  ID: 'dbigw',
+  level: 'info',
+  message: 'Adding the following row to Google Sheet: ["dbigw","Kim Young Jin e2e test","kimyoungjin1001@gmail.com","81189254","Education","paynow",1,"","","02/08/2022, 8:50:13 am"]',
+  timestamp: '2022-08-02T00:50:13.710Z'
+}
+{
+  ID: 'dbigw',
+  level: 'info',
+  message: 'No donation intent for amount 1 exists currently - adding new intent and starting timer',
+  timestamp: '2022-08-02T00:50:13.828Z'
+}
+{
+  message: 'Received payment notification from bank for amount 1 \n' +
+    ' Email Contents: Please be advised that the below transaction has been Processed. You may login UOB Infinity to review the details. \n' +
+    ' Transaction : Inward Remittance BIB Reference: IR22060164074051 Bank Reference: 586L222 20220629 Currency and Amount: SGD 1.00 This is a system-generated mail. Please do not reply to this message.',
+  level: 'info',
+  timestamp: '2022-08-02T00:50:18.638Z'
+}
+{
+  message: 'Attempting to tally amount 1',
+  level: 'info',
+  timestamp: '2022-08-02T00:50:18.646Z'
+}
+{
+  ID: 'dbigw',
+  human: true,
+  level: 'info',
+  message: 'Sending receipt to the following user: \n' +
+    ' {"fullname":"Kim Young Jin e2e test","email":"kimyoungjin1001@gmail.com","mobilenumber":"81189254","project":"Education","type":"paynow","amount":1,"chequenumber":"","country":""}',
+  timestamp: '2022-08-02T00:50:18.658Z'
+}
+{
+  ID: 'dbigw',
+  level: 'info',
+  message: 'Updated donation confirmed column for donation ID dbigw to Y',
+  timestamp: '2022-08-02T00:50:21.488Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: tally success with donation IDs dbigw',
+  level: 'info',
+  timestamp: '2022-08-02T00:50:21.493Z'
+}
+{
+  message: 'Sending 200 for bank email response',
+  level: 'info',
+  timestamp: '2022-08-02T00:50:21.507Z'
+}
+{
+  ID: 'hladd',
+  human: true,
+  level: 'info',
+  message: 'Received donation form submission with reference ID hladd \n' +
+    ' Request body: {"fullname":"Kim Young Jin e2e test","email":"kimyoungjin1001@gmail.com","mobilenumber":"81189254","project":"Education","type":"paynow","amount":1,"chequenumber":"","country":""}',
+  timestamp: '2022-08-02T00:53:46.038Z'
+}
+{
+  ID: 'hladd',
+  level: 'info',
+  message: 'Adding the following row to Google Sheet: ["hladd","Kim Young Jin e2e test","kimyoungjin1001@gmail.com","81189254","Education","paynow",1,"","","02/08/2022, 8:53:46 am"]',
+  timestamp: '2022-08-02T00:53:46.050Z'
+}
+{
+  ID: 'hladd',
+  level: 'info',
+  message: 'No donation intent for amount 1 exists currently - adding new intent and starting timer',
+  timestamp: '2022-08-02T00:53:46.115Z'
+}
+{
+  message: 'Received payment notification from bank for amount 1 \n' +
+    ' Email Contents: Please be advised that the below transaction has been Processed. You may login UOB Infinity to review the details. \n' +
+    ' Transaction : Inward Remittance BIB Reference: IR22060164074051 Bank Reference: 586L222 20220629 Currency and Amount: SGD 1.00 This is a system-generated mail. Please do not reply to this message.',
+  level: 'info',
+  timestamp: '2022-08-02T00:53:51.090Z'
+}
+{
+  message: 'Attempting to tally amount 1',
+  level: 'info',
+  timestamp: '2022-08-02T00:53:51.105Z'
+}
+{
+  ID: 'hladd',
+  human: true,
+  level: 'info',
+  message: 'Sending receipt to the following user: \n' +
+    ' {"fullname":"Kim Young Jin e2e test","email":"kimyoungjin1001@gmail.com","mobilenumber":"81189254","project":"Education","type":"paynow","amount":1,"chequenumber":"","country":""}',
+  timestamp: '2022-08-02T00:53:51.121Z'
+}
+{
+  ID: 'hladd',
+  level: 'info',
+  message: 'Updated donation confirmed column for donation ID hladd to Y',
+  timestamp: '2022-08-02T00:53:53.979Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: tally success with donation IDs hladd',
+  level: 'info',
+  timestamp: '2022-08-02T00:53:53.992Z'
+}
+{
+  message: 'Sending 200 for bank email response',
+  level: 'info',
+  timestamp: '2022-08-02T00:53:54.005Z'
+}
+{
+  ID: 'jgdfa',
+  human: true,
+  level: 'info',
+  message: 'Received donation form submission with reference ID jgdfa \n' +
+    ' Request body: {"fullname":"Kim Young Jin e2e test","email":"kimyoungjin1001@gmail.com","mobilenumber":"81189254","project":"Education","type":"paynow","amount":1,"chequenumber":"","country":""}',
+  timestamp: '2022-08-02T00:54:10.947Z'
+}
+{
+  ID: 'jgdfa',
+  level: 'info',
+  message: 'Adding the following row to Google Sheet: ["jgdfa","Kim Young Jin e2e test","kimyoungjin1001@gmail.com","81189254","Education","paynow",1,"","","02/08/2022, 8:54:10 am"]',
+  timestamp: '2022-08-02T00:54:10.957Z'
+}
+{
+  ID: 'jgdfa',
+  level: 'info',
+  message: 'No donation intent for amount 1 exists currently - adding new intent and starting timer',
+  timestamp: '2022-08-02T00:54:11.017Z'
+}
+{
+  message: 'Received payment notification from bank for amount 1 \n' +
+    ' Email Contents: Please be advised that the below transaction has been Processed. You may login UOB Infinity to review the details. \n' +
+    ' Transaction : Inward Remittance BIB Reference: IR22060164074051 Bank Reference: 586L222 20220629 Currency and Amount: SGD 1.00 This is a system-generated mail. Please do not reply to this message.',
+  level: 'info',
+  timestamp: '2022-08-02T00:54:15.828Z'
+}
+{
+  message: 'Attempting to tally amount 1',
+  level: 'info',
+  timestamp: '2022-08-02T00:54:15.830Z'
+}
+{
+  ID: 'jgdfa',
+  human: true,
+  level: 'info',
+  message: 'Sending receipt to the following user: \n' +
+    ' {"fullname":"Kim Young Jin e2e test","email":"kimyoungjin1001@gmail.com","mobilenumber":"81189254","project":"Education","type":"paynow","amount":1,"chequenumber":"","country":""}',
+  timestamp: '2022-08-02T00:54:15.831Z'
+}
+{
+  ID: 'jgdfa',
+  level: 'info',
+  message: 'Updated donation confirmed column for donation ID jgdfa to Y',
+  timestamp: '2022-08-02T00:54:18.687Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: tally success with donation IDs jgdfa',
+  level: 'info',
+  timestamp: '2022-08-02T00:54:18.688Z'
+}
+{
+  message: 'Sending 200 for bank email response',
+  level: 'info',
+  timestamp: '2022-08-02T00:54:18.699Z'
+}
+{
+  ID: 'usqfa',
+  human: true,
+  level: 'info',
+  message: 'Received donation form submission with reference ID usqfa \n' +
+    ' Request body: {"fullname":"Kim Young Jin e2e test","email":"kimyoungjin1001@gmail.com","mobilenumber":"81189254","project":"Education","type":"paynow","amount":1,"chequenumber":"","country":""}',
+  timestamp: '2022-08-02T00:54:38.824Z'
+}
+{
+  ID: 'usqfa',
+  level: 'info',
+  message: 'Adding the following row to Google Sheet: ["usqfa","Kim Young Jin e2e test","kimyoungjin1001@gmail.com","81189254","Education","paynow",1,"","","02/08/2022, 8:54:38 am"]',
+  timestamp: '2022-08-02T00:54:38.832Z'
+}
+{
+  ID: 'usqfa',
+  level: 'info',
+  message: 'No donation intent for amount 1 exists currently - adding new intent and starting timer',
+  timestamp: '2022-08-02T00:54:38.900Z'
+}
+{
+  message: 'Received payment notification from bank for amount 1 \n' +
+    ' Email Contents: Please be advised that the below transaction has been Processed. You may login UOB Infinity to review the details. \n' +
+    ' Transaction : Inward Remittance BIB Reference: IR22060164074051 Bank Reference: 586L222 20220629 Currency and Amount: SGD 1.00 This is a system-generated mail. Please do not reply to this message.',
+  level: 'info',
+  timestamp: '2022-08-02T00:54:43.823Z'
+}
+{
+  message: 'Attempting to tally amount 1',
+  level: 'info',
+  timestamp: '2022-08-02T00:54:43.860Z'
+}
+{
+  ID: 'usqfa',
+  human: true,
+  level: 'info',
+  message: 'Sending receipt to the following user: \n' +
+    ' {"fullname":"Kim Young Jin e2e test","email":"kimyoungjin1001@gmail.com","mobilenumber":"81189254","project":"Education","type":"paynow","amount":1,"chequenumber":"","country":""}',
+  timestamp: '2022-08-02T00:54:43.903Z'
+}
+{
+  ID: 'usqfa',
+  level: 'info',
+  message: 'Updated donation confirmed column for donation ID usqfa to Y',
+  timestamp: '2022-08-02T00:54:46.834Z'
+}
+{
+  message: 'Emitting the following tally result to all current clients: tally success with donation IDs usqfa',
+  level: 'info',
+  timestamp: '2022-08-02T00:54:46.837Z'
+}
+{
+  message: 'Sending 200 for bank email response',
+  level: 'info',
+  timestamp: '2022-08-02T00:54:46.857Z'
+}
